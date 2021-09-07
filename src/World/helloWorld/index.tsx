@@ -1,10 +1,9 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {animated, useSpring} from "@react-spring/three";
-import {Interactable, useLimiter} from "spacesvr";
+import {Interactable, useLimiter, usePlayer} from "spacesvr";
 import {useFrame} from "@react-three/fiber";
 import {Text} from "@react-three/drei";
 import * as THREE from "three";
-import Raycast from "./components/Raycast";
 
 export default function Index() {
 
@@ -19,6 +18,12 @@ export default function Index() {
     }
   })
 
+  const { raycaster } = usePlayer();
+  useEffect(() => {
+    console.log(raycaster)
+    if (raycaster) raycaster.far = 10;
+  }, [raycaster])
+
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !spinningBox.current) return;
@@ -29,7 +34,6 @@ export default function Index() {
   return (
     <group>
       <ambientLight intensity={0.5} />
-      <Raycast />
       <Text
         color="black"
         fontSize={1}
