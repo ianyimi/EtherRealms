@@ -7,8 +7,10 @@ import Raycast from "./components/Raycast";
 export default function Index() {
 
   const [hover, setHover] = useState(false);
-  const { matColor } = useSpring({
+  const [select, setSelect] = useState(false);
+  const { matColor, posY } = useSpring({
     matColor: hover ? "blue" : "red",
+    posY: select ? 2 : 0,
     config: {
       mass: 1
     }
@@ -41,11 +43,14 @@ export default function Index() {
       <Interactable
         onHover={() => setHover(true)}
         onUnHover={() => setHover(false)}
+        onClick={() => setSelect(!select)}
       >
-        <mesh>
-          <boxBufferGeometry args={[1, 1, 1]} />
-          <animated.meshBasicMaterial color={matColor} />
-        </mesh>
+        <animated.group position-y={posY}>
+          <mesh>
+            <boxBufferGeometry args={[1, 1, 1]} />
+            <animated.meshBasicMaterial color={matColor} />
+          </mesh>
+        </animated.group>
       </Interactable>
       <Text
         color="black"
