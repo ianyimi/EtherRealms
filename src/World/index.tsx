@@ -1,20 +1,7 @@
-import { StandardEnvironment, Interactable, usePlayer } from "spacesvr";
-import { Text } from "@react-three/drei";
-import { useSpring, animated } from "@react-spring/three";
-import { useState } from "react";
-import Raycast from "./components/Raycast";
+import { StandardEnvironment } from "spacesvr";
+import InitWorld from "./helloWorld"
 
 export default function Index() {
-
-  const [hover, setHover] = useState(false);
-  const [select, setSelect] = useState(false);
-  const { matColor, posY } = useSpring({
-    matColor: hover ? "blue" : "red",
-    posY: select ? 2 : 0,
-    config: {
-      mass: 1
-    }
-  })
 
   return (
     <StandardEnvironment
@@ -38,28 +25,7 @@ export default function Index() {
       //   frequency: 25,
       // }}
     >
-      <ambientLight intensity={2} />
-      <Raycast />
-      <Interactable
-        onHover={() => setHover(true)}
-        onUnHover={() => setHover(false)}
-        onClick={() => setSelect(!select)}
-      >
-        <animated.group position-y={posY}>
-          <mesh>
-            <boxBufferGeometry args={[1, 1, 1]} />
-            <animated.meshBasicMaterial color={matColor} />
-          </mesh>
-        </animated.group>
-      </Interactable>
-      <Text
-        color="black"
-        fontSize={1}
-        position-y={1}
-        rotation-y={-Math.PI/2}
-      >
-        Hello World
-      </Text>
+      <InitWorld />
     </StandardEnvironment>
   )
 }
