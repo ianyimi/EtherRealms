@@ -4,6 +4,7 @@ import {Interactable, useLimiter, usePlayer} from "spacesvr";
 import {useFrame} from "@react-three/fiber";
 import {Text} from "@react-three/drei";
 import * as THREE from "three";
+import {Object3D} from "three";
 
 export default function Index() {
 
@@ -26,9 +27,9 @@ export default function Index() {
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
-    if (!limiter.isReady(clock) || !spinningBox.current) return;
-    spinningBox.current.rotation.x = clock.getElapsedTime()/2;
-    spinningBox.current.rotation.y = clock.getElapsedTime()/2;
+    if (!limiter.isReady(clock) || !spinningBox.current || !spinningBox.current) return;
+    (spinningBox.current as Object3D).rotation.x = clock.getElapsedTime()/2;
+    (spinningBox.current as Object3D).rotation.y = clock.getElapsedTime()/2;
   })
 
   return (
