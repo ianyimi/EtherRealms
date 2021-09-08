@@ -18,15 +18,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>{TITLE}</title>
 
         {/* SEO tags */}
-        {/*<meta name="author" content={AUTHOR} />*/}
-        {/*<meta name="designer" content={AUTHOR} />*/}
-        {/*<meta name="publisher" content={AUTHOR} />*/}
-        {/*<meta*/}
-        {/*  name="description"*/}
-        {/*  content="Muse 3D websites are your portal to the future of the web."*/}
-        {/*/>*/}
-        {/*<meta name="keywords" content="Muse" />*/}
-        {/*<meta name="distribution" content="web" />*/}
+        <meta name="author" content={AUTHOR} />
+        <meta name="designer" content={AUTHOR} />
+        <meta name="publisher" content={AUTHOR} />
+        <meta
+          name="description"
+          content="A Virtual Portfolio built with spacesvr."
+        />
+        <meta name="keywords" content="Anyimi" />
+        <meta name="distribution" content="web" />
 
         {/* open graph */}
         {/*<meta property="og:url" content="https://universe.muse.place" />*/}
@@ -42,27 +42,27 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/*<meta property="og:image" content="icons/icon-512x512.png" />*/}
 
         {/* pwa */}
-        <link rel="manifest" href="/manifest.json" />
+        {/*<link rel="manifest" href="/manifest.json" />*/}
 
         {/* icons */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="icons/icon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="icons/icon-16x16.png"
-        />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#808080" />
+        {/*<link*/}
+        {/*  rel="apple-touch-icon"*/}
+        {/*  sizes="180x180"*/}
+        {/*  href="/apple-touch-icon.png"*/}
+        {/*/>*/}
+        {/*<link*/}
+        {/*  rel="icon"*/}
+        {/*  type="image/png"*/}
+        {/*  sizes="32x32"*/}
+        {/*  href="icons/icon-32x32.png"*/}
+        {/*/>*/}
+        {/*<link*/}
+        {/*  rel="icon"*/}
+        {/*  type="image/png"*/}
+        {/*  sizes="16x16"*/}
+        {/*  href="icons/icon-16x16.png"*/}
+        {/*/>*/}
+        {/*<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#808080" />*/}
         <meta name="msapplication-TileColor" content="#ffffff" />
 
         {/* mobile */}
