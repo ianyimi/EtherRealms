@@ -18,15 +18,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>{TITLE}</title>
 
         {/* SEO tags */}
-        {/*<meta name="author" content={AUTHOR} />*/}
-        {/*<meta name="designer" content={AUTHOR} />*/}
-        {/*<meta name="publisher" content={AUTHOR} />*/}
-        {/*<meta*/}
-        {/*  name="description"*/}
-        {/*  content="Muse 3D websites are your portal to the future of the web."*/}
-        {/*/>*/}
-        {/*<meta name="keywords" content="Muse" />*/}
-        {/*<meta name="distribution" content="web" />*/}
+        <meta name="author" content={AUTHOR} />
+        <meta name="designer" content={AUTHOR} />
+        <meta name="publisher" content={AUTHOR} />
+        <meta
+          name="description"
+          content="A Virtual Portfolio built with spacesvr."
+        />
+        <meta name="keywords" content="Anyimi" />
+        <meta name="distribution" content="web" />
 
         {/* open graph */}
         {/*<meta property="og:url" content="https://universe.muse.place" />*/}
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* pwa */}
         {/*<link rel="manifest" href="/manifest.json" />*/}
 
-        {/*/!* icons *!/*/}
+        {/* icons */}
         {/*<link*/}
         {/*  rel="apple-touch-icon"*/}
         {/*  sizes="180x180"*/}

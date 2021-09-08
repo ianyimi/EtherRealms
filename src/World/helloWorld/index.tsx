@@ -27,7 +27,7 @@ export default function Index() {
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
-    if (!limiter.isReady(clock) || !spinningBox.current || !spinningBox.current) return;
+    if (!limiter.isReady(clock) || !spinningBox.current) return;
     (spinningBox.current as Object3D).rotation.x = clock.getElapsedTime()/2;
     (spinningBox.current as Object3D).rotation.y = clock.getElapsedTime()/2;
   })
