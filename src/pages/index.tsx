@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
-const World = dynamic(import("../World"), { ssr: false })
+const Starter = dynamic(import("worlds/Starter"), { ssr: false });
 
-export default function Index() {
-  return <World />
-}
+export default function StarterPage() {
+  return <Starter />;
+};
