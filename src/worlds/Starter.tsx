@@ -1,6 +1,7 @@
 import { Spinning, Floating, StandardEnvironment } from "spacesvr";
 import TransparentFloor from "../ideas/TransparentFloor";
 import CloudySky from "../ideas/CloudySky";
+import InitWorld from "./helloWorld";
 
 export default function Starter() {
   return (
@@ -16,6 +17,7 @@ export default function Starter() {
           </Spinning>
         </Floating>
       </group>
+      <InitWorld position-y={1} />
       <CloudySky color="white" />
       <TransparentFloor opacity={0.7} />
     </StandardEnvironment>
