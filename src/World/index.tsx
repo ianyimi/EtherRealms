@@ -2,7 +2,6 @@ import { StandardEnvironment } from "spacesvr";
 import InitWorld from "./helloWorld"
 
 export default function Index() {
-
   return (
     <StandardEnvironment
       playerProps={{
@@ -16,7 +15,7 @@ export default function Index() {
         dpr: 1.5,
         gl: { antialias: false },
       }}
-      // dev={process.env.NODE_ENV === "development"}
+      dev={process.env.NODE_ENV === "development"}
       // simulationProps={{
       //   signalHost: "musehq.us-west-1.elasticbeanstalk.com",
       //   signalPort: 443,

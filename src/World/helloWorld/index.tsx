@@ -17,20 +17,20 @@ export default function Index() {
     config: {
       mass: 1
     }
-  })
+  });
 
   const { raycaster } = usePlayer();
   useEffect(() => {
     console.log(raycaster)
     if (raycaster) raycaster.far = 10;
-  }, [raycaster])
+  }, [raycaster]);
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !spinningBox.current) return;
     (spinningBox.current as Object3D).rotation.x = clock.getElapsedTime()/2;
     (spinningBox.current as Object3D).rotation.y = clock.getElapsedTime()/2;
-  })
+  });
 
   return (
     <group>
