@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# spacesvr starter package
 
-## Getting Started
+A starter repository to quickly start building using [spacesvr](https://github.com/spacesvr/spacesvr)
 
-First, run the development server:
+[![Version](https://img.shields.io/npm/v/spacesvr?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@react-three/drei)
+[![Downloads](https://img.shields.io/npm/dt/spacesvr.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/@react-three/drei)
+[![Discord Shield](https://img.shields.io/discord/610733384804859934?style=flat&colorA=000000&colorB=000000&label=discord&logo=discord&logoColor=ffffff)](https://discord.gg/nFHrmUbaz5)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### \> how to use
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+clone this repo, then install packages using `yarn install`
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### \> scripts
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- use `yarn dev` to start a local development server
+- use `yarn start` to start a local production server
+- use `yarn build` to export the site to static files
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### \> features
 
-## Learn More
+- [x] typescript out of the box
+- [x] clean code with ESlint and Prettier
+- [x] starter world
+- [x] some example components with common recipes
 
-To learn more about Next.js, take a look at the following resources:
+### \> stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [threejs](https://github.com/mrdoob/three.js) & [react](https://github.com/facebook/react)
+- [spacesvr](https://github.com/spacesvr/spacesvr) for standardized environment / control scheme
+- [@react-three/fiber](https://github.com/react-spring/react-three-fiber) to combine react + three js
+- [@react-three/drei](https://github.com/react-spring/drei) for some basic components
+- [@react-three/cannon](https://github.com/pmndrs/use-cannon) for physics
+- [react-spring](https://github.com/pmndrs/react-spring) for simplified animations

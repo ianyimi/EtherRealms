@@ -1,14 +1,14 @@
 import {useEffect, useRef, useState} from "react";
 import {animated, useSpring} from "@react-spring/three";
 import {Interactable, useLimiter, usePlayer} from "spacesvr";
-import {useFrame} from "@react-three/fiber";
+import {GroupProps, useFrame} from "@react-three/fiber";
 import {Text} from "@react-three/drei";
 import * as THREE from "three";
 import {Object3D} from "three";
 
-export default function Index() {
+export default function Index(props: GroupProps) {
 
-  const spinningBox = useRef();
+  const spinningBox = useRef<Object3D>();
   const [hover, setHover] = useState(false);
   const [select, setSelect] = useState(false);
   const { matColor, posY } = useSpring({
@@ -17,23 +17,23 @@ export default function Index() {
     config: {
       mass: 1
     }
-  })
+  });
 
   const { raycaster } = usePlayer();
   useEffect(() => {
     console.log(raycaster)
     if (raycaster) raycaster.far = 10;
-  }, [raycaster])
+  }, [raycaster]);
 
   const limiter = useLimiter(45);
   useFrame(({ clock }) => {
     if (!limiter.isReady(clock) || !spinningBox.current) return;
-    (spinningBox.current as Object3D).rotation.x = clock.getElapsedTime()/2;
-    (spinningBox.current as Object3D).rotation.y = clock.getElapsedTime()/2;
-  })
+    spinningBox.current.rotation.x = clock.getElapsedTime()/2;
+    spinningBox.current.rotation.y = clock.getElapsedTime()/2;
+  });
 
   return (
-    <group>
+    <group {...props}>
       <ambientLight intensity={0.5} />
       <Text
         color="black"

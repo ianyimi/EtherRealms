@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+// keep this so that it uses webpack 4 instead of 5
 module.exports = {
-  reactStrictMode: true,
-}
+    webpack: (config) => config,
+};
