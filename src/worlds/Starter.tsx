@@ -5,7 +5,11 @@ import InitWorld from "./helloWorld";
 
 export default function Starter() {
   return (
-    <StandardEnvironment>
+    <StandardEnvironment
+      dev={process.env.NODE_ENV === "development"}
+      canvasProps={{ camera: { far: 500 } }}
+      playerProps={{ pos: [0, 1, 0], controls: { disableGyro: true } }}
+    >
       <ambientLight />
       <group position={[0, 0, -4]}>
         <Floating>
@@ -19,7 +23,7 @@ export default function Starter() {
       </group>
       <InitWorld position-y={1} />
       <CloudySky color="white" />
-      <TransparentFloor opacity={0.7} />
+      {/*<TransparentFloor opacity={0.7} />*/}
     </StandardEnvironment>
   );
 }

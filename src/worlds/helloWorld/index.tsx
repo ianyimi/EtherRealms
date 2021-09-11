@@ -5,6 +5,7 @@ import {GroupProps, useFrame} from "@react-three/fiber";
 import {Text} from "@react-three/drei";
 import * as THREE from "three";
 import {Object3D} from "three";
+import Island from "./models/Island";
 
 export default function Index(props: GroupProps) {
 
@@ -21,7 +22,6 @@ export default function Index(props: GroupProps) {
 
   const { raycaster } = usePlayer();
   useEffect(() => {
-    console.log(raycaster)
     if (raycaster) raycaster.far = 10;
   }, [raycaster]);
 
@@ -35,6 +35,7 @@ export default function Index(props: GroupProps) {
   return (
     <group {...props}>
       <ambientLight intensity={0.5} />
+      <Island scale={0.1} position-y={-40} />
       <Text
         color="black"
         fontSize={1}
@@ -55,14 +56,10 @@ export default function Index(props: GroupProps) {
           </mesh>
         </animated.group>
       </Interactable>
-      <mesh name="sphere">
-        <sphereBufferGeometry args={[10, 30, 30]} />
-        <meshStandardMaterial color="blue" opacity={0.25} transparent={true} side={THREE.DoubleSide} />
-      </mesh>
-      <mesh rotation-x={-Math.PI/2}>
-        <planeBufferGeometry args={[100, 100]} />
-        <meshBasicMaterial color="green" />
-      </mesh>
+      {/*<mesh name="sphere">*/}
+      {/*  <sphereBufferGeometry args={[10, 30, 30]} />*/}
+      {/*  <meshStandardMaterial color="blue" opacity={0.25} transparent={true} side={THREE.DoubleSide} />*/}
+      {/*</mesh>*/}
     </group>
   )
 }

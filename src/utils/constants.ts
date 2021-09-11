@@ -1,0 +1,1 @@
+export const CLOUDFRONT_URL = "https://d1p3v0j4bqcb21.cloudfront.net";
