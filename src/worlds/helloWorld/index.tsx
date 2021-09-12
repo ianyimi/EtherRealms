@@ -3,9 +3,8 @@ import {animated, useSpring} from "@react-spring/three";
 import {Interactable, useLimiter, usePlayer} from "spacesvr";
 import {GroupProps, useFrame} from "@react-three/fiber";
 import {Text} from "@react-three/drei";
-import * as THREE from "three";
 import {Object3D} from "three";
-import Island from "./models/Island";
+import Islands from "./models/Islands";
 
 export default function Index(props: GroupProps) {
 
@@ -34,15 +33,14 @@ export default function Index(props: GroupProps) {
 
   return (
     <group {...props}>
-      <ambientLight intensity={0.5} />
-      <Island scale={0.1} position-y={-40} />
+      <Islands position-y={-15} />
       <Text
         color="black"
         fontSize={1}
         position-y={1}
         rotation-y={-Math.PI/2}
       >
-        Hello World
+        Hello World [0, 0]
       </Text>
       <Interactable
         onHover={() => setHover(true)}
@@ -56,10 +54,6 @@ export default function Index(props: GroupProps) {
           </mesh>
         </animated.group>
       </Interactable>
-      {/*<mesh name="sphere">*/}
-      {/*  <sphereBufferGeometry args={[10, 30, 30]} />*/}
-      {/*  <meshStandardMaterial color="blue" opacity={0.25} transparent={true} side={THREE.DoubleSide} />*/}
-      {/*</mesh>*/}
     </group>
   )
 }
