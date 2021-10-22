@@ -6,6 +6,8 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
+import { useTrimeshCollision } from "spacesvr";
+import {BufferGeometry} from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -6257,6 +6259,8 @@ const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/islands-163141960
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
+
+  // useTrimeshCollision((nodes["Cube"].geometry as BufferGeometry).clone())
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

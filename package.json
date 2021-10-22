@@ -1,13 +1,15 @@
 {
   "name": "spacesvr-starter",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
     "lint": "yarn prettier && yarn eslint",
     "eslint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-    "prettier": "prettier --list-different 'src/**/*.{js,jsx,ts,tsx,md}'"
+    "prettier": "prettier --list-different 'src/**/*.{js,jsx,ts,tsx,md}'",
+    "process-gltf": "bash ./scripts/process-gltf.sh"
   },
   "dependencies": {
     "@react-three/drei": "7.0.6",
