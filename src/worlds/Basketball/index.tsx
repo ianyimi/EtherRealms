@@ -1,7 +1,7 @@
 import {StandardEnvironment} from "spacesvr";
 import {Debug} from "@react-three/cannon";
 import CloudySky from "../../ideas/CloudySky";
-import Court from "./models/Court";
+import Court from "./models/Court6";
 import { Perf } from "r3f-perf";
 
 export default function Basketball() {
@@ -13,11 +13,11 @@ export default function Basketball() {
     >
       <Debug scale={1}>
         <group>
-          <mesh position-z={-10}>
-            <sphereBufferGeometry args={[3, 30, 30]} />
-            <meshBasicMaterial color="green" />
-          </mesh>
-          <Court scale={0.0075} position-y={-1} />
+          {/*<mesh position-z={-10}>*/}
+          {/*  <sphereBufferGeometry args={[3, 30, 30]} />*/}
+          {/*  <meshBasicMaterial color="green" />*/}
+          {/*</mesh>*/}
+          <Court scale={0.5} position-y={-2} />
           <ambientLight />
           <CloudySky color="grey" />
         </group>
