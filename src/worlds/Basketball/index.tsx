@@ -12,14 +12,14 @@ export default function Basketball() {
       canvasProps={{ camera: { far: 1000 } }}
       playerProps={{ pos: [0, 1, 0], controls: { disableGyro: true } }}
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
-      disableGround
+      // disableGround
     >
       <Debug scale={1}>
         <group>
           <Court scale={0.5} position-y={-2} />
           <ambientLight />
           <CloudySky color="grey" />
-          <Ball scale={3} />
+          <Ball />
         </group>
       </Debug>
       {/*<Perf />*/}

@@ -6,8 +6,6 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
-import {useTrimeshCollision} from "spacesvr";
-import {BufferGeometry} from "three";
 import {useSphere} from "@react-three/cannon";
 
 type GLTFResult = GLTF & {
@@ -24,39 +22,22 @@ const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/ball1-1634879067/
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
-  const [collider, api] = useSphere(() => ({
+  const [ collider ] = useSphere(() => ({
     mass: 0.1,
     position: [0, 15, -5],
     linearFactor: [0.75, 1.5, 0.75],
-    sleepSpeedLimit: 10
-    // angularFactor: [1.5, 1.5, 1.5],
-    // velocity: [0, -9.8, 2]
+    sleepSpeedLimit: 10,
+    angularFactor: [1.25, 1.25, 1.25],
   }))
-
-  // useTrimeshCollision((nodes["basket_ball"].geometry as BufferGeometry)
-  //   .clone()
-  //   .rotateX(0.5383)
-  //   .rotateY(-0.3489)
-  //   .rotateZ(0.1786)
-  //   .scale(0.1174, 0.1174, 0.1174)
-  //   .translate(0.291, -0.0965, -0.0169)
-  //   .scale(3, 3, 3)
-  // )
 
   return (
     <group ref={group} dispose={null}>
-      <mesh ref={collider}>
-        <sphereBufferGeometry />
-        <meshBasicMaterial color="blue" wireframe />
-      </mesh>
       <group name="Scene" {...props}>
         <mesh
           name="basket_ball"
+          ref={collider}
           geometry={nodes.basket_ball.geometry}
           material={materials.pbr}
-          position={[0.291, -0.0965, -0.0169]}
-          rotation={[0.5383, -0.3489, 0.1786]}
-          scale={[0.1174, 0.1174, 0.1174]}
         />
       </group>
     </group>
