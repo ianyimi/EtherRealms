@@ -6,7 +6,6 @@ export default function PostProcessing() {
 
   const { lights, bloomObjects } = useWorld();
 
-  console.log(bloomObjects)
   return (
     <EffectComposer
       multisampling={0}
