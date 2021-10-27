@@ -6,6 +6,8 @@ import Court from "./models/Court6";
 import Ball from "./models/Ball1";
 import { Perf } from "r3f-perf";
 import Torus from "./components/Torus";
+import WorldState from "./components/WorldState";
+import PostProcessing from "./components/PostProcessing";
 
 export default function Basketball() {
   return (
@@ -17,14 +19,13 @@ export default function Basketball() {
       // disableGround
     >
       <Debug scale={1}>
-        <group>
+        <WorldState>
           <Court scale={0.5} position-y={-2} />
-          <ambientLight />
-          {/*<CloudySky color="grey" />*/}
           <Stars count={1000} radius={0.5} fade />
           <Ball />
           <Torus />
-        </group>
+          <PostProcessing />
+        </WorldState>
       </Debug>
       {/*<Perf />*/}
     </StandardEnvironment>
