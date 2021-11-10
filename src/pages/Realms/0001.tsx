@@ -9,7 +9,7 @@ export default function StarterPage() {
       type: "Outdoor",
       size: "Mediocre"
     },
-    sky: "Night",
+    sky: "Purple",
     imageFrames: "black",
     effects: undefined
   }} />;

@@ -3,14 +3,12 @@ import {Debug} from "@react-three/cannon";
 import { Perf } from "r3f-perf";
 import RealmState from "./components/RealmState";
 import { RealmScene, RealmSky, PostProcessing } from "./properties";
+import { SceneName, RlmScene } from "./utils/types";
+import { Scenes } from "./utils/constants";
 
 export interface RealmProps {
-  id: string;
-  scene: {
-    name: string,
-    type: string,
-    size: string
-  },
+  id: string,
+  scene: RlmScene | SceneName,
   sky: string,
   imageFrames: string,
   effects?: {
@@ -19,8 +17,19 @@ export interface RealmProps {
   }
 }
 
+function getScene(name: SceneName): RlmScene {
+  for (const scene of Scenes) {
+    if (scene.name === name) {
+      return scene
+    }
+  }
+  console.log("No Scene Found... Default Loaded.");
+  return Scenes[0]
+}
+
 export default function Realm(props: { properties: RealmProps}) {
   const { properties } = props;
+  const sceneObj = getScene(properties.scene as SceneName)
   return (
     <StandardEnvironment
       dev={process.env.NODE_ENV === "development"}
@@ -29,7 +38,7 @@ export default function Realm(props: { properties: RealmProps}) {
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
       // disableGround
     >
-      <RealmState properties={{...properties}}>
+      <RealmState properties={{...properties, scene: {...sceneObj}}}>
         <RealmScene />
         <RealmSky />
         <PostProcessing />

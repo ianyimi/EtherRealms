@@ -11,9 +11,9 @@ export function RealmSky() {
 
   return (
     <group name="SKY">
-      {day && <Sky />}
+      {day && <Sky sunPosition={1} />}
       {night && <Stars count={1000} radius={0.5} fade />}
-      {cloudSky && <CloudySky color={sky} />}
+      {cloudSky && <CloudySky color={sky.toLowerCase()} />}
     </group>
   )
 }
