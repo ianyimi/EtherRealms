@@ -1,20 +1,26 @@
 import {StandardEnvironment} from "spacesvr";
 import {Debug} from "@react-three/cannon";
 import { Perf } from "r3f-perf";
-// import PostProcessing from "./properties/PostProcessing";
+import RealmState from "./components/RealmState";
+import { RealmScene, RealmSky, PostProcessing } from "./properties";
 
-interface BiomeProps {
-  type: string,
+export interface RealmProps {
+  id: string;
   scene: {
     name: string,
+    type: string,
     size: string
   },
   sky: string,
-  effects: string | undefined,
-  imgFrames: string
+  imageFrames: string,
+  effects?: {
+    type: string,
+    color: string
+  }
 }
 
-export default function Biome(props: BiomeProps) {
+export default function Realm(props: { properties: RealmProps}) {
+  const { properties } = props;
   return (
     <StandardEnvironment
       dev={process.env.NODE_ENV === "development"}
@@ -23,7 +29,11 @@ export default function Biome(props: BiomeProps) {
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
       // disableGround
     >
-      {/*<Biome />*/}
+      <RealmState properties={{...properties}}>
+        <RealmScene />
+        <RealmSky />
+        <PostProcessing />
+      </RealmState>
     </StandardEnvironment>
   );
 }
