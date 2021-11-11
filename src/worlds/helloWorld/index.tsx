@@ -5,6 +5,7 @@ import {GroupProps, useFrame} from "@react-three/fiber";
 import {Text} from "@react-three/drei";
 import {Object3D} from "three";
 import Islands from "./models/Islands";
+import Portal from "./models/Portal";
 
 export default function Index(props: GroupProps) {
 
@@ -34,6 +35,7 @@ export default function Index(props: GroupProps) {
   return (
     <group {...props}>
       <Islands position-y={-15} />
+      <Portal />
       <Text
         color="black"
         fontSize={1}

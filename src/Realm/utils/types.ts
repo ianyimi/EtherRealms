@@ -1,3 +1,4 @@
+export type RlmColor = "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple" | "Black" | "White";
 export type SceneName = "Maze" | "Penthouse" | "Cubes" | "Matrix" | "Moon" | "Warehouse" | "Field" | "Mansion" | "Mars";
 export type RlmScene = {
   name: SceneName,
@@ -8,6 +9,6 @@ export type RlmSky = "Day" | "Night" | "Red" | "Orange" | "Yellow" | "Green" | "
 export type EffectName = "Fog" | "Particles" | "Birds" | "Birds" | "Lanterns";
 export type RlmEffect = {
   name: EffectName,
-  color: string
+  color: RlmColor
 }
 export type ImageFrame = "Black" | "White" | "Gold"

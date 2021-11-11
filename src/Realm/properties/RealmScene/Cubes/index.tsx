@@ -1,6 +1,6 @@
 import { useRealm } from "../../../components/RealmState";
-import { Floor } from "../components/Floor";
 import BackgroundsCubes from "./BackgroundCubes";
+import CubeFloor from "./CubeFloor";
 
 export default function CubicDimension() {
 
@@ -11,7 +11,7 @@ export default function CubicDimension() {
     ACTIVE ? (
       <group name="cubicDimension">
         <BackgroundsCubes />
-        <Floor />
+        <CubeFloor />
       </group>
     ) : <></>
   )

@@ -16,13 +16,13 @@ function BackgroundCube(props: { color?: string } & GroupProps) {
 
 export default function BackgroundsCubes() {
   const cubes: ReactNode[] = []
-  for (let i=0; i<100; i++) {
+  for (let i=0; i<75; i++) {
     const theta = 2*Math.random()*Math.PI,
-      phi = Math.random()*Math.PI/2,
-      r = 100 + Math.random()*100;
+      phi = Math.random()*Math.PI/2.4,
+      r = 100 + Math.random()*200;
     const posVec = new Vector3().setFromSphericalCoords(r, phi, theta);
     const rotVec = new Euler().setFromVector3(posVec);
-    const scale = 1 + Math.random()*20;
+    const scale = 25 + Math.random()*75;
 
     cubes.push(
       <BackgroundCube
