@@ -1,11 +1,19 @@
 import {createContext, Dispatch, MutableRefObject, ReactNode, SetStateAction, useContext} from "react";
-import { RealmProps } from "../index";
+import {ImageFrame, RlmEffect, RlmScene, RlmSky, SceneName} from "../utils/types";
 
-export const RealmContext = createContext({} as RealmProps);
-export const useRealm = (): RealmProps => useContext(RealmContext);
+type RealmState = {
+  id: string,
+  scene: RlmScene,
+  sky: RlmSky,
+  imageFrames: ImageFrame,
+  effects?: RlmEffect
+}
+
+export const RealmContext = createContext({} as RealmState);
+export const useRealm = (): RealmState => useContext(RealmContext);
 
 interface RealmStateProps {
-  properties: RealmProps,
+  properties: RealmState,
   children: ReactNode | ReactNode[]
 }
 

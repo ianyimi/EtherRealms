@@ -3,6 +3,8 @@ import { useRealm } from "../../components/RealmState";
 
 export function PostProcessing() {
 
+  const { effects } = useRealm();
+
   return (
     <EffectComposer
       multisampling={0}

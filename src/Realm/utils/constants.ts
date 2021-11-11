@@ -12,7 +12,7 @@ export const Scenes: RlmScene[] = [
     size: "Petite"
   },
   {
-    name: "Cubic Dimension",
+    name: "Cubes",
     type: "Outdoor",
     size: "Mediocre"
   },

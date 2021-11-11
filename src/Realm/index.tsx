@@ -3,18 +3,15 @@ import {Debug} from "@react-three/cannon";
 import { Perf } from "r3f-perf";
 import RealmState from "./components/RealmState";
 import { RealmScene, RealmSky, PostProcessing } from "./properties";
-import { SceneName, RlmScene } from "./utils/types";
+import { SceneName, RlmScene, RlmSky, ImageFrame, RlmEffect } from "./utils/types";
 import { Scenes } from "./utils/constants";
 
 export interface RealmProps {
   id: string,
   scene: RlmScene | SceneName,
-  sky: string,
-  imageFrames: string,
-  effects?: {
-    type: string,
-    color: string
-  }
+  sky: RlmSky,
+  imageFrames: ImageFrame,
+  effects?: RlmEffect
 }
 
 function getScene(name: SceneName): RlmScene {
@@ -39,8 +36,8 @@ export default function Realm(props: { properties: RealmProps}) {
       // disableGround
     >
       <RealmState properties={{...properties, scene: {...sceneObj}}}>
-        <RealmScene />
         <RealmSky />
+        <RealmScene />
         <PostProcessing />
       </RealmState>
     </StandardEnvironment>

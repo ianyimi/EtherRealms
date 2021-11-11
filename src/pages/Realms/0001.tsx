@@ -4,13 +4,9 @@ const Realm = dynamic(import("Realm/index"), { ssr: false });
 export default function StarterPage() {
   return <Realm properties={{
     id: "0001",
-    scene: {
-      name: "Cubic Dimension",
-      type: "Outdoor",
-      size: "Mediocre"
-    },
+    scene: "Cubes",
     sky: "Purple",
-    imageFrames: "black",
+    imageFrames: "Black",
     effects: undefined
   }} />;
 };

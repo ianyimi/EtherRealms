@@ -9,9 +9,8 @@ import { useSkyMat } from "./materials/sky";
 
 type GradientSky = {
   color?: string;
+  radius?: number;
 } & GroupProps;
-
-const RADIUS = 100;
 
 const getGLSLCol = (c: Color) => {
   const hex = c.getHex();
@@ -23,7 +22,7 @@ const getGLSLCol = (c: Color) => {
 };
 
 export default function CloudySky(props: GradientSky) {
-  const { color, ...restProps } = props;
+  const { color, radius = 300, ...restProps } = props;
 
   let COLORS = [
     0.62, 0.988, 0.992, 0.757, 0.922, 0.992, 0.867, 0.847, 0.988, 0.961, 0.765,
@@ -42,12 +41,12 @@ export default function CloudySky(props: GradientSky) {
     ];
   }
 
-  const mat = useSkyMat(RADIUS, COLORS);
+  const mat = useSkyMat(radius, COLORS);
 
   return (
     <group {...restProps} name="cloudy-sky">
       <mesh material={mat}>
-        <sphereBufferGeometry args={[RADIUS, 50, 50]} />
+        <sphereBufferGeometry args={[radius, 50, 50]} />
       </mesh>
     </group>
   );
