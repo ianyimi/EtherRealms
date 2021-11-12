@@ -11,4 +11,4 @@ export type RlmEffect = {
   name: EffectName,
   color: RlmColor
 }
-export type ImageFrame = "Black" | "White" | "Gold"
+export type ImageFrame = "Black" | "White" | "Gold";
