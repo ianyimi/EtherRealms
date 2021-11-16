@@ -9,7 +9,7 @@ export default function DisplayCube(props: { sources: string[] } & GroupProps) {
   const images = [];
   for (let i=0; i<sources.length; i++) {
     images.push(
-      <group rotation-y={2*i*Math.PI/4}>
+      <group rotation-y={2*i*Math.PI/4} key={i}>
         <Media src={sources[i]} position-z={1.1} />
       </group>
     )

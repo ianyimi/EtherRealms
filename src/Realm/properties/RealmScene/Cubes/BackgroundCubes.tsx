@@ -30,6 +30,7 @@ export default function BackgroundsCubes() {
         position={posVec}
         rotation={rotVec}
         scale={scale}
+        key={i}
       />
     )
   }
