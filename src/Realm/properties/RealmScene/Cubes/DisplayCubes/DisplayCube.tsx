@@ -1,5 +1,5 @@
 import { GroupProps } from "@react-three/fiber";
-import { Box } from "@react-three/drei";
+import { Box, Sphere } from "@react-three/drei";
 import Media from "../../components/Media";
 import { useRealm } from "Realm/components/RealmState";
 import { useRef } from "react";
@@ -12,14 +12,14 @@ export default function DisplayCube(props: { sources: string[] } & GroupProps) {
   const { scene: { theme = "Red" } } = useRealm();
   const light = useRef()
 
-  useHelper(light, SpotLightHelper, "teal")
+  // useHelper(light, SpotLightHelper, "teal")
 
   const images = [];
   for (let i=0; i<sources.length; i++) {
     images.push(
       <group rotation-y={2*i*Math.PI/4} key={i}>
         <Media src={sources[i]} position-z={1.1} />
-        <spotLight ref={light} position={[0, 1, 10]} intensity={0.1} distance={50} castShadow />
+        {/*<spotLight ref={light} position={[0, 1, 10]} intensity={0.1} distance={50} castShadow />*/}
       </group>
     )
   }

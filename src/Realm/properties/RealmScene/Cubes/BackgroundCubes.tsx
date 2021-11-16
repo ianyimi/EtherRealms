@@ -7,9 +7,13 @@ function BackgroundCube(props: { color?: string } & GroupProps) {
   const { color = "white", ...restProps } = props;
   return (
     <group name="backgroundCube" {...restProps}>
+      {/*<mesh>*/}
+      {/*  <boxBufferGeometry args={[0.5, 0.5, 0.5]} />*/}
+      {/*  <meshBasicMaterial color={color} />*/}
+      {/*</mesh>*/}
       <mesh>
-        <boxBufferGeometry args={[0.5, 0.5, 0.5]} />
-        <meshBasicMaterial color={color} />
+        <sphereBufferGeometry args={[0.25, 30, 30]} />
+        <meshStandardMaterial color={color} />
       </mesh>
     </group>
   )
@@ -18,7 +22,7 @@ function BackgroundCube(props: { color?: string } & GroupProps) {
 export default function BackgroundsCubes(props: { color?: RlmColor }) {
   const { color = "Red" } = props;
   const cubes: ReactNode[] = []
-  for (let i=0; i<75; i++) {
+  for (let i=0; i<45; i++) {
     const theta = 2*Math.random()*Math.PI,
       phi = Math.random()*Math.PI/2.4,
       r = 100 + Math.random()*200;

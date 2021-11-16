@@ -7,7 +7,7 @@ export function RealmScene() {
 
   return (
     <group>
-      {/*<ambientLight intensity={1} />*/}
+      <ambientLight intensity={1} />
       <Cubes />
     </group>
   )
