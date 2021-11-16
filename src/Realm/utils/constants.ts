@@ -1,4 +1,6 @@
-import { RlmScene } from "./types"
+import { RlmColor, RlmScene } from "./types"
+
+const colors: RlmColor[] = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "White"];
 
 export const Scenes: RlmScene[] = [
   {
@@ -13,6 +15,7 @@ export const Scenes: RlmScene[] = [
   },
   {
     name: "Cubes",
+    theme: colors[Math.floor(Math.random()*colors.length)],
     type: "Outdoor",
     size: "Mediocre"
   },

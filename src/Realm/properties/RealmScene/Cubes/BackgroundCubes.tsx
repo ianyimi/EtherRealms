@@ -1,6 +1,7 @@
 import {GroupProps} from "@react-three/fiber";
 import {ReactNode} from "react";
 import {Euler, Vector3} from "three";
+import {RlmColor} from "../../../utils/types";
 
 function BackgroundCube(props: { color?: string } & GroupProps) {
   const { color = "white", ...restProps } = props;
@@ -14,7 +15,8 @@ function BackgroundCube(props: { color?: string } & GroupProps) {
   )
 }
 
-export default function BackgroundsCubes() {
+export default function BackgroundsCubes(props: { color?: RlmColor }) {
+  const { color = "Red" } = props;
   const cubes: ReactNode[] = []
   for (let i=0; i<75; i++) {
     const theta = 2*Math.random()*Math.PI,
@@ -26,7 +28,7 @@ export default function BackgroundsCubes() {
 
     cubes.push(
       <BackgroundCube
-        color="red"
+        color={color.toLowerCase()}
         position={posVec}
         rotation={rotVec}
         scale={scale}

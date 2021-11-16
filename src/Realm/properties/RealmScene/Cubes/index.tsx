@@ -1,18 +1,18 @@
 import { useRealm } from "../../../components/RealmState";
 import BackgroundsCubes from "./BackgroundCubes";
 import CubeFloor from "./CubeFloor";
-import DisplayCubes from "./DisplayCubes";
+import Cubes from "./DisplayCubes";
 
 export default function CubicDimension() {
 
-  const { scene: { name } } = useRealm();
+  const { scene: { name, theme } } = useRealm();
   const ACTIVE = name === "Cubes";
 
   return (
     ACTIVE ? (
       <group name="cubicDimension">
-        <BackgroundsCubes />
-        <DisplayCubes />
+        <BackgroundsCubes color={theme} />
+        <Cubes />
         <CubeFloor />
       </group>
     ) : <></>

@@ -1,5 +1,5 @@
 import DisplayCube from "./DisplayCube";
-import { displayPositions, imageSources } from "../utils/constants";
+import { displayPositions, imageSources } from "../../utils/constants";
 
 const COUNT = 5
 
