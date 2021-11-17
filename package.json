@@ -14,13 +14,17 @@
   "dependencies": {
     "@react-three/drei": "7.0.6",
     "@react-three/fiber": "6.0.14",
+    "@react-three/postprocessing": "^2.0.5",
+    "ethers": "^5.5.1",
     "next": "^10.0.9",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-spring": "9.1.2",
     "next-pwa": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-spring": "9.1.2",
     "spacesvr": "latest",
-    "three": "^0.127.0"
+    "three": "^0.127.0",
+    "web3": "^1.6.1",
+    "web3-react": "^5.0.5"
   },
   "devDependencies": {
     "@types/node": "^15.3.1",

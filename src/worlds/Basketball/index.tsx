@@ -1,8 +1,10 @@
 import {StandardEnvironment} from "spacesvr";
 import {Debug} from "@react-three/cannon";
-import CloudySky from "../../ideas/CloudySky";
-import Court from "./models/Court6";
+import Ball from "./models/Ball1";
 import { Perf } from "r3f-perf";
+import Environment from "./components/Environment";
+import WorldState from "./components/WorldState";
+import PostProcessing from "./components/PostProcessing";
 
 export default function Basketball() {
   return (
@@ -10,17 +12,15 @@ export default function Basketball() {
       dev={process.env.NODE_ENV === "development"}
       canvasProps={{ camera: { far: 1000 } }}
       playerProps={{ pos: [0, 1, 0], controls: { disableGyro: true } }}
+      physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
+      // disableGround
     >
       <Debug scale={1}>
-        <group>
-          {/*<mesh position-z={-10}>*/}
-          {/*  <sphereBufferGeometry args={[3, 30, 30]} />*/}
-          {/*  <meshBasicMaterial color="green" />*/}
-          {/*</mesh>*/}
-          <Court scale={0.5} position-y={-2} />
-          <ambientLight />
-          <CloudySky color="grey" />
-        </group>
+        <WorldState>
+          <Environment />
+          <Ball />
+          <PostProcessing />
+        </WorldState>
       </Debug>
       {/*<Perf />*/}
     </StandardEnvironment>
