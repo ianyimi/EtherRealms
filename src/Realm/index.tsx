@@ -6,9 +6,7 @@ import ConnectWallet from "./components/ConnectWallet";
 import { RealmScene, RealmSky, PostProcessing } from "./properties";
 import { SceneName, RlmScene, RlmSky, ImageFrame, RlmEffect } from "./utils/types";
 import { Scenes } from "./utils/constants";
-import { connectors } from "./utils/web3";
-import Web3 from "web3";
-import Web3Provider from "web3-react";
+import { MoralisProvider } from "react-moralis";
 
 export interface RealmProps {
   id: string,
@@ -28,11 +26,14 @@ function getScene(name: SceneName): RlmScene {
   return Scenes[0]
 }
 
+const appId = "NOlSQswppn0DcsqCkZ2rSk1tZfUqUUpgSlD19k3d",
+  serverUrl = "https://egsjdipavoga.usemoralis.com:2053/server";
+
 export default function Realm(props: { properties: RealmProps}) {
   const { properties } = props;
   const sceneObj = getScene(properties.scene as SceneName)
   return (
-    <Web3Provider connectors={connectors} libraryName="web3.js" web3Api={Web3}>
+    <MoralisProvider appId={appId} serverUrl={serverUrl}>
       <ConnectWallet />
       <StandardEnvironment
         dev={process.env.NODE_ENV === "development"}
@@ -47,6 +48,6 @@ export default function Realm(props: { properties: RealmProps}) {
           <PostProcessing />
         </RealmState>
       </StandardEnvironment>
-    </Web3Provider>
+    </MoralisProvider>
   );
 }
