@@ -1,20 +1,13 @@
 import DisplayCube from "./DisplayCube";
-import { displayPositions, imageSources } from "../../utils/constants";
 import fetchAssets from "../../../../utils/fetchAssets";
-import { useMoralis } from "react-moralis";
 import { useEffect } from "react";
 import { useRealm } from "../../../../components/RealmState";
 
-const COUNT = 5
-
 export default function DisplayCubes() {
 
-  // const { user } = useMoralis();
-  const { assets, setAssets } = useRealm();
+  const { id, assets, setAssets } = useRealm();
   useEffect(() => {
-    console.log("fetch")
-    // fetchAssets("0xA2bF505e8AC95856C3a7F454374C08ad83B8612A").then((assets) => {
-    fetchAssets("0xb34af2448f1789ae942f592e8770da5c0293a15d").then((assets) => {
+    fetchAssets(id).then((assets) => {
       if (setAssets) {
         setAssets(assets)
       }

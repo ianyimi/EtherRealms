@@ -9,7 +9,7 @@ import { Scenes } from "./utils/constants";
 import { MoralisProvider } from "react-moralis";
 
 export interface RealmProps {
-  id: string,
+  id: number,
   scene: RlmScene | SceneName,
   sky: RlmSky,
   imageFrames: ImageFrame,

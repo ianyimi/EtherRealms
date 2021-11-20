@@ -2,7 +2,7 @@ import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState
 import {ImageFrame, RlmEffect, RlmScene, RlmSky} from "../utils/types";
 
 type RealmState = {
-  id: string,
+  id: number,
   scene: RlmScene,
   sky: RlmSky,
   imageFrames: ImageFrame,
