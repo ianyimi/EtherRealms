@@ -9,12 +9,10 @@ export default function CubicDimension() {
   const ACTIVE = name === "Cubes";
 
   return (
-    ACTIVE ? (
-      <group name="cubicDimension">
-        <BackgroundsCubes color={theme} />
-        <Cubes />
-        <CubeFloor />
-      </group>
-    ) : <></>
+    <group name="cubicDimension">
+      <BackgroundsCubes color={theme} />
+      <Cubes />
+      <CubeFloor />
+    </group>
   )
 }

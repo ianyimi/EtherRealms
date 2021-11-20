@@ -9,13 +9,14 @@ export function RealmScene() {
   const { raycaster } = usePlayer();
 
   useEffect(() => {
+    console.log("rerender")
     raycaster.far = 7;
   },[])
 
   return (
     <group>
       <ambientLight intensity={1} />
-      <Cubes />
+      {name === "Cubes" && <Cubes/>}
     </group>
   )
 }

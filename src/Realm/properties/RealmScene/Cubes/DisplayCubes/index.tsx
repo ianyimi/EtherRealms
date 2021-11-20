@@ -12,6 +12,7 @@ export default function DisplayCubes() {
   // const { user } = useMoralis();
   const { assets, setAssets } = useRealm();
   useEffect(() => {
+    console.log("fetch")
     // fetchAssets("0xA2bF505e8AC95856C3a7F454374C08ad83B8612A").then((assets) => {
     fetchAssets("0x80207b6ef45dcd6e2d2f5bf692320c8b46b6bf09").then((assets) => {
       if (setAssets) {
