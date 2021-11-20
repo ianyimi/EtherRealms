@@ -21,7 +21,6 @@ export default function DisplayCubes() {
       if (assets.length-i<4) {
         break;
       }
-      // if (i>40) break;
 
       cubes.push(
         <group rotation-y={assets.length%4 === 0 ? 2*i*Math.PI/(assets.length) : 2*i*Math.PI/(assets.length-1)} key={i}>

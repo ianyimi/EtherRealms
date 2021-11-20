@@ -10,7 +10,7 @@ export default async function fetchAssets(tokenId: number) {
   }
   const contract = await data.json();
   console.log(contract.owner)
-  const response = await fetch(`https://api.opensea.io/api/v1/assets?owner=${contract.owner.address}&order_by=sale_price&order_direction=desc&limit=50`);
+  const response = await fetch(`https://api.opensea.io/api/v1/assets?owner=${contract.owner.address}&order_by=sale_price&order_direction=desc&limit=20`);
   if (!response.ok) {
     console.error("Error fetching assets")
   }
