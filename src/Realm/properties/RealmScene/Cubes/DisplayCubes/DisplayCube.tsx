@@ -6,9 +6,9 @@ import { useRef } from "react";
 import { useHelper } from "@react-three/drei";
 import { SpotLightHelper } from "three";
 
-export default function DisplayCube(props: { sources: string[] } & GroupProps) {
+export default function DisplayCube(props: { sources: string[], links: string[] } & GroupProps) {
 
-  const { sources, ...restProps } = props;
+  const { sources, links, ...restProps } = props;
   const { scene: { theme = "Red" } } = useRealm();
   const light = useRef()
 
@@ -18,7 +18,7 @@ export default function DisplayCube(props: { sources: string[] } & GroupProps) {
   for (let i=0; i<sources.length; i++) {
     images.push(
       <group rotation-y={2*i*Math.PI/4} key={i}>
-        <Media src={sources[i]} position-z={1.1} />
+        <Media src={sources[i]} link={links[i]} position-z={1.1} />
         {/*<spotLight ref={light} position={[0, 1, 10]} intensity={0.1} distance={50} castShadow />*/}
       </group>
     )
