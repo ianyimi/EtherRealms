@@ -16,6 +16,8 @@ export default function DisplayCube(props: { assets: Record<string, unknown>[] }
 
   const images: ReactNode[] = [];
   for (let i=0; i<assets.length; i++) {
+    if (!assets[i]) continue;
+    console.log(assets[i].name)
     const src = assets[i].animation_url && (assets[i].animation_url as string).endsWith(".mp4") ? assets[i].animation_url as string : assets[i].image_url as string;
     images.push(
       <group rotation-y={2*i*Math.PI/4} key={i}>
