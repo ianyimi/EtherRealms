@@ -1,6 +1,14 @@
 import Media from "./Media";
 import { Text } from "@react-three/drei";
 
+function Trait() {
+  return (
+    <group name="trait">
+
+    </group>
+  )
+}
+
 export default function Nft(props: { asset: Record<string, any>}) {
   const { asset } = props;
   const src = asset.animation_url && (asset.animation_url).endsWith(".mp4") ? asset.animation_url : asset.image_url;

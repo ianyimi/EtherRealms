@@ -9,7 +9,6 @@ export function RealmScene() {
   const { raycaster } = usePlayer();
 
   useEffect(() => {
-    console.log("rerender")
     raycaster.far = 7;
   },[])
 

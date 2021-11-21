@@ -5,15 +5,16 @@ import { useRealm } from "../../../../components/RealmState";
 
 export default function DisplayCubes() {
 
-  const { id, assets, setAssets } = useRealm();
+  const { id, assets, setAssets, owner, setOwner, currentUser } = useRealm();
   useEffect(() => {
     fetchAssets(id).then((assets) => {
-      if (setAssets) {
-        setAssets(assets)
-      }
+      if (setOwner) setOwner(assets.owner);
+      if (setAssets) setAssets(assets.assets);
     })
-  }, [])
+  }, []);
+  console.log(owner)
   console.log(assets)
+  console.log(currentUser)
 
   const cubes = []
   if (assets) {
