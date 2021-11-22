@@ -11,9 +11,21 @@ export default async function fetchAssets(tokenId: number) {
   if (!response.ok) {
     console.error("Error fetching assets")
   }
-  const assets = await response.json()
+  const { assets } = await response.json()
+  if (assets && assets.length>0) {
+    for (let i=0; i<assets.length; i++) {
+      const asset = assets[i];
+      console.log(asset.collection.slug)
+      const collectionData = await fetch(`https://api.opensea.io/api/v1/collection/${asset.collection.slug}`)
+      if (!collectionData.ok) {
+        console.error("collection not found");
+      }
+      const { collection } = await collectionData.json();
+      asset.totalSupply = collection.stats.total_supply;
+    }
+  }
   return {
     owner: contract.owner,
-    assets: assets.assets
+    assets: assets
   };
 }
