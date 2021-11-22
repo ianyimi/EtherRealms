@@ -7,6 +7,7 @@ import { RealmScene, RealmSky, PostProcessing } from "./properties";
 import { SceneName, RlmScene, RlmSky, ImageFrame, RlmEffect } from "./utils/types";
 import { Scenes } from "./utils/constants";
 import { MoralisProvider } from "react-moralis";
+import { Preload } from "@react-three/drei";
 
 export interface RealmProps {
   id: number,
@@ -46,6 +47,7 @@ export default function Realm(props: { properties: RealmProps}) {
           <RealmSky />
           <RealmScene />
           <PostProcessing />
+          <Preload all />
         </RealmState>
       </StandardEnvironment>
     </MoralisProvider>

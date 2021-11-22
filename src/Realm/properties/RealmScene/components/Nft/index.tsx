@@ -10,9 +10,9 @@ function Trait(props: { title: string, value: string, count: number, supply: num
   const { title, value, count, supply, ...restProps } = props;
   const { scene: { theme } } = useRealm();
 
-  let percentage = Math.floor((count/supply)*100)/100;
-  if (percentage === 0) percentage = Math.floor((count/supply)*1000)/1000;
-  if (percentage === 0) percentage = Math.floor((count/supply)*10000)/10000;
+  let percentage = Math.round((count/supply)*10000)/100;
+  if (percentage === 0) percentage = Math.round((count/supply)*100000)/1000;
+  if (percentage === 0) percentage = Math.round((count/supply)*1000000)/10000;
 
   return (
     <group name="trait" {...restProps}>
@@ -36,7 +36,7 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
     for (let i=0, j=0; i<asset.traits.length; i++) {
       const currentTrait = asset.traits[i];
       traits.push(
-        <group name={`trait_${i}`}>
+        <group name={`trait_${i}`} key={i}>
           <Trait
             title={currentTrait.trait_type}
             value={currentTrait.value}
@@ -44,7 +44,6 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
             supply={asset.totalSupply}
             position-x={(i%2)}
             position-y={j*(-0.55)}
-            key={i}
           />
         </group>
       )
