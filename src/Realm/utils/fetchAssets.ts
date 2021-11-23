@@ -1,5 +1,6 @@
-// const CONTRACT_ADDRESS = "0xc631164b6cb1340b5123c9162f8558c866de1926"
-const CONTRACT_ADDRESS = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"
+// const CONTRACT_ADDRESS = "0xc631164b6cb1340b5123c9162f8558c866de1926" //DA
+// const CONTRACT_ADDRESS = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb" //CryptoPunks
+const CONTRACT_ADDRESS = "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d" //BAYC
 
 export default async function fetchAssets(tokenId: number) {
   const data = await fetch(`https://api.opensea.io/api/v1/asset/${CONTRACT_ADDRESS}/${tokenId}/`)
