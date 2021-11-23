@@ -1,5 +1,5 @@
 import { useRealm } from "../../../components/RealmState";
-import BackgroundsCubes from "./BackgroundCubes";
+import BackgroundsCubes from "./BackgroundGeos";
 import CubeFloor from "./CubeFloor";
 import Cubes from "./DisplayCubes";
 

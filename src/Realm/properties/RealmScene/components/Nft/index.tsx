@@ -54,7 +54,6 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
     <group {...restProps}>
       <Media src={src} link={asset.permalink as string} />
       <Text fontSize={0.15} color={TEXT_COLOR} position={[0, -0.9, -0.075]}>{asset.name as string}</Text>
-      {/*<Trait title="Accessory" value="Earring" count={2497} supply={9999} position={[0.5, -1.5, -0.1]} />*/}
       <group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>
     </group>
   )

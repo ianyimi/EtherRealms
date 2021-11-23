@@ -2,12 +2,12 @@ import {GroupProps} from "@react-three/fiber";
 import {ReactNode, useEffect} from "react";
 import {Euler, Vector3} from "three";
 import {RlmColor} from "../../../utils/types";
-import {cache} from "../utils/cache";
+import {cache} from "./utils/cache";
 
-function BackgroundCube(props: { color?: string } & GroupProps) {
-  const { color = "white", ...restProps } = props;
+function BackgroundGeo(props: { color?: string, radius: number } & GroupProps) {
+  const { color = "white", radius = 0, ...restProps } = props;
   return (
-    <group name="backgroundCube" {...restProps}>
+    <group name="backgroundGeo" {...restProps}>
       {/*<mesh>*/}
       {/*  <boxBufferGeometry args={[0.5, 0.5, 0.5]} />*/}
       {/*  <meshBasicMaterial color={color} />*/}
@@ -17,65 +17,71 @@ function BackgroundCube(props: { color?: string } & GroupProps) {
       {/*  <meshStandardMaterial color={color} />*/}
       {/*</mesh>*/}
       <mesh>
-        <torusBufferGeometry args={[0.25+0.25*Math.random(), 0.1, 15, 100]} />
+        <torusBufferGeometry args={[radius, 0.1, 15, 100]} />
         <meshStandardMaterial color={color} />
       </mesh>
     </group>
   )
 }
 
-export default function BackgroundsCubes(props: { color?: RlmColor }) {
+export default function BackgroundsGeos(props: { color?: RlmColor }) {
   const { color = "Red" } = props;
   const cubes: ReactNode[] = []
-  const generate = true;
+  const generate = false;
 
   if (generate) {
     const newCache = [];
-    for (let i=0; i<45; i++) {
+    for (let i=0; i<35; i++) {
       const theta = Math.round(10000*2*Math.random()*Math.PI)/10000,
         phi = Math.round(10000*Math.random()*Math.PI/2.4)/10000,
         r = Math.round(100 + Math.random()*200);
       const posVec = new Vector3().setFromSphericalCoords(r, phi, theta);
       const rotVec = new Euler().setFromVector3(posVec);
       const scale = 25 + Math.round(Math.random()*75);
+      const radius = 0.25 + Math.round(Math.random()*250)/1000;
 
       newCache.push({
         position: [posVec.x, posVec.y, posVec.z],
         rotation: [rotVec.x, rotVec.y, rotVec.z],
-        scale: scale
+        scale: scale,
+        radius: radius
       })
 
       cubes.push(
-        <BackgroundCube
+        <BackgroundGeo
           color={color.toLowerCase()}
           position={posVec}
           rotation={rotVec}
           scale={scale}
+          radius={radius}
           key={i}
         />
       )
     }
-    // console.log(JSON.stringify(newCache))
+    console.log(JSON.stringify(newCache))
   } else {
     const cachedData = JSON.parse(cache);
-    for (let i = 0; i < 45; i++) {
-      const { position, rotation, scale } = cachedData[i];
+    // console.log(JSON.parse(cache))
+    for (let i = 0; i < cachedData.length; i++) {
+      const { position, rotation, scale, radius } = cachedData[i];
       // console.log(JSON.parse(JSON.stringify(position)))
       // console.log(scale)
       cubes.push(
-        <BackgroundCube
+        <BackgroundGeo
           color={color.toLowerCase()}
-          position={[position.x, position.y, position.z]}
-          rotation={[rotation.x, rotation.y, rotation.z]}
+          position={[...position as [number, number, number]]}
+          rotation={[...rotation as [number, number, number]]}
           scale={scale}
+          radius={radius}
           key={i}
         />
       )
     }
+    console.log(cubes)
   }
 
   return (
-    <group name="backgroundCubes">
+    <group name="backgroundGeos">
       {cubes}
     </group>
   )
