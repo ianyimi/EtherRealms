@@ -4,22 +4,22 @@ import {Euler, Vector3} from "three";
 import {RlmColor} from "../../../utils/types";
 import {cache} from "./utils/cache";
 
-function BackgroundGeo(props: { color?: string, radius: number } & GroupProps) {
-  const { color = "white", radius = 0, ...restProps } = props;
+function BackgroundGeo(props: { color?: string, radius: number, i: number } & GroupProps) {
+  const { color = "white", radius = 0, i, ...restProps } = props;
   return (
     <group name="backgroundGeo" {...restProps}>
-      {/*<mesh>*/}
-      {/*  <boxBufferGeometry args={[0.5, 0.5, 0.5]} />*/}
-      {/*  <meshBasicMaterial color={color} />*/}
-      {/*</mesh>*/}
-      {/*<mesh>*/}
-      {/*  <sphereBufferGeometry args={[0.25, 30, 30]} />*/}
-      {/*  <meshStandardMaterial color={color} />*/}
-      {/*</mesh>*/}
-      <mesh>
-        <torusBufferGeometry args={[radius, 0.1, 15, 100]} />
-        <meshStandardMaterial color={color} />
-      </mesh>
+      {i===0 && <mesh>
+        <boxBufferGeometry args={[0.5, 0.5, 0.5]}/>
+        <meshBasicMaterial color={color}/>
+      </mesh>}
+      {i===1 && <mesh>
+        <sphereBufferGeometry args={[0.25, 30, 30]}/>
+        <meshStandardMaterial color={color}/>
+      </mesh>}
+      {i===2 && <mesh>
+        <torusBufferGeometry args={[radius, 0.1, 15, 100]}/>
+        <meshStandardMaterial color={color}/>
+      </mesh>}
     </group>
   )
 }
@@ -54,6 +54,7 @@ export default function BackgroundsGeos(props: { color?: RlmColor }) {
           rotation={rotVec}
           scale={scale}
           radius={radius}
+          i={i%3}
           key={i}
         />
       )
@@ -73,11 +74,11 @@ export default function BackgroundsGeos(props: { color?: RlmColor }) {
           rotation={[...rotation as [number, number, number]]}
           scale={scale}
           radius={radius}
+          i={i%3}
           key={i}
         />
       )
     }
-    console.log(cubes)
   }
 
   return (

@@ -1,6 +1,6 @@
 import { RlmColor, RlmScene } from "./types"
 
-const colors: RlmColor[] = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "White"];
+const colors: RlmColor[] = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"];
 
 export const Scenes: RlmScene[] = [
   {
@@ -31,7 +31,8 @@ export const Scenes: RlmScene[] = [
     size: "Mediocre"
   },
   {
-    name: "Matrix",
+    name: "Moon",
+    theme: colors[Math.floor(Math.random()*colors.length)],
     type: "Outdoor",
     size: "Immense"
   },
