@@ -1,5 +1,5 @@
 import {StandardEnvironment} from "spacesvr";
-import {Debug} from "@react-three/cannon";
+import { Debug } from "@react-three/cannon";
 import { Perf } from "r3f-perf";
 import RealmState from "./components/RealmState";
 import ConnectWallet from "./components/ConnectWallet";
@@ -43,12 +43,14 @@ export default function Realm(props: { properties: RealmProps}) {
         physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
         // disableGround
       >
-        <RealmState properties={{...properties, scene: {...sceneObj}}}>
-          <RealmSky />
-          <RealmScene />
-          <PostProcessing />
-          <Preload all />
-        </RealmState>
+        <Debug color="red" scale={1}>
+          <RealmState properties={{...properties, scene: {...sceneObj}}}>
+            <RealmSky />
+            <RealmScene />
+            <PostProcessing />
+            <Preload all />
+          </RealmState>
+        </Debug>
       </StandardEnvironment>
     </MoralisProvider>
   );
