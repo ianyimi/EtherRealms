@@ -58,7 +58,7 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
   }
   return (
     <group {...restProps}>
-      <Media src={src} link={asset.permalink as string} position-y={0.1} />
+      <Media src={src} link={asset.permalink && asset.permalink as string} position-y={0.1} />
       <Text
         fontSize={0.175}
         color={textColor}
