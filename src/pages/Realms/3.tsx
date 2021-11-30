@@ -3,7 +3,7 @@ const Realm = dynamic(import("Realm/index"), { ssr: false });
 
 export default function StarterPage() {
   return <Realm properties={{
-    id: 1600,
+    id: 2745,
     scene: "Moon",
     sky: "Night",
     imageFrames: "White",
