@@ -123,12 +123,12 @@ const frag = `
   }
   
   void main() {
-    // vec2 uv = (2. * gl_FragCoord.xy - resolution.xy) / resolution.y;
-    vec4 r0 = field(vUv, vec2( .0, .0), 1.66);
-    vec4 r1 = field(vUv, vec2( .33, .33), 1.66);
-    vec4 r2 = field(vUv, vec2( .33, -.33), 1.66);
-    vec4 r3 = field(vUv, vec2(-.33, -.33), 1.66);
-    vec4 r4 = field(vUv, vec2(-.33, .33), 1.66);
+    vec2 uv = (2. * gl_FragCoord.xy - resolution.xy) / resolution.y;
+    vec4 r0 = field(uv, vec2( .0, .0), 1.66);
+    vec4 r1 = field(uv, vec2( .33, .33), 1.66);
+    vec4 r2 = field(uv, vec2( .33, -.33), 1.66);
+    vec4 r3 = field(uv, vec2(-.33, -.33), 1.66);
+    vec4 r4 = field(uv, vec2(-.33, .33), 1.66);
     gl_FragColor = r0+r1+r2+r3+r4;
   }
 `;
