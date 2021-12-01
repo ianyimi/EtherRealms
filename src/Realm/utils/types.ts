@@ -6,7 +6,7 @@ export type RlmScene = {
   type: "Indoor" | "Outdoor" | "???",
   size: "Petite" | "Mediocre" | "Immense" | "Galactic"
 }
-export type RlmSky = "Day" | "Night" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple" | "Matrix" | "Rainbow" | "Galaxy";
+export type RlmSky = "Day" | "Night" | "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple" | "White" | "Matrix" | "Rainbow" | "Galaxy";
 export type EffectName = "Fog" | "Particles" | "Birds" | "Birds" | "Lanterns";
 export type RlmEffect = {
   name: EffectName,

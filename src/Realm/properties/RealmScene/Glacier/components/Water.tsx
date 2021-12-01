@@ -25,6 +25,7 @@ export default function WaterPlane(props: GroupProps) {
       sunColor: 0xffffff,
       waterColor: theme.toLocaleLowerCase(),
       distortionScale: 3.7,
+      side: THREE.DoubleSide,
       fog: true
     }
   );

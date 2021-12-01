@@ -7,7 +7,7 @@ export default function MatrixSky(props: { radius?: number } & GroupProps) {
   return (
     <group>
       <mesh material={mat}>
-        <sphereBufferGeometry args={[radius, 50, 50]} />
+        <boxBufferGeometry args={[300, 5000, 300]} />
       </mesh>
     </group>
   )

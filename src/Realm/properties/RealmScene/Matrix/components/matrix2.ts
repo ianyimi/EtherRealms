@@ -33,7 +33,9 @@ export const useMatrixMat2 = (color: number): ShaderMaterial => {
 
 const vert = `
     varying vec3 absPosition;
+    varying vec2 vUv;
     void main() {
+        vUv = uv;
         absPosition = position;
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
     }
@@ -103,21 +105,21 @@ const frag = `
   }
 
   void main() {
-    vec2 S = 15. * vec2(3., 2.);
-    vec2 coord = vec2(
-        gl_FragCoord.x / resolution.y,
-        gl_FragCoord.y / resolution.y + (resolution.y - resolution.x) / (9. * resolution.y)
-    );
-    vec2 c = floor(coord * S);
+    vec2 S = 25. * vec2(3., 50.);
+    // vec2 coord = vec2(
+    //     gl_FragCoord.x / resolution.y,
+    //     gl_FragCoord.y / resolution.y + (resolution.y - resolution.x) / (9. * resolution.y)
+    // );
+    vec2 c = floor(vUv * S);
 
     float offset = random(c.x) * S.x;
-    float speed = random(c.x * 3.) * 1. + 0.2;
-    float len = random(c.x) * 15. + 10.;
+    float speed = random(c.x * 3.) * .5 + 0.2;
+    float len = random(c.x) * 15. + 100.;
     float u = 1. - fract(c.y / len + time * speed + offset) * 2.;
 
     float padding = 2.;
     vec2 smS = vec2(3., 5.);
-    vec2 sm = floor(fract(coord * S) * (smS + vec2(padding))) - vec2(padding);
+    vec2 sm = floor(fract(vUv * S) * (smS + vec2(padding))) - vec2(padding);
     float symbol = character(floor(random(c + floor(time * speed)) * 15.));
     bool s = sm.x < 0. || sm.x > smS.x || sm.y < 0. || sm.y > smS.y ? false
              : mod(floor(symbol / pow(2., sm.x + sm.y * smS.x)), 2.) == 1.;
