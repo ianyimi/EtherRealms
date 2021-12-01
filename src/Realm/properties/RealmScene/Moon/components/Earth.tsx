@@ -41,13 +41,6 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           transparent
         />
       </Sphere>
-      {/*<Sphere args={[1.25, 30, 30]} name="clouds">*/}
-      {/*  <meshStandardMaterial*/}
-      {/*    color="black"*/}
-      {/*    transparent*/}
-      {/*    opacity={0.75}*/}
-      {/*  />*/}
-      {/*</Sphere>*/}
     </group>
   )
 }

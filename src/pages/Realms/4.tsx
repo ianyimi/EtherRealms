@@ -3,9 +3,9 @@ const Realm = dynamic(import("Realm/index"), { ssr: false });
 
 export default function StarterPage() {
   return <Realm properties={{
-    id: 1600,
-    scene: "Matrix",
-    sky: "Blue",
+    id: 2745,
+    scene: "Penthouse",
+    sky: "Night",
     imageFrames: "White",
     // effects: {
     //   name: "Fog",

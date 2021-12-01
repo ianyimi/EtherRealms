@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Cubes from "./Cubes"
 import Matrix from "./Matrix";
 import Moon from "./Moon";
+import Penthouse from "./Penthouse";
+import Glacier from "./Glacier";
 
 export function RealmScene() {
 
@@ -17,9 +19,11 @@ export function RealmScene() {
   return (
     <group>
       <ambientLight intensity={1} />
-      {name === "Cubes" && <Cubes/>}
+      {name === "Cubes" && <Cubes />}
       {name === "Matrix" && <Matrix />}
       {name === "Moon" && <Moon />}
+      {name === "Penthouse" && <Penthouse />}
+      {name === "Glacier" && <Glacier />}
     </group>
   )
 }
