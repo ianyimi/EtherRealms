@@ -17,8 +17,8 @@ export default function Matrix() {
   return (
     <group position-z={-2}>
       {/*<Box args={[1,1,1]} material={new MeshBasicMaterial({color: new THREE.Color("blue")})} />*/}
-      <mesh material={matrixMat}>
-        <planeBufferGeometry args={[5, 5]} />
+      <mesh material={matrixMat2}>
+        <planeBufferGeometry args={[10, 10]} />
         {/*<meshBasicMaterial map={tex} />*/}
       </mesh>
     </group>
