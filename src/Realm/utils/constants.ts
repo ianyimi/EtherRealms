@@ -46,4 +46,10 @@ export const Scenes: RlmScene[] = [
     type: "Outdoor",
     size: "Galactic"
   },
+  {
+    name: "Glacier",
+    theme: colors[Math.floor(Math.random()*colors.length)],
+    type: "Outdoor",
+    size: "Mediocre"
+  }
 ]

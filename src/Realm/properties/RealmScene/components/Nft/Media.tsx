@@ -12,7 +12,6 @@ interface MediaProps {
 export default function Media(props: MediaProps & GroupProps) {
 
   const { src, link, ...restProps } = props;
-  console.log(src)
   const IS_VIDEO = src.endsWith(".mp4");
   const { imageFrames } = useRealm();
 

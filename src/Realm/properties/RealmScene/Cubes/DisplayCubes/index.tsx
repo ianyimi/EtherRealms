@@ -2,9 +2,11 @@ import DisplayCube from "./DisplayCube";
 import fetchAssets from "../../../../utils/fetchAssets";
 import { useEffect } from "react";
 import { useRealm } from "../../../../components/RealmState";
+import {GroupProps} from "@react-three/fiber";
 
-export default function DisplayCubes() {
+export default function DisplayCubes(props: { radius?: number } & GroupProps) {
 
+  const { radius = -10 } = props;
   const { id, assets, setAssets, owner, setOwner, currentUser } = useRealm();
   useEffect(() => {
     fetchAssets(id).then((assets) => {
@@ -23,7 +25,7 @@ export default function DisplayCubes() {
 
       cubes.push(
         <group rotation-y={assets.length%4 === 0 ? 2*i*Math.PI/(assets.length) : 2*i*Math.PI/(assets.length-1)} key={i}>
-          <group position-z={-10}>
+          <group position-z={radius}>
             <DisplayCube assets={[assets[i], assets[i+1] || null, assets[i+2] || null, assets[i+3] || null]} position-y={1} />
           </group>
         </group>
@@ -31,7 +33,7 @@ export default function DisplayCubes() {
     }
   }
   return (
-    <group>
+    <group name="displayCubes" {...props}>
       {cubes}
     </group>
   )

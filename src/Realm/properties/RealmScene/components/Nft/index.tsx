@@ -39,7 +39,7 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
 
   const traits = []
   if (asset.traits && asset.traits.length>0) {
-    for (let i=0, j=0; i<asset.traits.length; i++) {
+    for (let i=0, j=0; i<asset.traits.length && i<6; i++) {
       const currentTrait = asset.traits[i];
       traits.push(
         <group name={`trait_${i}`} key={i}>
@@ -69,7 +69,7 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
       >
         {asset.name ? asset.name as string : `#${asset.token_id}`}
       </Text>
-      {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>*/}
+      <group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>
     </group>
   )
 }

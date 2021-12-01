@@ -4,6 +4,7 @@ import InstancedObject from "./components/InstancedObject";
 import { useGLTF } from "@react-three/drei";
 // @ts-ignore
 import seedrandom from "seedrandom";
+import {GroupProps} from "@react-three/fiber";
 
 const TREES_URL = [
   "https://d1p3v0j4bqcb21.cloudfront.net/models/icebrgs-1638322726/icebrgs.glb.gz"
@@ -47,8 +48,8 @@ type TreeObject = { url: string; placements: Object3D[] };
 type TreeProps = { seed?: string };
 const PI = Math.PI;
 
-export default function Trees(props: TreeProps) {
-  const { seed = "kiosks yo!" } = props;
+export default function Trees(props: TreeProps & GroupProps) {
+  const { seed = "kiosks yo!", ...restProps } = props;
 
   const objects: TreeObject[] = useMemo(() => {
     const objs: TreeObject[] = TREES_URL.map((url) => ({
@@ -59,7 +60,7 @@ export default function Trees(props: TreeProps) {
     const rng = seedrandom(seed);
 
     const AMOUNT = 0.75;
-    const TOTAL_COUNT = 5000;
+    const TOTAL_COUNT = 10;
 
     for (let i = 0; i < TOTAL_COUNT; i++) {
       if (rng() > AMOUNT) continue;
@@ -75,12 +76,13 @@ export default function Trees(props: TreeProps) {
       const theta = (PI * (2+Math.random()) * i) / TOTAL_COUNT;
 
       const angle = 3;
-      if (theta > angle && theta < angle+0.35) continue;
+      // if (theta > angle && theta < angle+0.35) continue;
 
       placement.position.add(
         new Vector3().setFromSphericalCoords(r, PI / 2, theta)
       );
-      placement.rotation.y = theta;
+      // placement.rotation.y = theta;
+      placement.rotation.x += Math.PI/2
 
       objs[objIndex].placements.push(placement);
     }
@@ -89,7 +91,7 @@ export default function Trees(props: TreeProps) {
   }, [seed]);
 
   return (
-    <group name="trees">
+    <group name="trees" {...restProps}>
       {objects.map((obj) => (
         <RenderTree {...obj} />
       ))}
