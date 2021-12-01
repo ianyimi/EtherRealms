@@ -15,7 +15,7 @@ export const Scenes: RlmScene[] = [
   },
   {
     name: "Cubes",
-    theme: colors[Math.floor(Math.random()*colors.length)],
+    theme: "Green",
     // theme: "White",
     type: "Outdoor",
     size: "Mediocre"

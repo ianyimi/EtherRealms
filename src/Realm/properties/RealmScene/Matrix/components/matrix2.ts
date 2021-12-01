@@ -3,14 +3,17 @@ import { useMemo } from "react";
 import { useLimiter } from "spacesvr";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import {useTexture} from "@react-three/drei";
+import {useRealm} from "../../../../components/RealmState";
 
-export const useMatrixMat2 = (color: number): ShaderMaterial => {
+export const useMatrixMat2 = (): ShaderMaterial => {
+  const { effects = { name: "Fog", color: "Black" } } = useRealm();
+  const colorHSL = { h: 0, s: 0, l: 0 };
+  new THREE.Color(effects.color.toLowerCase()).getHSL(colorHSL);
   const mat = useMemo(
     () =>
       new ShaderMaterial({
         uniforms: {
-          color: new Uniform(color),
+          color: new Uniform(new THREE.Vector3(colorHSL.h, colorHSL.s, colorHSL.l)),
           time: new Uniform(0),
           resolution: new Uniform(new THREE.Vector2(window.innerWidth, window.innerHeight))
         },
@@ -18,7 +21,7 @@ export const useMatrixMat2 = (color: number): ShaderMaterial => {
         fragmentShader: frag,
         side: DoubleSide,
       }),
-    [color, frag, vert]
+    [frag, vert]
   );
 
   const limiter = useLimiter(30);
@@ -41,11 +44,16 @@ const vert = `
     }
 `;
 
-const frag = `  
+const frag = `
+  #define fogNear 0.
+  #define fogFar 1000.
+  #define fogColor vec3(0., 0., 0.)
+
   uniform highp float time;
   uniform sampler2D tex;
   uniform sampler2D tex2;
   uniform vec2 resolution;
+  uniform vec3 color;
   
   varying vec2 vUv;
   precision mediump float;
@@ -60,6 +68,16 @@ const frag = `
   }
   float random(float x) {
     return fract(sin(x * 32.1231 + 13399.2312) * 2412.32312);
+  }
+  
+  vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
   }
 
   float hue2rgb(float f1, float f2, float hue) {
@@ -140,5 +158,10 @@ const frag = `
         curRGB = vec3( 0.0, 0.0, 0.0 );
 
     gl_FragColor = vec4(curRGB.x, curRGB.y, curRGB.z, 1.0);
+    
+    // account for fog
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep( fogNear, fogFar, depth );
+    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
   }
 `;
