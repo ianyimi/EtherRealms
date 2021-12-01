@@ -3,7 +3,7 @@ import {GroupProps} from "@react-three/fiber";
 
 export default function MatrixSky(props: { radius?: number } & GroupProps) {
   const { radius = 300, ...restProps } = props;
-  const mat = useMatrixMat2(0.465);
+  const mat = useMatrixMat2();
   return (
     <group>
       <mesh material={mat}>
