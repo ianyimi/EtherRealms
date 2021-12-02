@@ -5,8 +5,7 @@ import Cubes from "./DisplayCubes";
 
 export default function CubicDimension() {
 
-  const { scene: { name, theme } } = useRealm();
-  const ACTIVE = name === "Cubes";
+  const { scene: { theme } } = useRealm();
 
   return (
     <group name="cubicDimension">

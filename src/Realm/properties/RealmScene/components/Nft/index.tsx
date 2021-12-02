@@ -69,7 +69,7 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
       >
         {asset.name ? asset.name as string : `#${asset.token_id}`}
       </Text>
-      <group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>
+      {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>*/}
     </group>
   )
 }

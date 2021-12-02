@@ -31,7 +31,7 @@ export default function DisplayCube(props: { assets: Record<string, any>[] } & G
   return (
     <group name="displayCube" {...restProps}>
       {images}
-      <Box args={[2, 4, 2]} castShadow receiveShadow>
+      <Box args={[2, 2.25, 2]} position-y={1} castShadow receiveShadow >
         <meshStandardMaterial color={theme.toLowerCase()} />
       </Box>
     </group>
