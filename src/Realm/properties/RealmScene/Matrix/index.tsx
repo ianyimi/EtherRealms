@@ -9,7 +9,7 @@ import {MeshBasicMaterial} from "three";
 export default function Matrix() {
 
   const matrixMat = useMatrixMat(0.456);
-  const matrixMat2 = useMatrixMat2(0.456);
+  const matrixMat2 = useMatrixMat2();
   const particleMat = useParticleMaterial();
 
   const tex = useLoader(THREE.TextureLoader, "https://d1p3v0j4bqcb21.cloudfront.net/images/matrix.png")
