@@ -40,7 +40,7 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
       cubes.push(
         <group rotation-y={altAssets.length%4 === 0 ? 2*i*Math.PI/(altAssets.length) : 2*i*Math.PI/(altAssets.length-1)} key={i}>
           <group position-z={0-radius}>
-            <DisplayCube assets={[altAssets[i], altAssets[i+1] || null, altAssets[i+2] || null, altAssets[i+3] || null]} position-y={1} />
+            <DisplayCube assets={[altAssets[i], altAssets[i+1] || null, altAssets[i+2] || null, altAssets[i+3] || null]} />
           </group>
         </group>
       )

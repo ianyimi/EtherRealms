@@ -1,4 +1,5 @@
 import Media from "./Media";
+import Trait from "./Trait";
 import { Box, Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
 import { useRealm } from "../../../../components/RealmState";
@@ -7,27 +8,8 @@ import * as THREE from "three";
 const TEXT_COLOR = "black";
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
 
-function Trait(props: { title: string, value: string, count: number, supply: number } & GroupProps) {
-
-  const { title, value, count, supply, ...restProps } = props;
-  const { scene: { theme } } = useRealm();
-
-  let percentage = Math.round((count/supply)*10000)/100;
-  if (percentage === 0) percentage = Math.round((count/supply)*100000)/1000;
-  if (percentage === 0) percentage = Math.round((count/supply)*1000000)/10000;
-
-  return (
-    <group name="trait" {...restProps}>
-      <Box args={[0.75, 0.5, 0.1]}>
-        <meshStandardMaterial color="white" />
-      </Box>
-      <group position-z={0.075}>
-        <Text fontSize={0.1} color={TEXT_COLOR} position-y={0.175}>{title}</Text>
-        <Text fontSize={0.2} color={theme ? theme.toLowerCase() : TEXT_COLOR} position-y={0}>{value}</Text>
-        <Text fontSize={0.1} color={TEXT_COLOR} position-y={-0.175}>{count === 1 ? `1/1` : `${percentage}%`}</Text>
-      </group>
-    </group>
-  )
+function camelCase(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 export default function Nft(props: { asset: Record<string, any> } & GroupProps) {
@@ -48,7 +30,7 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
             value={currentTrait.value}
             count={currentTrait.trait_count}
             supply={asset.totalSupply}
-            position-x={(i%2)}
+            position-x={(i%2)*0.95 + 0.025}
             position-y={j*(-0.55)}
           />
         </group>
@@ -62,14 +44,15 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
       <Text
         fontSize={0.175}
         color={textColor}
-        position={[0, -0.9, -0.075]}
+        position={[0, -0.85, -0.1]}
+        depthOffset={-1}
         textAlign="center"
         maxWidth={2}
         font={FONT}
       >
         {asset.name ? asset.name as string : `#${asset.token_id}`}
       </Text>
-      {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>*/}
+      <group name="traits" position={[-0.5, -1.3, -0.1]}>{traits}</group>
     </group>
   )
 }

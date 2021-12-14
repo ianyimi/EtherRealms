@@ -9,9 +9,9 @@ export default function CubicDimension() {
 
   return (
     <group name="cubicDimension">
-      {/*<BackgroundsCubes color={theme} />*/}
-      <Cubes />
-      {/*<CubeFloor />*/}
+      <BackgroundsCubes color={theme} />
+      <Cubes position-y={-1} />
+      <CubeFloor />
     </group>
   )
 }

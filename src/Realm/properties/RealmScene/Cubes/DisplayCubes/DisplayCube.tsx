@@ -17,11 +17,10 @@ export default function DisplayCube(props: { assets: Record<string, any>[] } & G
   const images: ReactNode[] = [];
   for (let i=0; i<assets.length; i++) {
     if (!assets[i]) continue;
-    const src = assets[i].animation_url && (assets[i].animation_url).endsWith(".mp4") ? assets[i].animation_url : assets[i].image_url;
     images.push(
       <group rotation-y={2*i*Math.PI/4} key={i}>
         <group position-z={1.1}>
-          <Nft asset={assets[i]} position-y={1} />
+          <Nft asset={assets[i]} position-y={2} />
         </group>
         {/*<spotLight ref={light} position={[0, 1, 10]} intensity={0.1} distance={50} castShadow />*/}
       </group>
@@ -31,7 +30,7 @@ export default function DisplayCube(props: { assets: Record<string, any>[] } & G
   return (
     <group name="displayCube" {...restProps}>
       {images}
-      <Box args={[2, 2.25, 2]} position-y={1} castShadow receiveShadow >
+      <Box args={[2, 4, 2]} position-y={1} castShadow receiveShadow >
         <meshStandardMaterial color={theme.toLowerCase()} />
       </Box>
     </group>
