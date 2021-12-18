@@ -39,7 +39,6 @@ export default function Trait(props: { title: string, value: string, count: numb
           textAlign="center"
           color={theme ? theme.toLowerCase() : TEXT_COLOR}
           depthOffset={-1.5}
-          position-y={0}
         >
           {value}
         </Text>

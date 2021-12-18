@@ -23,19 +23,21 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
   if (asset.traits && asset.traits.length>0) {
     for (let i=0, j=0; i<asset.traits.length && i<6; i++) {
       const currentTrait = asset.traits[i];
-      traits.push(
-        <group name={`trait_${i}`} key={i}>
-          <Trait
-            title={currentTrait.trait_type}
-            value={currentTrait.value}
-            count={currentTrait.trait_count}
-            supply={asset.totalSupply}
-            position-x={(i%2)*0.95 + 0.025}
-            position-y={j*(-0.55)}
-          />
-        </group>
-      )
-      if (i%2 === 1) j++;
+      if (currentTrait.trait_count !== 0) {
+        traits.push(
+          <group name={`trait_${i}`} key={i}>
+            <Trait
+              title={currentTrait.trait_type}
+              value={currentTrait.value}
+              count={currentTrait.trait_count}
+              supply={asset.totalSupply}
+              position-x={(i%2)*0.95 + 0.025}
+              position-y={j*(-0.55)}
+            />
+          </group>
+        )
+        if (i%2 === 1) j++;
+      }
     }
   }
   return (
