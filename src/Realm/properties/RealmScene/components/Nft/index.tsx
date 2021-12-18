@@ -37,6 +37,9 @@ export default function Nft(props: { asset: Record<string, any> } & GroupProps) 
           </group>
         )
         if (i%2 === 1) j++;
+      } else {
+        asset.traits.splice(asset.traits.indexOf(currentTrait), 1);
+        i--;
       }
     }
   }
