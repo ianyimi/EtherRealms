@@ -14,11 +14,11 @@ function BackgroundGeo(props: { color?: string, radius: number, i: number } & Gr
       </mesh>}
       {i===1 && <mesh>
         <sphereBufferGeometry args={[0.25, 30, 30]}/>
-        <meshStandardMaterial color={color}/>
+        <meshBasicMaterial color={color}/>
       </mesh>}
       {i===2 && <mesh>
         <torusBufferGeometry args={[radius, 0.1, 15, 100]}/>
-        <meshStandardMaterial color={color}/>
+        <meshBasicMaterial color={color}/>
       </mesh>}
     </group>
   )
