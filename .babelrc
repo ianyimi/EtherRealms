@@ -1,4 +1,5 @@
 {
+  "plugins": ["glsl"],
   "presets": [
     [
       "next/babel",
@@ -9,6 +10,5 @@
         "class-properties": {}
       }
     ]
-  ],
-  "plugins": []
+  ]
 }
