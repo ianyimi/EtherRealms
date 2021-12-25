@@ -27,7 +27,7 @@ export const useFireflyMat = (color: string, size: number) => {
   useFrame(({ clock }, delta) => {
     if (!mat || !limiter.isReady(clock)) return;
     // @ts-ignore
-    mat.uniforms.uTime.value += delta*5;
+    mat.uniforms.uTime.value = ((new Date() / 1000) % 10000) / 5;;
   });
 
   return mat;
