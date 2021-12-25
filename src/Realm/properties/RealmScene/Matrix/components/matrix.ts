@@ -3,32 +3,27 @@ import { useMemo } from "react";
 import { useLimiter } from "spacesvr";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import {useTexture} from "@react-three/drei";
 
-export const useMatrixMat = (color: number): ShaderMaterial => {
-  const tex = useTexture(
-    "https://d1p3v0j4bqcb21.cloudfront.net/images/matrix.png"
-  );
+export const useMatrixMat = (color: string): ShaderMaterial => {
   const mat = useMemo(
     () =>
       new ShaderMaterial({
         uniforms: {
-          color: new Uniform(color),
-          tex: new Uniform(tex),
+          color: new Uniform(new THREE.Color(color).toArray()),
           time: new Uniform(0),
-          resolution: new Uniform(new THREE.Vector2(window.innerWidth/2, window.innerHeight/2))
+          resolution: new Uniform(new THREE.Vector2(window.innerWidth, window.innerHeight))
         },
         vertexShader: vert,
         fragmentShader: frag,
         side: DoubleSide,
       }),
-    [color, tex, frag, vert]
+    [frag, vert]
   );
 
   const limiter = useLimiter(30);
   useFrame(({ clock }) => {
     if (mat && limiter.isReady(clock)) {
-      mat.uniforms.time.value = clock.getElapsedTime()/10;
+      mat.uniforms.time.value = clock.getElapsedTime()/2;
     }
   });
 
@@ -37,52 +32,78 @@ export const useMatrixMat = (color: number): ShaderMaterial => {
 
 const vert = `
     varying vec3 absPosition;
+    varying vec2 vUv;
     void main() {
+        vUv = uv;
         absPosition = position;
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
     }
 `;
 
 const frag = `
-  #define CELLS vec2(64.0,30.0)
-  #define FALLERS 14.0
-  #define FALLERHEIGHT 12.0
-  
+  #define fogNear 0.
+  #define fogFar 1000.
+  #define fogColor vec3(0., 0., 0.)
+
   uniform highp float time;
   uniform sampler2D tex;
+  uniform sampler2D tex2;
   uniform vec2 resolution;
+  uniform vec3 color;
   
-  // vec2 resolution = vec2(2.);
+  varying vec2 vUv;
+  precision mediump float;
   
-  vec2 rand(vec2 uv) {
-      return floor(abs(mod(cos(
-          uv * 652.6345 + uv.yx * 534.375 +
-          time * 0.0000005 * dot(uv, vec2(0.364, 0.934))),
-       0.001)) * 16000.0);
+  float random(vec2 v) {
+    return fract(sin(v.x * 32.1231 - v.y * 2.334 + 13399.2312) * 2412.32312);
   }
-  
-  float fallerSpeed(float col, float faller) {
-      return mod(cos(col * 363.435  + faller * 234.323), 0.1) * 1.0 + 0.3;
+  float random(float x, float y) {
+    return fract(sin(x * 32.1231 - y * 2.334 + 13399.2312) * 2412.32312);
   }
-  
-  void main()
-  {
-      vec2 uv = gl_FragCoord.xy/resolution.xy;
-      
-      vec2 pix = mod(uv, 1.0/CELLS);
-      vec2 cell = (uv - pix) * CELLS;
-      pix *= CELLS * vec2(0.8, 1.0) + vec2(0.1, 0.0);
-     
-      float c = texture2D(tex, (rand(cell) + pix) / 16.0).x;
-      
-      float b = 0.0;
-      for (float i = 0.0; i < FALLERS; ++i) {
-          float f = 3.0 - cell.y * 0.05 -
-              mod((time + i * 3534.34) * fallerSpeed(cell.x, i), FALLERHEIGHT);
-          if (f > 0.0 && f < 1.0)
-              b += f;
-      }
-      
-      gl_FragColor = vec4(0.0, c * b, 0.0, 1.0);
+  float random(float x) {
+    return fract(sin(x * 32.1231 + 13399.2312) * 2412.32312);
+  }
+
+  float character(float i) {    
+     return i<15.01? floor(random(i)*32768.) : 0.;
+  }
+
+  void main() {
+    vec2 S = 25. * vec2(3., 50.);
+    vec2 c = floor(vUv * S);
+
+    float offset = random(c.x) * S.x;
+    float speed = random(c.x * 3.) * .5 + 0.2;
+    float len = random(c.x) * 15. + 100.;
+    float u = 1. - fract(c.y / len + time * speed + offset) * 2.;
+
+    float padding = 2.;
+    vec2 smS = vec2(3., 5.);
+    vec2 sm = floor(fract(vUv * S) * (smS + vec2(padding))) - vec2(padding);
+    float symbol = character(floor(random(c + floor(time * speed)) * 15.));
+    bool s = sm.x < 0. || sm.x > smS.x || sm.y < 0. || sm.y > smS.y ? false
+             : mod(floor(symbol / pow(2., sm.x + sm.y * smS.x)), 2.) == 1.;
+
+    vec3 curRGB = color;
+    if( s )
+    {
+        if( u > 0.9 )
+            {
+            curRGB.r = 1.0;
+            curRGB.g = 1.0;
+            curRGB.b = 1.0;
+            }
+        else
+            curRGB = curRGB * u;
+    }
+    else
+        curRGB = vec3( 0.0, 0.0, 0.0 );
+
+    gl_FragColor = vec4(curRGB.x, curRGB.y, curRGB.z, 1.0);
+    
+    // account for fog
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep( fogNear, fogFar, depth );
+    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
   }
 `;

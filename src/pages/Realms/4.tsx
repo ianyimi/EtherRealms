@@ -5,7 +5,9 @@ export default function StarterPage() {
   return <Realm properties={{
     id: 2745,
     scene: "Penthouse",
-    sky: "Night",
+    sky: {
+      type: "Night"
+    },
     imageFrames: "White",
     // effects: {
     //   name: "Fog",

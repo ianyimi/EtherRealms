@@ -44,18 +44,18 @@ export default function Index(props: GroupProps) {
       >
         Hello World [0, 0]
       </Text>
-      <Interactable
-        onHover={() => setHover(true)}
-        onUnHover={() => setHover(false)}
-        onClick={() => setSelect(!select)}
-      >
-        <animated.group position-y={posY}>
-          <mesh ref={spinningBox}>
-            <boxBufferGeometry args={[1, 1, 1]} />
-            <animated.meshBasicMaterial color={matColor} />
-          </mesh>
-        </animated.group>
-      </Interactable>
+      {/*<Interactable*/}
+      {/*  onHover={() => setHover(true)}*/}
+      {/*  onUnHover={() => setHover(false)}*/}
+      {/*  onClick={() => setSelect(!select)}*/}
+      {/*>*/}
+      {/*  <animated.group position-y={posY}>*/}
+      {/*    <mesh ref={spinningBox}>*/}
+      {/*      <boxBufferGeometry args={[1, 1, 1]} />*/}
+      {/*      <animated.meshBasicMaterial color={matColor} />*/}
+      {/*    </mesh>*/}
+      {/*  </animated.group>*/}
+      {/*</Interactable>*/}
     </group>
   )
 }
