@@ -1,6 +1,7 @@
 import {EffectComposer, SelectiveBloom, Vignette} from "@react-three/postprocessing";
 import { useRealm } from "../../components/RealmState";
 import Fog from "./RlmFog";
+import Fireflies from "./Fireflies";
 
 export function PostProcessing() {
 
@@ -9,6 +10,7 @@ export function PostProcessing() {
   return (
     <group>
       <Fog />
+      <Fireflies count={100} scale={5} color="lightgreen" size={200} />
       <EffectComposer
         multisampling={0}
         disableNormalPass
