@@ -18,7 +18,7 @@ export const useFireflyMat = (color: string, size: number) => {
         vertexShader: vert,
         fragmentShader: frag,
         side: THREE.DoubleSide,
-        transparent: true
+        transparent: true,
       }),
     [color, size]
   );

@@ -17,7 +17,7 @@ export default function Fireflies(props: { count?: number, scale?: number, color
   const mat = useFireflyMat(color, size);
 
   return (
-    <group scale={scale}>
+    <group scale={scale} renderOrder={1}>
       <points key={count} material={mat}>
         <bufferGeometry>
           <bufferAttribute attachObject={['attributes', 'position']} count={count} array={positionArray} itemSize={3} />
