@@ -26,6 +26,7 @@
     "react-moralis": "^0.3.0",
     "react-spring": "9.1.2",
     "seedrandom": "^3.0.5",
+    "simplex-noise": "^3.0.0",
     "spacesvr": "latest",
     "three": "^0.127.0"
   },
@@ -51,6 +52,8 @@
     "spacesvr/**/@react-three/fiber": "6.0.14"
   },
   "browserify": {
-    "transform": ["glslify"]
+    "transform": [
+      "glslify"
+    ]
   }
 }
