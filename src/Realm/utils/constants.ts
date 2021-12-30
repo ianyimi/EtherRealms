@@ -1,4 +1,6 @@
-import { RlmScene } from "./types"
+import { RlmColor, RlmScene } from "./types"
+
+const colors: RlmColor[] = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"];
 
 export const Scenes: RlmScene[] = [
   {
@@ -13,6 +15,7 @@ export const Scenes: RlmScene[] = [
   },
   {
     name: "Cubes",
+    theme: colors[Math.floor(Math.random()*colors.length)],
     type: "Outdoor",
     size: "Mediocre"
   },
@@ -27,7 +30,8 @@ export const Scenes: RlmScene[] = [
     size: "Mediocre"
   },
   {
-    name: "Matrix",
+    name: "Moon",
+    theme: colors[Math.floor(Math.random()*colors.length)],
     type: "Outdoor",
     size: "Immense"
   },
@@ -41,4 +45,10 @@ export const Scenes: RlmScene[] = [
     type: "Outdoor",
     size: "Galactic"
   },
+  {
+    name: "Glacier",
+    theme: colors[Math.floor(Math.random()*colors.length)],
+    type: "Outdoor",
+    size: "Mediocre"
+  }
 ]

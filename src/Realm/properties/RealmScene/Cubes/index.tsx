@@ -1,20 +1,19 @@
 import { useRealm } from "../../../components/RealmState";
-import BackgroundsCubes from "./BackgroundCubes";
+import BackgroundsCubes from "./BackgroundGeos";
 import CubeFloor from "./CubeFloor";
-import DisplayCubes from "./DisplayCubes";
+import Cubes from "./DisplayCubes";
+import Grass from "./Grass";
 
 export default function CubicDimension() {
 
-  const { scene: { name } } = useRealm();
-  const ACTIVE = name === "Cubes";
+  const { scene: { theme } } = useRealm();
 
   return (
-    ACTIVE ? (
-      <group name="cubicDimension">
-        <BackgroundsCubes />
-        <DisplayCubes />
-        <CubeFloor />
-      </group>
-    ) : <></>
+    <group name="cubicDimension">
+      <BackgroundsCubes color={theme} />
+      <Cubes position-y={-1} />
+      <CubeFloor />
+      <Grass scale={0.1} />
+    </group>
   )
 }

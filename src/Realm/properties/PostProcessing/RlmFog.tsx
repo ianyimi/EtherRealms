@@ -9,7 +9,7 @@ export default function RlmFog() {
 
   return (
     <group>
-      {ACTIVE && <Fog color={new THREE.Color(effects?.color)} near={75} far={250} />}
+      {ACTIVE && <Fog color={new THREE.Color(effects?.color.toLowerCase())} near={75} far={250} />}
     </group>
   )
 }
