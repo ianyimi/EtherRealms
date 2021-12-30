@@ -1,19 +1,28 @@
 import { useRealm } from "../../components/RealmState";
 import CloudySky from "./components/CloudySky";
+import MatrixSky from "./components/MatrixSky";
+import RainbowSky from "./components/RainbowSky";
+import PortalSky from "./components/PortalSky";
 import { Sky, Stars } from "@react-three/drei";
 
 export function RealmSky() {
 
-  const { sky } = useRealm();
-  const day = sky === "Day",
-    night = sky === "Night";
-  const cloudSky = !day && !night;
+  const { sky: { type, primaryColor, secondaryColor } } = useRealm();
+  const day = type === "Day",
+    night = type === "Night",
+    matrix = type === "Matrix",
+    rainbow = type === "Rainbow",
+    portal = type === "Portal",
+    cloudy = type === "Cloudy";
 
   return (
-    <group name="SKY">
+    <group name="realmSky">
       {day && <Sky sunPosition={1} />}
       {night && <Stars count={1000} radius={300} factor={15} fade />}
-      {cloudSky && <CloudySky color={sky.toLowerCase()} />}
+      {rainbow && <RainbowSky />}
+      {matrix && <MatrixSky color={primaryColor && primaryColor.toLowerCase()} />}
+      {portal && <PortalSky mainColor={primaryColor && primaryColor.toLowerCase()} backgroundColor={secondaryColor && secondaryColor.toLowerCase()} />}
+      {cloudy && <CloudySky color={primaryColor && primaryColor.toLowerCase()} />}
     </group>
   )
 }

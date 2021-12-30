@@ -12,19 +12,23 @@
     "process-gltf": "bash ./scripts/process-gltf.sh"
   },
   "dependencies": {
-    "@react-three/drei": "7.0.6",
+    "@react-three/drei": "7.21.1",
     "@react-three/fiber": "6.0.14",
     "@react-three/postprocessing": "^2.0.5",
+    "@walletconnect/web3-provider": "^1.6.6",
     "ethers": "^5.5.1",
+    "glsl-noise": "^0.0.0",
+    "moralis": "^0.0.134",
     "next": "^10.0.9",
     "next-pwa": "^3.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-moralis": "^0.3.0",
     "react-spring": "9.1.2",
+    "seedrandom": "^3.0.5",
+    "simplex-noise": "^3.0.0",
     "spacesvr": "latest",
-    "three": "^0.127.0",
-    "web3": "^1.6.1",
-    "web3-react": "^5.0.5"
+    "three": "^0.127.0"
   },
   "devDependencies": {
     "@types/node": "^15.3.1",
@@ -34,15 +38,22 @@
     "@typescript-eslint/eslint-plugin": "^3.2.0",
     "@typescript-eslint/parser": "^3.2.0",
     "babel-plugin-glsl": "^1.0.0",
+    "babel-plugin-macros": "^3.1.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "glslify": "^7.1.1",
     "prettier": "^2.2.1",
     "r3f-perf": "^0.79.0",
     "typescript": "^4.2.4"
   },
   "resolutions": {
     "spacesvr/**/@react-three/fiber": "6.0.14"
+  },
+  "browserify": {
+    "transform": [
+      "glslify"
+    ]
   }
 }
