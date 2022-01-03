@@ -4,12 +4,13 @@ import { useLimiter } from "spacesvr";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
-export const useMatrixMat = (color: string): ShaderMaterial => {
+export const useMatrixMat = (matrixColor: string, fogColor = "black"): ShaderMaterial => {
   const mat = useMemo(
     () =>
       new ShaderMaterial({
         uniforms: {
-          color: new Uniform(new THREE.Color(color).toArray()),
+          color: new Uniform(new THREE.Color(matrixColor)),
+          fogColor: new Uniform(new THREE.Color(fogColor)),
           time: new Uniform(0),
           resolution: new Uniform(new THREE.Vector2(window.innerWidth, window.innerHeight))
         },
@@ -17,7 +18,7 @@ export const useMatrixMat = (color: string): ShaderMaterial => {
         fragmentShader: frag,
         side: DoubleSide,
       }),
-    [frag, vert]
+    [frag, vert, matrixColor, fogColor]
   );
 
   const limiter = useLimiter(30);
@@ -42,14 +43,15 @@ const vert = `
 
 const frag = `
   #define fogNear 0.
-  #define fogFar 1000.
-  #define fogColor vec3(0., 0., 0.)
+  #define fogFar 500.
+  // #define fogColor vec3(0., 0., 0.)
 
   uniform highp float time;
   uniform sampler2D tex;
   uniform sampler2D tex2;
   uniform vec2 resolution;
   uniform vec3 color;
+  uniform vec3 fogColor;
   
   varying vec2 vUv;
   precision mediump float;
