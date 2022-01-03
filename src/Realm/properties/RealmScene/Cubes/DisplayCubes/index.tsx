@@ -2,11 +2,11 @@ import DisplayCube from "./DisplayCube";
 import fetchAssets from "../../../../utils/fetchAssets";
 import { useEffect } from "react";
 import { useRealm } from "../../../../components/RealmState";
-import { GroupProps } from "@react-three/fiber";
+import {GroupProps} from "@react-three/fiber";
 
 export default function DisplayCubes(props: { radius?: number, altAssets?: Record<string, any>[] } & GroupProps) {
 
-  const { radius = 10, altAssets, ...restProps } = props;
+  const { radius = 10, altAssets } = props;
   const { id, assets, setAssets, owner, setOwner, currentUser } = useRealm();
   useEffect(() => {
     fetchAssets(id).then((assets) => {
@@ -46,9 +46,8 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
       )
     }
   }
-
   return (
-    <group name="displayCubes" {...restProps}>
+    <group name="displayCubes" {...props}>
       {cubes}
     </group>
   )

@@ -13,7 +13,7 @@ export default function CubicDimension() {
       <BackgroundsCubes color={theme} />
       <Cubes position-y={-1} />
       <CubeFloor />
-      <Grass scale={0.1} />
+      {/*<Grass scale={0.1} />*/}
     </group>
   )
 }
