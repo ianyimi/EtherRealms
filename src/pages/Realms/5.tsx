@@ -6,7 +6,9 @@ export default function StarterPage() {
     id: 1500,
     scene: "Glacier",
     sky: {
-      type: "Night"
+      type: "Night",
+      primaryColor: "Red",
+      secondaryColor: "Black"
     },
     imageFrames: "White",
     effects: {

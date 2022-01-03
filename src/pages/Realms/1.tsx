@@ -7,7 +7,7 @@ export default function StarterPage() {
     scene: "Cubes",
     sky: {
       type: "Matrix",
-      primaryColor: "Yellow",
+      primaryColor: "Green",
       secondaryColor: "Black"
     },
     imageFrames: "White",

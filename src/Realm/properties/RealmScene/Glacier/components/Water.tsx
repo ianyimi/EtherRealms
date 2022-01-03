@@ -3,7 +3,6 @@ import * as THREE from "three";
 import {GroupProps, useFrame} from "@react-three/fiber";
 import {useEffect, useRef} from "react";
 import {useLimiter} from "spacesvr";
-import {Object3D} from "three";
 import {useRealm} from "../../../../components/RealmState";
 
 export default function WaterPlane(props: GroupProps) {
@@ -16,11 +15,10 @@ export default function WaterPlane(props: GroupProps) {
     {
       textureWidth: 512,
       textureHeight: 512,
-      waterNormals: new THREE.TextureLoader().load( 'https://d1p3v0j4bqcb21.cloudfront.net/images/waternormals.jpeg', function ( texture ) {
-
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
-      } ),
+      waterNormals: new THREE.TextureLoader().load( 'https://d1p3v0j4bqcb21.cloudfront.net/images/waternormals.jpeg',
+        function ( texture ) {
+          texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      }),
       sunDirection: new THREE.Vector3(),
       sunColor: 0xffffff,
       waterColor: theme.toLocaleLowerCase(),

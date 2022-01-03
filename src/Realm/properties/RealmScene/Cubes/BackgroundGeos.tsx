@@ -3,6 +3,7 @@ import {ReactNode, useEffect} from "react";
 import {Euler, Vector3} from "three";
 import {RlmColor} from "../../../utils/types";
 import {cache} from "./utils/cache";
+import {useRealm} from "../../../components/RealmState";
 
 function BackgroundGeo(props: { color?: string, radius: number, i: number } & GroupProps) {
   const { color = "white", radius = 0, i, ...restProps } = props;
@@ -26,6 +27,7 @@ function BackgroundGeo(props: { color?: string, radius: number, i: number } & Gr
 
 export default function BackgroundsGeos(props: { color?: RlmColor }) {
   const { color = "Red" } = props;
+  const { sky: { type } } = useRealm();
   const cubes: ReactNode[] = []
   const generate = false;
 
@@ -84,6 +86,9 @@ export default function BackgroundsGeos(props: { color?: RlmColor }) {
   return (
     <group name="backgroundGeos">
       {cubes}
+      {type === "Matrix" && <group rotation-x={Math.PI} position-y={-10}>
+        {cubes}
+      </group>}
     </group>
   )
 }

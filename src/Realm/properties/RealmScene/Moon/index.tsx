@@ -36,6 +36,7 @@ export default function Moon() {
       <Earth position={[0, 250, -400]} rotation={[Math.PI/1.75, 0, Math.PI/2]} scale={300} />
       <MoonScape position={[20, -15, 55]} scale={0.1} />
       {/*<Boundary />*/}
+      {/*@ts-ignore*/}
       <DisplayCubes position-y={-1} altAssets={links} />
       {/*<DisplayCube position-y={1} assets={links} />*/}
     </group>
