@@ -8,7 +8,6 @@ export default function Flashlight() {
 
   const { scene } = useThree();
   const flashlight = useRef<any>();
-  const mesh = useRef<any>();
   const depthBuffer = useDepthBuffer({ frames: 1 });
   const player = usePlayer();
   const dummyObj = new Object3D();
@@ -22,16 +21,11 @@ export default function Flashlight() {
     if (limiter.isReady(clock) || !flashlight.current) return;
     flashlight.current.position.lerp(camera.position, 0.1);
     player.raycaster.ray.at(2, targetVec);
-    if (mesh.current) mesh.current.position.lerp(targetVec, 0.05);
     dummyObj.position.lerp(targetVec, 0.1);
   })
 
   return (
     <group>
-      <mesh ref={mesh}>
-        <boxBufferGeometry args={[0.5, 0.5, 0.5]} />
-        <meshStandardMaterial color="green" />
-      </mesh>
       <SpotLight
         ref={flashlight}
         color="#ffffff"
