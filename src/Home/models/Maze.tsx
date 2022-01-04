@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
-import { MeshStandardMaterial } from 'three'
+import { MeshStandardMaterial, MeshLambertMaterial } from 'three'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -17,7 +17,7 @@ type GLTFResult = GLTF & {
     Floor: THREE.Mesh
     Top_Caps: THREE.Mesh
   }
-  materials: {}
+  materials: any
 }
 
 const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/maze-1641249794/maze.glb.gz";
@@ -25,6 +25,9 @@ const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/maze-1641249794/m
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
+
+  const basicMat = new MeshLambertMaterial({ color: "grey", side: THREE.DoubleSide });
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
@@ -35,27 +38,33 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
         <mesh
           name="Wall"
           geometry={nodes.Wall.geometry}
-          material={new MeshStandardMaterial({ color: "red", side: THREE.DoubleSide })}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
-        />
+          castShadow
+          receiveShadow
+        >
+          <meshStandardMaterial color="grey" side={THREE.DoubleSide} />
+        </mesh>
         <mesh
           name="Roof"
           geometry={nodes.Roof.geometry}
-          material={new MeshStandardMaterial({ color: "red", side: THREE.DoubleSide })}
+          material={new MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide })}
           position={[0, 59.785, 0]}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
+          receiveShadow
         />
         <mesh
           name="Floor"
           geometry={nodes.Floor.geometry}
-          material={nodes.Floor.material}
+          material={new MeshStandardMaterial({ color: "grey", side: THREE.DoubleSide })}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
+          receiveShadow
         />
         <mesh
           name="Top_Caps"
           geometry={nodes.Top_Caps.geometry}
           material={nodes.Top_Caps.material}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
+          receiveShadow
         />
       </group>
     </group>

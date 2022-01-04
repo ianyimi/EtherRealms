@@ -19,6 +19,8 @@ export default function Media(props: MediaProps & GroupProps) {
     window.open(link, "_blank");
   }
 
+  const imageMat = new MeshStandardMaterial({ color: imageFrames.toLowerCase() });
+
   return (
     <group {...restProps}>
       <Interactable onClick={visitAsset}>
@@ -28,13 +30,13 @@ export default function Media(props: MediaProps & GroupProps) {
             scale={1.5}
             framed
             muted
-            frameMaterial={new MeshStandardMaterial({ color: imageFrames.toLowerCase() })}
+            frameMaterial={imageMat}
           />
           ) : (<Image
             src={src}
             scale={1.5}
             framed
-            frameMaterial={new MeshStandardMaterial({ color: imageFrames.toLowerCase() })}
+            frameMaterial={imageMat}
           />)}
         </group>
       </Interactable>
