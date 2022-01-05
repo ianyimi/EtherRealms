@@ -21,7 +21,7 @@ type RealmStateContext = {
 } & RealmState
 
 export const RealmContext = createContext({} as RealmStateContext);
-export const useRealm = (): RealmState => useContext(RealmContext);
+export const useRealm = (): RealmStateContext => useContext(RealmContext);
 
 interface RealmStateProps {
   properties: RealmState,

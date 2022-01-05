@@ -19,14 +19,14 @@ export function RealmScene() {
 
   return (
     <group>
-      {/*<ambientLight intensity={1} />*/}
+      <ambientLight intensity={1} />
       {/*<ambientLight intensity={0.05} />*/}
       {name === "Cubes" && <Cubes />}
       {name === "Matrix" && <Matrix />}
       {name === "Moon" && <Moon />}
       {name === "Penthouse" && <Penthouse />}
       {name === "Glacier" && <Glacier />}
-      <Flashlight />
+      {/*<Flashlight />*/}
     </group>
   )
 }

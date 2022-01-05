@@ -1,6 +1,6 @@
 import DisplayCube from "./DisplayCube";
 import fetchAssets from "../../../../utils/fetchAssets";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useRealm } from "../../../../components/RealmState";
 import { GroupProps } from "@react-three/fiber";
 import * as THREE from "three";
@@ -12,9 +12,9 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
   const { radius = 10, altAssets } = props;
   const { id, assets, setAssets, owner, setOwner, currentUser, assetsFetched, setAssetsFetched } = useRealm();
   useEffect(() => {
-    fetchAssets(id, setAssetsFetched).then((assets) => {
-      if (setOwner) setOwner(assets.owner);
-      if (setAssets) setAssets(assets.assets);
+    fetchAssets(id, setAssetsFetched).then((data) => {
+      if (setOwner) setOwner(data.owner);
+      if (setAssets) setAssets(data.assets);
     })
   }, []);
   console.log(assets)
@@ -29,10 +29,6 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
   const cubes = []
   if (assets && !altAssets) {
     for (let i=0; i<assets.length; i+=4) {
-      // if (assets.length-i<4) {
-      //   break;
-      // }
-
       cubes.push(
         <group rotation-y={assets.length%4 === 0 ? 2*i*Math.PI/(assets.length) : 2*i*Math.PI/(assets.length-1)} key={i}>
           <group position-z={0-radius}>
@@ -43,10 +39,6 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
     }
   } else if (altAssets) {
     for (let i=0; i<altAssets.length; i+=4) {
-      // if (altAssets.length-i<4) {
-      //   break;
-      // }
-
       cubes.push(
         <group rotation-y={altAssets.length%4 === 0 ? 2*i*Math.PI/(altAssets.length) : 2*i*Math.PI/(altAssets.length-1)} key={i}>
           <group position-z={0-radius}>
