@@ -6,6 +6,7 @@ import Matrix from "./Matrix";
 import Moon from "./Moon";
 import Penthouse from "./Penthouse";
 import Glacier from "./Glacier";
+import Flashlight from "../../../Home/components/Flashlight";
 
 export function RealmScene() {
 
@@ -25,6 +26,7 @@ export function RealmScene() {
       {name === "Moon" && <Moon />}
       {name === "Penthouse" && <Penthouse />}
       {name === "Glacier" && <Glacier />}
+      {/*<Flashlight />*/}
     </group>
   )
 }

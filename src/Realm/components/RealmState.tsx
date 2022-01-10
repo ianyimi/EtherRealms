@@ -15,8 +15,13 @@ type RealmState = {
   setCurrentUser?: Dispatch<SetStateAction<Record<string, any>>>,
 }
 
-export const RealmContext = createContext({} as RealmState);
-export const useRealm = (): RealmState => useContext(RealmContext);
+type RealmStateContext = {
+  assetsFetched: boolean,
+  setAssetsFetched: Dispatch<SetStateAction<boolean>>
+} & RealmState
+
+export const RealmContext = createContext({} as RealmStateContext);
+export const useRealm = (): RealmStateContext => useContext(RealmContext);
 
 interface RealmStateProps {
   properties: RealmState,
@@ -28,8 +33,19 @@ export default function RealmState(props: RealmStateProps) {
   const [assets, setAssets] = useState<Record<string, any>[]>([])
   const [owner, setOwner] = useState<Record<string, any>>()
   const [currentUser, setCurrentUser] = useState<Record<string, any>>()
+  const [assetsFetched, setAssetsFetched] = useState(false)
   return (
-    <RealmContext.Provider value={{ ...properties, assets, setAssets, owner, setOwner, currentUser, setCurrentUser }}>
+    <RealmContext.Provider value={{
+      ...properties,
+      assets,
+      setAssets,
+      owner,
+      setOwner,
+      currentUser,
+      setCurrentUser,
+      assetsFetched,
+      setAssetsFetched
+    }}>
       {children}
     </RealmContext.Provider>
   )
