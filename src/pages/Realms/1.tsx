@@ -6,9 +6,9 @@ export default function StarterPage() {
     id: 1500,
     scene: "Cubes",
     sky: {
-      type: "Night",
+      type: "Matrix",
       primaryColor: "Green",
-      secondaryColor: "Black"
+      secondaryColor: "Blue"
     },
     imageFrames: "White",
     effects: {
