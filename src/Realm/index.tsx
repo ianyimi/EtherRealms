@@ -30,7 +30,7 @@ function getScene(name: SceneName): RlmScene {
 const appId = "NOlSQswppn0DcsqCkZ2rSk1tZfUqUUpgSlD19k3d",
   serverUrl = "https://egsjdipavoga.usemoralis.com:2053/server";
 
-export default function Realm(props: { properties: RealmProps}) {
+export default function Realm(props: { properties: RealmProps }) {
   const { properties } = props;
   const sceneObj = getScene(properties.scene as SceneName)
   return (

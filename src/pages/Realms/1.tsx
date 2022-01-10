@@ -8,7 +8,7 @@ export default function StarterPage() {
     sky: {
       type: "Matrix",
       primaryColor: "Green",
-      secondaryColor: "Black"
+      secondaryColor: "Blue"
     },
     imageFrames: "White",
     effects: {

@@ -6,7 +6,9 @@ export default function StarterPage() {
     id: 2745,
     scene: "Moon",
     sky: {
-      type: "Night"
+      type: "Night",
+      primaryColor: "Green",
+      secondaryColor: "Black"
     },
     imageFrames: "White",
     effects: {

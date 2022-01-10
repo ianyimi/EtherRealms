@@ -1,28 +1,34 @@
 import DisplayCube from "./DisplayCube";
 import fetchAssets from "../../../../utils/fetchAssets";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRealm } from "../../../../components/RealmState";
-import {GroupProps} from "@react-three/fiber";
+import { GroupProps } from "@react-three/fiber";
+import * as THREE from "three";
+import { animated, useSpring } from "react-spring/three";
 
 export default function DisplayCubes(props: { radius?: number, altAssets?: Record<string, any>[] } & GroupProps) {
 
+  const group = useRef<THREE.Group>();
   const { radius = 10, altAssets } = props;
-  const { id, assets, setAssets, owner, setOwner, currentUser } = useRealm();
+  const { id, assets, setAssets, owner, setOwner, currentUser, assetsFetched, setAssetsFetched } = useRealm();
   useEffect(() => {
-    fetchAssets(id).then((assets) => {
-      if (setOwner) setOwner(assets.owner);
-      if (setAssets) setAssets(assets.assets);
+    fetchAssets(id, setAssetsFetched).then((data) => {
+      if (setOwner) setOwner(data.owner);
+      if (setAssets) setAssets(data.assets);
     })
   }, []);
   console.log(assets)
 
+  const { posY } = useSpring({
+    posY: assetsFetched ? 0 : -5,
+    config: {
+      mass: 3
+    }
+  })
+
   const cubes = []
   if (assets && !altAssets) {
     for (let i=0; i<assets.length; i+=4) {
-      // if (assets.length-i<4) {
-      //   break;
-      // }
-
       cubes.push(
         <group rotation-y={assets.length%4 === 0 ? 2*i*Math.PI/(assets.length) : 2*i*Math.PI/(assets.length-1)} key={i}>
           <group position-z={0-radius}>
@@ -33,10 +39,6 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
     }
   } else if (altAssets) {
     for (let i=0; i<altAssets.length; i+=4) {
-      // if (altAssets.length-i<4) {
-      //   break;
-      // }
-
       cubes.push(
         <group rotation-y={altAssets.length%4 === 0 ? 2*i*Math.PI/(altAssets.length) : 2*i*Math.PI/(altAssets.length-1)} key={i}>
           <group position-z={0-radius}>
@@ -46,9 +48,12 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
       )
     }
   }
+
   return (
-    <group name="displayCubes" {...props}>
-      {cubes}
+    <group name="displayCubes"  {...props}>
+      <animated.group position-y={posY} ref={group}>
+        {cubes}
+      </animated.group>
     </group>
   )
 }

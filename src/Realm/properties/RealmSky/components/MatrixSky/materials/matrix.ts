@@ -42,7 +42,7 @@ const vert = `
 `;
 
 const frag = `
-  #define fogNear 0.
+  #define fogNear 200.
   #define fogFar 500.
   // #define fogColor vec3(0., 0., 0.)
 
@@ -99,7 +99,7 @@ const frag = `
             curRGB = curRGB * u;
     }
     else
-        curRGB = vec3( 0.0, 0.0, 0.0 );
+        curRGB = fogColor;
 
     gl_FragColor = vec4(curRGB.x, curRGB.y, curRGB.z, 1.0);
     
