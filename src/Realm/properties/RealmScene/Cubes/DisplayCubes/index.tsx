@@ -48,7 +48,6 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
       )
     }
   }
-
   return (
     <group name="displayCubes"  {...props}>
       <animated.group position-y={posY} ref={group}>

@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction } from "react";
 const CONTRACT_ADDRESS = "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d" // BAYC
 
 export default async function fetchAssets(tokenId: number, setAssetsFetched: Dispatch<SetStateAction<boolean>>) {
-
+  
   const data = await fetch(`https://api.opensea.io/api/v1/asset/${CONTRACT_ADDRESS}/${tokenId}/`)
   if (!data.ok) console.error("Error fetching contract data");
   const contract = await data.json();
