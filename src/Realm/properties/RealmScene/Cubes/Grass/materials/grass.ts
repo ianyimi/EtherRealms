@@ -24,7 +24,7 @@ export const useGrassMat = (mainColor: string, rootColor: string, height: number
         vertexShader: vert,
         fragmentShader: frag,
         side: THREE.DoubleSide,
-        fog: true,
+        // fog: true,
         extensions: {
           shaderTextureLOD: true
         }

@@ -39,7 +39,7 @@ export default function Realm(props: { properties: RealmProps }) {
       <StandardEnvironment
         dev={process.env.NODE_ENV === "development"}
         canvasProps={{ camera: { far: 1000 } }}
-        playerProps={{ pos: [0, 3, 0], controls: { disableGyro: true } }}
+        playerProps={{ pos: sceneObj.start, controls: { disableGyro: true } }}
         physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
         // disableGround
       >

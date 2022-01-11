@@ -25,10 +25,10 @@ export default function Grass({ options = { bW: 0.12, bH: 1, joints: 5 }, width 
     geo.computeVertexNormals()
     return geo.toBufferGeometry()
   }, [width])
-  const grassMat = useGrassMat("white", "green", 1)
+  const grassMat = useGrassMat("blue", "red", 1)
   return (
     <group {...restProps}>
-      <mesh material={grassMat}>
+      <mesh frustumCulled={false} material={grassMat}>
         <instancedBufferGeometry index={baseGeom.index} attributes-position={baseGeom.attributes.position} attributes-uv={baseGeom.attributes.uv}>
           <instancedBufferAttribute attachObject={["attributes", "offset"]} args={[new Float32Array(attributeData.offsets), 3]} />
           <instancedBufferAttribute attachObject={["attributes", "orientation"]} args={[new Float32Array(attributeData.orientations), 4]} />
@@ -38,7 +38,7 @@ export default function Grass({ options = { bW: 0.12, bH: 1, joints: 5 }, width 
         </instancedBufferGeometry>
       </mesh>
       <mesh position={[0, 0, 0]} geometry={groundGeo}>
-        <meshStandardMaterial color="#000f00" />
+        <meshStandardMaterial color="#000000" side={THREE.DoubleSide} />
       </mesh>
     </group>
   )

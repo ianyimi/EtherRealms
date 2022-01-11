@@ -19,8 +19,8 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
   }, []);
   console.log(assets)
 
-  const { posY } = useSpring({
-    posY: assetsFetched ? 0 : -5,
+  const { scale } = useSpring({
+    scale: assetsFetched ? 1 : 0,
     config: {
       mass: 3
     }
@@ -50,7 +50,7 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
   }
   return (
     <group name="displayCubes"  {...props}>
-      <animated.group position-y={posY} ref={group}>
+      <animated.group scale={scale} ref={group}>
         {cubes}
       </animated.group>
     </group>
