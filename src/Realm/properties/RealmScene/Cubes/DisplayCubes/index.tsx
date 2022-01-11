@@ -31,9 +31,9 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
     for (let i=0; i<assets.length; i+=4) {
       cubes.push(
         <group rotation-y={assets.length%4 === 0 ? 2*i*Math.PI/(assets.length) : 2*i*Math.PI/(assets.length-1)} key={i}>
-          <group position-z={0-radius}>
+          <animated.group scale={scale} position-z={0-radius}>
             <DisplayCube assets={[assets[i], assets[i+1] || null, assets[i+2] || null, assets[i+3] || null]} position-y={1} />
-          </group>
+          </animated.group>
         </group>
       )
     }
@@ -41,18 +41,16 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
     for (let i=0; i<altAssets.length; i+=4) {
       cubes.push(
         <group rotation-y={altAssets.length%4 === 0 ? 2*i*Math.PI/(altAssets.length) : 2*i*Math.PI/(altAssets.length-1)} key={i}>
-          <group position-z={0-radius}>
+          <animated.group scale={scale} position-z={0-radius}>
             <DisplayCube assets={[altAssets[i], altAssets[i+1] || null, altAssets[i+2] || null, altAssets[i+3] || null]} />
-          </group>
+          </animated.group>
         </group>
       )
     }
   }
   return (
     <group name="displayCubes"  {...props}>
-      <animated.group scale={scale} ref={group}>
-        {cubes}
-      </animated.group>
+      {cubes}
     </group>
   )
 }
