@@ -2,6 +2,7 @@ export type RlmColor = "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple"
 export type SceneName = "Maze" | "Penthouse" | "Cubes" | "Matrix" | "Moon" | "Warehouse" | "Field" | "Mansion" | "Mars" | "Glacier";
 export type RlmScene = {
   name: SceneName,
+  start: [number, number, number],
   theme?: RlmColor,
   type: "Indoor" | "Outdoor" | "???",
   size: "Petite" | "Mediocre" | "Immense" | "Galactic"

@@ -39,18 +39,18 @@ export default function Realm(props: { properties: RealmProps }) {
       <StandardEnvironment
         dev={process.env.NODE_ENV === "development"}
         canvasProps={{ camera: { far: 1000 } }}
-        playerProps={{ pos: [0, 3, 0], controls: { disableGyro: true } }}
+        playerProps={{ pos: sceneObj.start, controls: { disableGyro: true } }}
         physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
         // disableGround
       >
-        {/*<Debug color="red" scale={1}>*/}
+        <Debug color="red" scale={1}>
           <RealmState properties={{...properties, scene: {...sceneObj}}}>
             <RealmSky />
             <RealmScene />
             <PostProcessing />
             <Preload all />
           </RealmState>
-        {/*</Debug>*/}
+        </Debug>
       </StandardEnvironment>
     // </MoralisProvider>
   );
