@@ -8,6 +8,8 @@ import { SceneName, RlmScene, RlmSky, ImageFrame, RlmEffect } from "./utils/type
 import { Scenes } from "./utils/constants";
 import { MoralisProvider } from "react-moralis";
 import { Preload } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Physics } from "@react-three/cannon";
 
 export interface RealmProps {
   id: number,
@@ -36,22 +38,26 @@ export default function Realm(props: { properties: RealmProps }) {
   return (
     // <MoralisProvider appId={appId} serverUrl={serverUrl}>
     //   <ConnectWallet />
-      <StandardEnvironment
-        dev={process.env.NODE_ENV === "development"}
-        canvasProps={{ camera: { far: 1000 } }}
-        playerProps={{ pos: sceneObj.start, controls: { disableGyro: true } }}
-        physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
-        // disableGround
-      >
-        <Debug color="red" scale={1}>
-          <RealmState properties={{...properties, scene: {...sceneObj}}}>
-            <RealmSky />
-            <RealmScene />
-            <PostProcessing />
-            <Preload all />
-          </RealmState>
-        </Debug>
-      </StandardEnvironment>
+    //   <StandardEnvironment
+    //     dev={process.env.NODE_ENV === "development"}
+    //     canvasProps={{ camera: { far: 1000 } }}
+    //     playerProps={{ pos: sceneObj.start, controls: { disableGyro: true } }}
+    //     physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
+    //     // disableGround
+    //   >
+        <Canvas>
+          <Physics>
+            <Debug color="red" scale={1}>
+              <RealmState properties={{...properties, scene: {...sceneObj}}}>
+                <RealmSky />
+                <RealmScene />
+                <PostProcessing />
+                <Preload all />
+              </RealmState>
+            </Debug>
+          </Physics>
+        </Canvas>
+      // </StandardEnvironment>
     // </MoralisProvider>
   );
 }
