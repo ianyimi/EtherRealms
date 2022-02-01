@@ -3,6 +3,7 @@ import CloudySky from "./components/CloudySky";
 import MatrixSky from "./components/MatrixSky";
 import RainbowSky from "./components/RainbowSky";
 import PortalSky from "./components/PortalSky";
+import MilkyWaySky from "./components/MilkyWaySky";
 import { Sky, Stars } from "@react-three/drei";
 
 export function RealmSky() {
@@ -13,7 +14,8 @@ export function RealmSky() {
     matrix = type === "Matrix",
     rainbow = type === "Rainbow",
     portal = type === "Portal",
-    cloudy = type === "Cloudy";
+    cloudy = type === "Cloudy",
+    milkyway = type === "Milky Way";
 
   return (
     <group name="realmSky">
@@ -23,6 +25,7 @@ export function RealmSky() {
       {matrix && <MatrixSky color={primaryColor && primaryColor.toLowerCase()} />}
       {portal && <PortalSky mainColor={primaryColor && primaryColor.toLowerCase()} backgroundColor={secondaryColor && secondaryColor.toLowerCase()} />}
       {cloudy && <CloudySky color={primaryColor && primaryColor.toLowerCase()} />}
+      {milkyway && <MilkyWaySky mainColor={primaryColor && primaryColor.toLowerCase()} backgroundColor={secondaryColor && secondaryColor.toLowerCase()} />}
     </group>
   )
 }

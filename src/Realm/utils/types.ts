@@ -8,7 +8,7 @@ export type RlmScene = {
   size: "Petite" | "Mediocre" | "Immense" | "Galactic"
 }
 export type RlmSky = {
-  type: "Basic" | "Day" | "Night" | "Matrix" | "Rainbow" | "Galaxy" | "Portal" | "Cloudy",
+  type: "Basic" | "Day" | "Night" | "Matrix" | "Rainbow" | "Galaxy" | "Portal" | "Cloudy" | "Milky Way",
   primaryColor?: RlmColor,
   secondaryColor?: RlmColor
 };

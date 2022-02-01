@@ -6,7 +6,7 @@ export default function StarterPage() {
     id: 1500,
     scene: "Cubes",
     sky: {
-      type: "Portal",
+      type: "Milky Way",
       primaryColor: "Green",
       secondaryColor: "Blue"
     },
