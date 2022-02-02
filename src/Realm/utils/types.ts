@@ -8,9 +8,13 @@ export type RlmScene = {
   size: "Petite" | "Mediocre" | "Immense" | "Galactic"
 }
 export type RlmSky = {
-  type: "Basic" | "Day" | "Night" | "Matrix" | "Rainbow" | "Galaxy" | "Portal" | "Cloudy" | "Milky Way",
+  type: "Basic" | "Day" | "Night" | "Matrix" | "Rainbow" | "Galaxy" | "Portal" | "Cloudy" | "Milky Way" | "Heatwave",
   primaryColor?: RlmColor,
-  secondaryColor?: RlmColor
+  secondaryColor?: RlmColor,
+  tertiaryColor?: RlmColor,
+  speed?: number,
+  permutations?: number,
+  iterations?: number,
 };
 export type EffectName = "Fog" | "Particles" | "Birds" | "Birds" | "Lanterns";
 export type RlmEffect = {

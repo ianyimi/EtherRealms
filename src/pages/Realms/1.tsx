@@ -6,9 +6,13 @@ export default function StarterPage() {
     id: 1500,
     scene: "Cubes",
     sky: {
-      type: "Milky Way",
-      primaryColor: "Green",
-      secondaryColor: "Blue"
+      type: "Heatwave",
+      primaryColor: "Red",
+      secondaryColor: "White",
+      tertiaryColor: "Purple",
+      speed: Math.random()+0.25,
+      permutations: Math.random()*10,
+      iterations: Math.random()*10
     },
     imageFrames: "White",
     effects: {
