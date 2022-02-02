@@ -44,7 +44,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
     .rotateX(Math.PI/2)
     .scale(0.0232, 0.0232, 0.0232)
     .scale(30, 30, 30)
-    .translate(0, -1.5, 0)
+    .translate(0, -3, 0)
   );
 
   return (

@@ -1,4 +1,4 @@
-export type RlmColor = "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple" | "White" | "Grey" | "Black";
+export type RlmColor = "Red" | "Orange" | "Yellow" | "Green" | "Blue" | "Purple" | "Pink" | "White" | "Grey" | "Black";
 export type SceneName = "Maze" | "Penthouse" | "Cubes" | "Matrix" | "Moon" | "Warehouse" | "Field" | "Mansion" | "Mars" | "Glacier";
 export type RlmScene = {
   name: SceneName,

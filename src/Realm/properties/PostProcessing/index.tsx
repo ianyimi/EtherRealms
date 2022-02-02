@@ -11,7 +11,7 @@ export function PostProcessing() {
   return (
     <group>
       <Fog />
-      {/*<Fireflies count={100} scale={5} color="lightgreen" size={200} />*/}
+      {effects?.name === "Particles" && <Fireflies count={100} scale={5} color={effects?.color.toLowerCase() || "white"} size={200} />}
       {/*<VolumetricLights />*/}
       <EffectComposer
         multisampling={0}

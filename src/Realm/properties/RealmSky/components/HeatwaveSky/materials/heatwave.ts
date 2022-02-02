@@ -55,8 +55,8 @@ const vert = `
 `;
 
 const frag = glsl`
-    precision highp float;
-    precision highp int;
+    precision mediump float;
+    precision mediump int;
     
     // (sqrt(5) - 1)/4 = F4, used once below
     #define F4 0.309016994374947451

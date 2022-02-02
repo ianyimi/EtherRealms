@@ -5,15 +5,24 @@ export default function StarterPage() {
   return <Realm properties={{
     id: 1500,
     scene: "Glacier",
+    // sky: {
+    //   type: "Night",
+    //   primaryColor: "Red",
+    //   secondaryColor: "Black"
+    // },
     sky: {
-      type: "Night",
+      type: "Milky Way",
       primaryColor: "Red",
-      secondaryColor: "Black"
+      secondaryColor: "White",
+      tertiaryColor: "Purple",
+      speed: Math.random()+0.25,
+      permutations: Math.random()*10,
+      iterations: Math.random()*10
     },
     imageFrames: "White",
     effects: {
-      name: "Fog",
-      color: "Black"
+      name: "Particles",
+      color: "Pink"
     }
   }} />;
 };
