@@ -12,6 +12,7 @@
     "process-gltf": "bash ./scripts/process-gltf.sh"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.1.12",
     "@react-three/drei": "7.21.1",
     "@react-three/fiber": "6.0.14",
     "@react-three/postprocessing": "^2.0.5",

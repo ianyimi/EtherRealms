@@ -1,5 +1,5 @@
 import DisplayCube from "./DisplayCube";
-import fetchAssets from "../../../../utils/fetchAssets";
+import fetchAssets from "utils/fetchAssets";
 import { useEffect, useRef } from "react";
 import { useRealm } from "../../../../components/RealmState";
 import { GroupProps } from "@react-three/fiber";
