@@ -3,12 +3,13 @@ import * as THREE from "three";
 import {GroupProps, useFrame} from "@react-three/fiber";
 import {useEffect, useRef} from "react";
 import {useLimiter} from "spacesvr";
-import {useRealm} from "../../../../components/RealmState";
+import {useRealm} from "../Realm/components/RealmState";
 
-export default function WaterPlane(props: GroupProps) {
+export default function WaterPlane(props: { color: string } & GroupProps) {
 
+  const { color = "0x001e0f" } = props;
   const group = useRef();
-  const { scene: { theme = "0x001e0f" } } = useRealm();
+  // const { scene: { theme = "0x001e0f" } } = useRealm();
   const waterGeometry = new THREE.PlaneGeometry( 750, 750 );
 
   const water = new Water(waterGeometry,
@@ -21,7 +22,7 @@ export default function WaterPlane(props: GroupProps) {
       }),
       sunDirection: new THREE.Vector3(),
       sunColor: 0xffffff,
-      waterColor: theme.toLocaleLowerCase(),
+      waterColor: color,
       distortionScale: 3.7,
       side: THREE.DoubleSide,
       fog: true

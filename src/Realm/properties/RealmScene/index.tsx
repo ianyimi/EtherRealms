@@ -6,7 +6,7 @@ import Matrix from "./Matrix";
 import Moon from "./Moon";
 import Penthouse from "./Penthouse";
 import Glacier from "./Glacier";
-import Flashlight from "../../../Home/components/Flashlight";
+import Flashlight from "../../../Labyrinth/components/Flashlight";
 
 export function RealmScene() {
 
