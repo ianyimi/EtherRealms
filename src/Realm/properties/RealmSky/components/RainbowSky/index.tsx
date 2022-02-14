@@ -23,7 +23,7 @@ export default function CloudySky(props: GradientSky) {
   const mat = useSkyMat();
 
   return (
-    <group {...restProps} name="cloudy-sky">
+    <group {...restProps} rotation-x={-Math.PI/2} name="cloudy-sky">
       <mesh material={mat}>
         <sphereBufferGeometry args={[radius, 50, 50]} />
       </mesh>

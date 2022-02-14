@@ -123,7 +123,8 @@ const frag = `
   }
   
   void main() {
-    vec2 uv = (2. * gl_FragCoord.xy - resolution.xy) / resolution.y;
+    // vec2 uv = (2. * gl_FragCoord.xy - resolution.xy) / resolution.y;
+    vec2 uv = vUv*3.;
     vec4 r0 = field(uv, vec2( .0, .0), 1.66);
     vec4 r1 = field(uv, vec2( .33, .33), 1.66);
     vec4 r2 = field(uv, vec2( .33, -.33), 1.66);
