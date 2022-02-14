@@ -5,8 +5,8 @@ import * as THREE from "three";
 
 export default function MagicMirror(props: { children: any, args?: [width: number | undefined, height: number | undefined] } & GroupProps) {
   const { children, args = [3, 3], ...restProps } = props;
-  const cam = useRef();
-  const plane = useRef();
+  const cam = useRef<THREE.PerspectiveCamera>();
+  const plane = useRef<THREE.Group>();
   // useFBO creates a WebGL2 buffer for us, it's a helper from the "drei" library
   const fbo = useFBO()
   // The is a separate scene that we create, React will portal into that
@@ -20,6 +20,7 @@ export default function MagicMirror(props: { children: any, args?: [width: numbe
   scene.add(tempCam);
 
   useFrame((state) => {
+    if (!plane.current || !cam.current) return;
     tempCam.position.set(tempCam.position.x, 1, state.camera.position.z);
     tempCam.lookAt(plane?.current.position.x, 1, plane?.current.position.z);
     // Our portal has its own camera, but we copy the originals world matrix
@@ -33,8 +34,10 @@ export default function MagicMirror(props: { children: any, args?: [width: numbe
   })
 
   return (
-    <>
+    <group>
+      {/* @ts-ignore */}
       <mesh ref={plane} {...restProps}>
+        {/* @ts-ignore */}
         <planeGeometry args={args} />
         {/* The "mirror" is just a boring plane, but it receives the buffer texture */}
         <meshBasicMaterial map={fbo.texture} />
@@ -42,6 +45,6 @@ export default function MagicMirror(props: { children: any, args?: [width: numbe
       <PerspectiveCamera manual ref={cam} fov={30} aspect={args[0] / args[1]} onUpdate={(c) => c.updateProjectionMatrix()} />
       {/* This is React being awesome, we portal this components children into the separate scene above */}
       {createPortal(children, newScene)}
-    </>
+    </group>
   )
 }

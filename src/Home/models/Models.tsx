@@ -1,27 +1,29 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
+import * as THREE from "three"
 
-export function Farm(props) {
+export function Farm(props: any) {
   const { scene } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/low-poly-farm/model.gltf')
   return <primitive object={scene} {...props} />
 }
 
-export function Ramen(props) {
+export function Ramen(props: any) {
   const { scene } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/bowl-broth/model.gltf')
   return <primitive object={scene} {...props} />
 }
 
-export function Soda(props) {
+export function Soda(props: any) {
   const { scene } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/soda-bottle/model.gltf')
   return <primitive object={scene} {...props} />
 }
 
-export function Heli(props) {
-  const group = useRef()
+export function Heli(props: any) {
+  const group = useRef<THREE.Group>()
   const fin = useRef()
 
   // Load the gltf model
+  // @ts-ignore
   const { nodes, materials } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/helicopter/model.gltf')
 
   useFrame((state, delta) => {
@@ -30,8 +32,10 @@ export function Heli(props) {
 
     // Rotate fins
     const t = state.clock.getElapsedTime()
+    // @ts-ignore
     fin.current.rotation.y += delta * 20
 
+    if (!group.current) return;
     // Make it float
     group.current.rotation.z = Math.sin(t / 1.5) / 5
     group.current.rotation.x = Math.cos(t) / 5

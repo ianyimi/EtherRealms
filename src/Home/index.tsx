@@ -24,6 +24,7 @@ export default function Home() {
         <ambientLight intensity={1} />
         <Water color="0x001e0f" position-y={-5} />
         {/*<Portal />*/}
+        {/* @ts-ignore */}
         <MagicMirror position={[0, 0, 0]} args={[10, 10]} rotation-y={-Math.PI/2}>
           <color attach="background" args={['#000000']} />
           <ambientLight intensity={1} />
