@@ -63,7 +63,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           <group name="Light" position={[15.3891, 24.7436, -3.4052]} rotation={[1.8901, 0.8806, -2.0452]} />
           <group name="Camera" position={[74.2917, 19.2689, 15.3512]} rotation={[1.5305, 0.2056, -1.3759]} />
           <group name="Court" position={[-2.4588, 0, 0]} scale={[41.6274, 1, 24.3867]}>
-            <mesh name="Plane" geometry={nodes.Plane.geometry} material={materials.Court} />
+            {/*<mesh name="Plane" geometry={nodes.Plane.geometry} material={materials.Court} />*/}
             <mesh name="Plane_1" geometry={nodes.Plane_1.geometry} material={materials.Board} />
             <mesh name="Plane_2" geometry={nodes.Plane_2.geometry} material={materials['Frame Colour']} />
             <mesh name="Plane_3" geometry={nodes.Plane_3.geometry} material={materials.Stand} />
