@@ -27,7 +27,7 @@ export default function BrandLogo(props?: GroupProps) {
         <textBufferGeometry args={["EtherRealms", config]} />
         <meshStandardMaterial metalness={0.2} roughness={0.3} color="white" />
       </mesh>
-      <ambientLight ref={light} />
+      <ambientLight ref={light} intensity={0.625} />
       <EffectComposer
         multisampling={0}
         disableNormalPass
