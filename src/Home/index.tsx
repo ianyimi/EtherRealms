@@ -2,11 +2,14 @@ import { StandardEnvironment } from "spacesvr";
 import Gate from "./models/Gate";
 // import Flashlight from "./components/Flashlight";
 import { Debug } from "@react-three/cannon";
-import { Box, Stars } from "@react-three/drei";
+import { Box, Stars, Text } from "@react-three/drei";
 import Water from "ideas/Water";
 import Portal from "./Portal";
 import MagicMirror from "ideas/MagicMirror";
 import { Ramen, Soda, Farm, Heli } from './models/Models';
+import BrandLogo from "./components/BrandLogo";
+
+const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
 
 export default function Home() {
   return (
@@ -23,6 +26,19 @@ export default function Home() {
         {/*<Box args={[1, 1, 1]} />*/}
         <ambientLight intensity={1} />
         <Water color="0x001e0f" position-y={-5} />
+        {/*<Text*/}
+        {/*  position={[-3, 4, 0]}*/}
+        {/*  rotation-y={-Math.PI/2}*/}
+        {/*  color="white"*/}
+        {/*  outlineColor="brown"*/}
+        {/*  outlineWidth={0.1}*/}
+        {/*  fontSize={3}*/}
+        {/*  font={FONT}*/}
+        {/*  letterSpacing={0.1}*/}
+        {/*>*/}
+        {/*  EtherRealms*/}
+        {/*</Text>*/}
+        <BrandLogo position={[-30, 3, -30]}/>
         {/*<Portal />*/}
         {/* @ts-ignore */}
         <MagicMirror position={[0, 0, 0]} args={[10, 10]} rotation-y={-Math.PI/2}>
