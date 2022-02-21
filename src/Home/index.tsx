@@ -1,5 +1,6 @@
 import { StandardEnvironment, Fog } from "spacesvr";
 import Gate from "./models/Gate";
+import Boards from "./components/Boards";
 // import Flashlight from "./components/Flashlight";
 import { Debug } from "@react-three/cannon";
 import { Box, Stars, Text } from "@react-three/drei";
@@ -27,18 +28,19 @@ export default function Home() {
         <Water color="0x001e0f" position-y={-5} />
         <BrandLogo position={[0, 30, -57.5]} rotation-y={-Math.PI/2} />
         <Fog color={new THREE.Color("black")} near={25} far={150} />
+        <Boards />
         {/*<Portal />*/}
         {/* @ts-ignore */}
-        <MagicMirror position={[0, 0, 0]} args={[10, 10]} rotation-y={-Math.PI/2}>
-          <color attach="background" args={['#000000']} />
-          <ambientLight intensity={1} />
-          <pointLight position={[20, 30, 10]} />
-          <pointLight position={[-10, -10, -10]} color="blue" />
-          <group rotation-y={-Math.PI/2}>
-            <Farm />
-            <Heli />
-          </group>
-        </MagicMirror>
+        {/*<MagicMirror position={[0, 0, 0]} args={[10, 10]} rotation-y={-Math.PI/2}>*/}
+        {/*  <color attach="background" args={['#000000']} />*/}
+        {/*  <ambientLight intensity={1} />*/}
+        {/*  <pointLight position={[20, 30, 10]} />*/}
+        {/*  <pointLight position={[-10, -10, -10]} color="blue" />*/}
+        {/*  <group rotation-y={-Math.PI/2}>*/}
+        {/*    <Farm />*/}
+        {/*    <Heli />*/}
+        {/*  </group>*/}
+        {/*</MagicMirror>*/}
         {/*<Flashlight />*/}
       </Debug>
     </StandardEnvironment>
