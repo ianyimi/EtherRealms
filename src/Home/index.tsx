@@ -23,22 +23,8 @@ export default function Home() {
       <Debug scale={1} color="red">
         <Stars />
         <Gate scale={3} position-y={6} />
-        {/*<Box args={[1, 1, 1]} />*/}
-        <ambientLight intensity={1} />
         <Water color="0x001e0f" position-y={-5} />
-        {/*<Text*/}
-        {/*  position={[-3, 4, 0]}*/}
-        {/*  rotation-y={-Math.PI/2}*/}
-        {/*  color="white"*/}
-        {/*  outlineColor="brown"*/}
-        {/*  outlineWidth={0.1}*/}
-        {/*  fontSize={3}*/}
-        {/*  font={FONT}*/}
-        {/*  letterSpacing={0.1}*/}
-        {/*>*/}
-        {/*  EtherRealms*/}
-        {/*</Text>*/}
-        <BrandLogo position={[-30, 3, -30]}/>
+        <BrandLogo position={[0, 30, -60]} rotation-y={-Math.PI/2} />
         {/*<Portal />*/}
         {/* @ts-ignore */}
         <MagicMirror position={[0, 0, 0]} args={[10, 10]} rotation-y={-Math.PI/2}>
@@ -51,7 +37,6 @@ export default function Home() {
             <Heli />
           </group>
         </MagicMirror>
-        {/*<ambientLight intensity={0.1} />*/}
         {/*<Flashlight />*/}
       </Debug>
     </StandardEnvironment>
