@@ -9,6 +9,7 @@ import Portal from "./Portal";
 import MagicMirror from "ideas/MagicMirror";
 import { Ramen, Soda, Farm, Heli } from './models/Models';
 import BrandLogo from "./components/BrandLogo";
+import PauseMenu from "styles/PauseMenu";
 import * as THREE from "three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
@@ -16,10 +17,12 @@ const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
 export default function Home() {
   return (
     <StandardEnvironment
-      dev={process.env.NODE_ENV === "development"}
+      // dev={process.env.NODE_ENV === "development"}
+      dev={false}
       canvasProps={{ camera: { far: 1000 } }}
       playerProps={{ pos: [-80, 1, 0], rot: -Math.PI/2, speed: 10, controls: { disableGyro: true } }}
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
+      pauseMenu={<PauseMenu />}
       // disableGround
     >
       <Debug scale={1} color="red">
