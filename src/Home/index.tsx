@@ -17,8 +17,6 @@ const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
 export default function Home() {
   return (
     <StandardEnvironment
-      // dev={process.env.NODE_ENV === "development"}
-      dev={false}
       canvasProps={{ camera: { far: 1000 } }}
       playerProps={{ pos: [-80, 1, 0], rot: -Math.PI/2, speed: 10, controls: { disableGyro: true } }}
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}

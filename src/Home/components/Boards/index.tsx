@@ -8,25 +8,27 @@ export default function Boards() {
 
   const [inRange, setRange] = useState(false);
   const { posY } = useSpring({
-    posY: 1,
+    posY: inRange ? 1 : -15,
     config: {
-      mass: 1
+      mass: 5
     }
   })
 
   const zeroVec = new Vector3(0, 0, 0);
   useFrame(({ camera }) => {
-    // console.log(camera.position.distanceToSquared(new Vector3(0, 0, 0)))
     if (!inRange && camera.position.distanceToSquared(zeroVec) < 4000) {
       setRange(true);
-    } else if (inRange) {
+    } else if (inRange && camera.position.distanceToSquared(zeroVec) >= 4000) {
       setRange(false);
     }
   })
 
   return (
     <animated.group position-y={posY}>
-      <Board position-x={-20} />
+      <Board position={[-30, 0, -25]} rotation-y={Math.PI/2} />
+      <Board position={[-10, 0, -20]} rotation-y={Math.PI/4} />
+      <Board position={[-10, 0, 20]} rotation-y={-Math.PI/4} />
+      <Board position={[-30, 0, 25]} rotation-y={-Math.PI/2} />
     </animated.group>
   )
 }

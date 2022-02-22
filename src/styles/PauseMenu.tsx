@@ -108,8 +108,8 @@ const Continue = styled.div<{ color: string }>`
 
 export default function PauseMenu() {
 
-  // const dev = process.env.NODE_ENV === "development";
-  const dev = false;
+  const dev = process.env.NODE_ENV === "development";
+  // const dev = false;
   const { paused, overlay, setPaused, menuItems } = useEnvironment();
   const layout = useKeyboardLayout();
   const closeOverlay = () => setPaused(false);
