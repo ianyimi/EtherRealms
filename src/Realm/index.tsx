@@ -33,14 +33,14 @@ export default function Realm(props: { properties: RealmProps }) {
         physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
         // disableGround
       >
-        {/*<Debug color="red" scale={1}>*/}
+        <Debug color="red" scale={1}>
           <RealmState properties={{...properties, scene: {...sceneObj}}}>
             <RealmSky />
             <RealmScene />
             <PostProcessing />
             <Preload all />
           </RealmState>
-        {/*</Debug>*/}
+        </Debug>
       </StandardEnvironment>
     // </MoralisProvider>
   );
