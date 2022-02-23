@@ -6,6 +6,7 @@ import ConnectWallet from "./components/ConnectWallet";
 import { RealmScene, RealmSky, PostProcessing } from "./properties";
 import { SceneName, RlmScene, RlmSky, ImageFrame, RlmEffect } from "./utils/types";
 import { getScene } from "./utils/constants";
+import PauseMenu from "styles/PauseMenu";
 import { MoralisProvider } from "react-moralis";
 import { Preload } from "@react-three/drei";
 
@@ -27,20 +28,20 @@ export default function Realm(props: { properties: RealmProps }) {
     // <MoralisProvider appId={appId} serverUrl={serverUrl}>
     //   <ConnectWallet />
       <StandardEnvironment
-        dev={process.env.NODE_ENV === "development"}
         canvasProps={{ camera: { far: 1000 } }}
         playerProps={{ pos: sceneObj.start, controls: { disableGyro: true } }}
         physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
+        pauseMenu={<PauseMenu />}
         // disableGround
       >
-        <Debug color="red" scale={1}>
+        {/*<Debug color="red" scale={1}>*/}
           <RealmState properties={{...properties, scene: {...sceneObj}}}>
             <RealmSky />
             <RealmScene />
             <PostProcessing />
             <Preload all />
           </RealmState>
-        </Debug>
+        {/*</Debug>*/}
       </StandardEnvironment>
     // </MoralisProvider>
   );
