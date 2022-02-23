@@ -5,7 +5,7 @@ import RealmState from "./components/RealmState";
 import ConnectWallet from "./components/ConnectWallet";
 import { RealmScene, RealmSky, PostProcessing } from "./properties";
 import { SceneName, RlmScene, RlmSky, ImageFrame, RlmEffect } from "./utils/types";
-import { Scenes } from "./utils/constants";
+import { getScene } from "./utils/constants";
 import { MoralisProvider } from "react-moralis";
 import { Preload } from "@react-three/drei";
 
@@ -15,16 +15,6 @@ export interface RealmProps {
   sky: RlmSky,
   imageFrames: ImageFrame,
   effects?: RlmEffect
-}
-
-function getScene(name: SceneName): RlmScene {
-  for (const scene of Scenes) {
-    if (scene.name === name) {
-      return scene
-    }
-  }
-  console.log("No Scene Found... Default Loaded.");
-  return Scenes[0]
 }
 
 const appId = "NOlSQswppn0DcsqCkZ2rSk1tZfUqUUpgSlD19k3d",
@@ -43,14 +33,14 @@ export default function Realm(props: { properties: RealmProps }) {
         physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
         // disableGround
       >
-        <Debug color="red" scale={1}>
+        {/*<Debug color="red" scale={1}>*/}
           <RealmState properties={{...properties, scene: {...sceneObj}}}>
             <RealmSky />
             <RealmScene />
             <PostProcessing />
             <Preload all />
           </RealmState>
-        </Debug>
+        {/*</Debug>*/}
       </StandardEnvironment>
     // </MoralisProvider>
   );

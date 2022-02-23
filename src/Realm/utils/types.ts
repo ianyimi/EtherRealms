@@ -5,6 +5,7 @@ export type RlmScene = {
   start: [number, number, number],
   theme?: RlmColor,
   type: "Indoor" | "Outdoor" | "???",
+  effectPos?: [number, number, number],
   size: "Petite" | "Mediocre" | "Immense" | "Galactic"
 }
 export type RlmSky = {

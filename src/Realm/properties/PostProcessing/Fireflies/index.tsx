@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { useMemo } from 'react'
 import { useFireflyMat } from './shaders/firefly'
+import { useRealm } from "../../../components/RealmState";
 
 export default function Fireflies(props: { count?: number, scale?: number, color?: string, size?: number }) {
   const { count = 40, scale = 1, color = "white", size = 150 } = props;
@@ -15,9 +16,10 @@ export default function Fireflies(props: { count?: number, scale?: number, color
   }, [count])
 
   const mat = useFireflyMat(color, size);
+  const scene = useRealm();
 
   return (
-    <group scale={scale} renderOrder={1}>
+    <group scale={scale} position={scene.scene.effectPos ? scene.scene.effectPos : [0, 0, 0]} renderOrder={1}>
       <points key={count} material={mat}>
         <bufferGeometry>
           <bufferAttribute attachObject={['attributes', 'position']} count={count} array={positionArray} itemSize={3} />

@@ -1,4 +1,4 @@
-import { RlmColor, RlmScene } from "./types"
+import {RlmColor, RlmScene, SceneName} from "./types"
 
 const colors: RlmColor[] = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"];
 
@@ -55,9 +55,20 @@ export const Scenes: RlmScene[] = [
   },
   {
     name: "Glacier",
-    start: [0, 3, 0],
+    start: [0, 3.5, 0],
     theme: colors[Math.floor(Math.random()*colors.length)],
+    effectPos: [15, 0, 10],
     type: "Outdoor",
     size: "Mediocre"
   }
 ]
+
+export function getScene(name: SceneName): RlmScene {
+  for (const scene of Scenes) {
+    if (scene.name === name) {
+      return scene
+    }
+  }
+  console.log("No Scene Found... Default Loaded.");
+  return Scenes[0]
+}
