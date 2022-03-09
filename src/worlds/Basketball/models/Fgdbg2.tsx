@@ -73,12 +73,12 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
 
-  useTrimeshCollision((nodes[`pro_1__-512_0_-512_to_516_255_424012`].geometry as BufferGeometry)
-    .clone()
-    .rotateX(Math.PI/2)
-    .scale(0.1, 0.1, 0.1)
-    .translate(-0.0134, -10.1689, -0.1388)
-  )
+  // useTrimeshCollision((nodes[`pro_1__-512_0_-512_to_516_255_424012`].geometry as BufferGeometry)
+  //   .clone()
+  //   .rotateX(Math.PI/2)
+  //   .scale(0.1, 0.1, 0.1)
+  //   .translate(-0.0134, -10.1689, -0.1388)
+  // )
 
   return (
     <group ref={group} {...props} dispose={null}>
