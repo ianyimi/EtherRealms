@@ -8,7 +8,7 @@ export default function Home() {
     <StandardEnvironment
       dev={process.env.NODE_ENV === "development"}
       canvasProps={{ camera: { far: 1000 } }}
-      playerProps={{ pos: [0, 1, 0], speed: 10, controls: { disableGyro: true } }}
+      playerProps={{ pos: [0, 1, 50], speed: 10, controls: { disableGyro: true } }}
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
       // disableGround
     >
