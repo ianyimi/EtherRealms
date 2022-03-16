@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-const Realm = dynamic(import("Realm/index"), { ssr: false });
+const Realm = dynamic(import("EtherRealms/index"), { ssr: false });
 
 export default function StarterPage() {
   return <Realm properties={{

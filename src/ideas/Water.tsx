@@ -3,7 +3,7 @@ import * as THREE from "three";
 import {GroupProps, useFrame} from "@react-three/fiber";
 import {useEffect, useRef} from "react";
 import {useLimiter} from "spacesvr";
-import {useRealm} from "../Realm/components/RealmState";
+import {useRealm} from "../EtherRealms/components/RealmState";
 
 export default function WaterPlane(props: { color: string } & GroupProps) {
 
