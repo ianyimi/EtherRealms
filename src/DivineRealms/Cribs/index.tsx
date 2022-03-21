@@ -3,6 +3,7 @@ import Cribs from "./models/Cribs";
 import { Stars } from "@react-three/drei";
 import { Debug } from "@react-three/cannon";
 import PauseMenu from "styles/PauseMenu";
+import Platform from "./models/Platform";
 
 
 export default function Home() {
@@ -17,7 +18,8 @@ export default function Home() {
     >
       <Debug scale={1} color="red">
         <Stars />
-        <Cribs position-y={-32} />
+        {/*<Cribs position-y={-32} />*/}
+        <Platform position={[0, -80, 0]} scale={5} />
         <ambientLight intensity={1} />
       </Debug>
     </StandardEnvironment>
