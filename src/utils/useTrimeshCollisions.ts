@@ -33,7 +33,7 @@ export function useTrimeshCollisions(props: collisionsProps) {
         offset.rotation = obj.position;
       }
       if (obj instanceof THREE.Mesh) {
-        const heklp = 0;
+        const help = 0;
       }
     })
   }, [group.current])
