@@ -60,7 +60,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
     // .rotateY((rotation as Euler).y)
     // .rotateZ((rotation as Euler).z)
     // .translate((position as Vector3).x, (position as Vector3).y, (position as Vector3).z)
-    .translate(0, -80, 0)
+    .translate(0, -70, 0)
   );
 
   return (
