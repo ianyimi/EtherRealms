@@ -6,8 +6,9 @@ import * as THREE from 'three'
 import React, {useEffect, useMemo, useRef} from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
-import {useTrimeshCollision} from "spacesvr";
+import {useLimiter, useTrimeshCollision} from "spacesvr";
 import {BufferGeometry, Euler, Vector3} from "three";
+import {useFrame} from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -45,6 +46,11 @@ const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/platform-16478444
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const { position = new Vector3(), rotation = new Euler(), scale = 1 } = props
   const group = useRef<THREE.Group>()
+  const cube = useRef<THREE.Mesh>();
+  const cube2 = useRef<THREE.Mesh>();
+  const cube3 = useRef<THREE.Mesh>();
+  const cube4 = useRef<THREE.Mesh>();
+  const cube5 = useRef<THREE.Mesh>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
 
   console.log(position)
@@ -60,8 +66,25 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
     // .rotateY((rotation as Euler).y)
     // .rotateZ((rotation as Euler).z)
     // .translate((position as Vector3).x, (position as Vector3).y, (position as Vector3).z)
-    .translate(0, -70, 0)
+    .translate(0, -15, 50)
   );
+
+  if (cube.current) {
+    const matrix = new THREE.Matrix4();
+    matrix.extractRotation(cube.current.matrix)
+  }
+
+  // const axis = cube.current.position
+  const limiter = useLimiter(30);
+  useFrame(({ clock }) => {
+    if (!limiter.isReady(clock) || !cube.current) return;
+
+    // const euler = new THREE.Euler(clock.getElapsedTime()/100, 0, 0)
+    // cube.current.position.applyEuler(euler)
+
+    // cube.current.rotateX(clock.getElapsedTime()/20000);
+    cube.current.rotateOnAxis(new Vector3(1, 0, 0), clock.getElapsedTime()/1000);
+  })
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -103,6 +126,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             material={materials['Material.010']}
           />
           <mesh
+            ref={cube}
             name="new_space_zay2-11"
             geometry={nodes['new_space_zay2-11'].geometry}
             material={materials['Material.003']}
