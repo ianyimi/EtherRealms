@@ -6,9 +6,9 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
-import {useFrame} from "@react-three/fiber";
 import {useLimiter, useTrimeshCollision} from "spacesvr";
 import {BufferGeometry} from "three";
+import {useFrame} from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -37,60 +37,16 @@ type GLTFResult = GLTF & {
     cube6: THREE.Mesh
     cube1: THREE.Mesh
     cube7: THREE.Mesh
-    ['new_space_zay-1007']: THREE.Mesh
-    ['new_space_zay-1007_1']: THREE.Mesh
-    ['new_space_zay-1007_2']: THREE.Mesh
-    ['new_space_zay-1007_3']: THREE.Mesh
-    ['new_space_zay-1007_4']: THREE.Mesh
-    ['new_space_zay-1007_5']: THREE.Mesh
-    ['new_space_zay-1007_6']: THREE.Mesh
-    ['new_space_zay-1007_7']: THREE.Mesh
-    ['new_space_zay-1007_8']: THREE.Mesh
-    ['new_space_zay-1007_9']: THREE.Mesh
-    ['new_space_zay-1007_10']: THREE.Mesh
-    ['new_space_zay-1007_11']: THREE.Mesh
-    ['new_space_zay-1007_12']: THREE.Mesh
-    ['new_space_zay-1007_13']: THREE.Mesh
-    ['new_space_zay-1007_14']: THREE.Mesh
-    ['new_space_zay-1007_15']: THREE.Mesh
-    ['new_space_zay-1007_16']: THREE.Mesh
-    ['new_space_zay-1007_17']: THREE.Mesh
-    ['new_space_zay-1007_18']: THREE.Mesh
-    ['new_space_zay-1007_19']: THREE.Mesh
-    ['new_space_zay-1007_20']: THREE.Mesh
-    ['new_space_zay-1007_21']: THREE.Mesh
-    ['new_space_zay-1007_22']: THREE.Mesh
-    ['new_space_zay-1007_23']: THREE.Mesh
-    ['new_space_zay-1007_24']: THREE.Mesh
-    ['new_space_zay-1007_25']: THREE.Mesh
-    ['new_space_zay-1007_26']: THREE.Mesh
-    ['new_space_zay-1007_27']: THREE.Mesh
-    ['new_space_zay-1007_28']: THREE.Mesh
-    ['new_space_zay-1007_29']: THREE.Mesh
-    ['new_space_zay-1007_30']: THREE.Mesh
-    ['new_space_zay-1007_31']: THREE.Mesh
-    ['new_space_zay-1007_32']: THREE.Mesh
-    ['new_space_zay-1007_33']: THREE.Mesh
-    ['new_space_zay-1007_34']: THREE.Mesh
-    ['new_space_zay-1007_35']: THREE.Mesh
-    ['new_space_zay-1007_36']: THREE.Mesh
-    ['new_space_zay-1007_37']: THREE.Mesh
-    ['new_space_zay-1007_38']: THREE.Mesh
-    ['new_space_zay-1007_39']: THREE.Mesh
-    ['new_space_zay-1007_40']: THREE.Mesh
-    ['new_space_zay-1007_41']: THREE.Mesh
-    ['new_space_zay-1007_42']: THREE.Mesh
-    ['new_space_zay-1007_43']: THREE.Mesh
-    ['new_space_zay-1007_44']: THREE.Mesh
-    ['new_space_zay-1007_45']: THREE.Mesh
-    ['new_space_zay-1007_46']: THREE.Mesh
-    ['new_space_zay-1007_47']: THREE.Mesh
-    ['new_space_zay-1007_48']: THREE.Mesh
     ['new_space_zay-6004']: THREE.Mesh
     ['new_space_zay-6005']: THREE.Mesh
     ['new_space_zay-6006']: THREE.Mesh
     ['new_space_zay-6007']: THREE.Mesh
     ['new_space_zay-6008']: THREE.Mesh
+    ['new_space_zay-1']: THREE.Mesh
+    ['new_space_zay-26-Ground_3001']: THREE.Mesh
+    ['new_space_zay-1002']: THREE.Mesh
+    ['new_space_zay-1003']: THREE.Mesh
+    Collider: THREE.Mesh
   }
   materials: {
     ['Material.044']: THREE.MeshStandardMaterial
@@ -118,67 +74,21 @@ type GLTFResult = GLTF & {
     ['Material.095']: THREE.MeshStandardMaterial
     ['Material.103']: THREE.MeshStandardMaterial
     ['Material.104']: THREE.MeshStandardMaterial
-    ['Material.105']: THREE.MeshStandardMaterial
-    ['Material.046']: THREE.MeshStandardMaterial
-    ['Material.045']: THREE.MeshStandardMaterial
-    ['Material.047']: THREE.MeshStandardMaterial
-    ['Material.048']: THREE.MeshStandardMaterial
-    ['Material.057']: THREE.MeshStandardMaterial
-    ['Material.087']: THREE.MeshStandardMaterial
-    ['Material.089']: THREE.MeshStandardMaterial
-    ['Material.090']: THREE.MeshStandardMaterial
-    ['Material.096']: THREE.MeshStandardMaterial
-    ['Material.098']: THREE.MeshStandardMaterial
-    ['Material.099']: THREE.MeshStandardMaterial
-    ['Material.100']: THREE.MeshStandardMaterial
-    ['Material.101']: THREE.MeshStandardMaterial
-    ['Material.102']: THREE.MeshStandardMaterial
-    ['Material.125']: THREE.MeshStandardMaterial
-    ['Material.126']: THREE.MeshStandardMaterial
-    ['Material.127']: THREE.MeshStandardMaterial
-    ['Material.128']: THREE.MeshStandardMaterial
-    ['Material.062']: THREE.MeshStandardMaterial
-    ['Material.063']: THREE.MeshStandardMaterial
-    ['Material.064']: THREE.MeshStandardMaterial
-    ['Material.065']: THREE.MeshStandardMaterial
-    ['Material.066']: THREE.MeshStandardMaterial
-    ['Material.067']: THREE.MeshStandardMaterial
-    ['Material.068']: THREE.MeshStandardMaterial
-    ['Material.069']: THREE.MeshStandardMaterial
-    ['Material.072']: THREE.MeshStandardMaterial
-    ['Material.073']: THREE.MeshStandardMaterial
-    ['Material.074']: THREE.MeshStandardMaterial
-    ['Material.075']: THREE.MeshStandardMaterial
-    ['Material.080']: THREE.MeshStandardMaterial
-    ['Material.079']: THREE.MeshStandardMaterial
-    ['Material.078']: THREE.MeshStandardMaterial
-    ['Material.077']: THREE.MeshStandardMaterial
-    ['Material.060']: THREE.MeshStandardMaterial
-    ['Material.061']: THREE.MeshStandardMaterial
-    ['Material.076']: THREE.MeshStandardMaterial
-    ['Material.059']: THREE.MeshStandardMaterial
-    ['Material.106']: THREE.MeshStandardMaterial
-    ['Material.107']: THREE.MeshStandardMaterial
-    ['Material.108']: THREE.MeshStandardMaterial
-    ['Material.109']: THREE.MeshStandardMaterial
-    ['Material.110']: THREE.MeshStandardMaterial
-    ['Material.111']: THREE.MeshStandardMaterial
-    ['Material.112']: THREE.MeshStandardMaterial
-    ['Material.113']: THREE.MeshStandardMaterial
-    ['Material.114']: THREE.MeshStandardMaterial
-    ['Material.115']: THREE.MeshStandardMaterial
     ['Material.116']: THREE.MeshStandardMaterial
     ['Material.118']: THREE.MeshStandardMaterial
     ['Material.120']: THREE.MeshStandardMaterial
     ['Material.122']: THREE.MeshStandardMaterial
     ['Material.124']: THREE.MeshStandardMaterial
+    ['Material.131']: THREE.MeshStandardMaterial
+    ['Material.001']: THREE.MeshStandardMaterial
+    ['Material.046']: THREE.MeshStandardMaterial
+    ['Material.047']: THREE.MeshStandardMaterial
   }
 }
 
-const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/station-1648005330/station.glb.gz";
+const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/station-1648250133/station.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
-
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
   const group = useRef<THREE.Group>(),
     cube1 = useRef<THREE.Mesh>(),
@@ -190,7 +100,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
     cube7 = useRef<THREE.Mesh>();
 
   const limiter = useLimiter(30);
-  useFrame(({ clock }) => {
+  useFrame(({ clock }, delta) => {
     if (!limiter.isReady(clock)
       || !cube1.current
       || !cube2.current
@@ -200,21 +110,20 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
       || !cube6.current
       || !cube7.current
     ) return;
-    cube1.current.rotation.x = clock.getElapsedTime()/5
-    cube2.current.rotation.x = (clock.getElapsedTime()+1)/5
-    cube3.current.rotation.x = (clock.getElapsedTime()+2)/5
-    cube4.current.rotation.x = (clock.getElapsedTime()+3)/5
-    cube5.current.rotation.x = (clock.getElapsedTime()+4)/5
-    cube6.current.rotation.x = (clock.getElapsedTime()+5)/5
-    cube7.current.rotation.x = (clock.getElapsedTime()+6)/5
+    cube1.current.rotation.x += delta/5;
+    cube2.current.rotation.x -= delta/5;
+    cube3.current.rotation.x += delta/5;
+    cube4.current.rotation.x += delta/5;
+    cube5.current.rotation.x -= delta/5;
+    cube6.current.rotation.x -= delta/5;
+    cube7.current.rotation.x += delta/5;
   })
 
-  useTrimeshCollision((nodes[`new_space_zay-1007`].geometry as BufferGeometry)
+  useTrimeshCollision((nodes["Collider"].geometry as BufferGeometry)
     .clone()
-    .rotateY(-1.5705)
-    .translate(19.9862, 0.2206-1, -61.4787)
+    .scale(39.137, 0.3651, 56.7515)
+    .translate(4.0458, 0.2531, -33.008)
   )
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -241,7 +150,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube2"
           geometry={nodes.cube2.geometry}
           material={materials['Material.052']}
-          position={[-13.8797, 5.6256, -61.7549]}
+          position={[-13.8797, 5.6256, -61.3965]}
           rotation={[0.3668, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
@@ -335,7 +244,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube3"
           geometry={nodes.cube3.geometry}
           material={materials['Material.092']}
-          position={[-4.0477, 5.6256, -61.7549]}
+          position={[-4.0477, 5.6256, -61.3965]}
           rotation={[2.7549, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
@@ -344,7 +253,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube4"
           geometry={nodes.cube4.geometry}
           material={materials['Material.093']}
-          position={[5.1795, 5.6256, -61.7549]}
+          position={[5.1795, 5.6256, -61.3965]}
           rotation={[-1.5124, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
@@ -353,7 +262,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube5"
           geometry={nodes.cube5.geometry}
           material={materials['Material.094']}
-          position={[15.0483, 5.6256, -61.7549]}
+          position={[15.0483, 5.6256, -61.3965]}
           rotation={[2.1659, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
@@ -362,7 +271,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube6"
           geometry={nodes.cube6.geometry}
           material={materials['Material.095']}
-          position={[25.0214, 5.6256, -61.7549]}
+          position={[25.0214, 5.6256, -61.3965]}
           rotation={[-0.3494, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
@@ -371,7 +280,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube1"
           geometry={nodes.cube1.geometry}
           material={materials['Material.103']}
-          position={[-25.5272, 5.6256, -61.7549]}
+          position={[-25.5272, 5.6256, -61.3865]}
           rotation={[-2.4962, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
@@ -380,257 +289,10 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           name="cube7"
           geometry={nodes.cube7.geometry}
           material={materials['Material.104']}
-          position={[35.4726, 5.6256, -61.7549]}
+          position={[35.4726, 5.6256, -61.3965]}
           rotation={[2.5559, 0, 0]}
           scale={[2.0911, 3.0443, 3.008]}
         />
-        <group name="collisions" position={[19.9862, 0.2206, -61.4787]} rotation={[0, -1.5705, 0]}>
-          <mesh
-            name="new_space_zay-1007"
-            geometry={nodes['new_space_zay-1007'].geometry}
-            material={materials['Material.105']}
-          />
-          <mesh
-            name="new_space_zay-1007_1"
-            geometry={nodes['new_space_zay-1007_1'].geometry}
-            material={materials['Material.046']}
-          />
-          <mesh
-            name="new_space_zay-1007_2"
-            geometry={nodes['new_space_zay-1007_2'].geometry}
-            material={materials['Material.045']}
-          />
-          <mesh
-            name="new_space_zay-1007_3"
-            geometry={nodes['new_space_zay-1007_3'].geometry}
-            material={materials['Material.047']}
-          />
-          <mesh
-            name="new_space_zay-1007_4"
-            geometry={nodes['new_space_zay-1007_4'].geometry}
-            material={materials['Material.048']}
-          />
-          <mesh
-            name="new_space_zay-1007_5"
-            geometry={nodes['new_space_zay-1007_5'].geometry}
-            material={materials['Material.057']}
-          />
-          <mesh
-            name="new_space_zay-1007_6"
-            geometry={nodes['new_space_zay-1007_6'].geometry}
-            material={materials['Material.087']}
-          />
-          <mesh
-            name="new_space_zay-1007_7"
-            geometry={nodes['new_space_zay-1007_7'].geometry}
-            material={materials['Material.089']}
-          />
-          <mesh
-            name="new_space_zay-1007_8"
-            geometry={nodes['new_space_zay-1007_8'].geometry}
-            material={materials['Material.090']}
-          />
-          <mesh
-            name="new_space_zay-1007_9"
-            geometry={nodes['new_space_zay-1007_9'].geometry}
-            material={materials['Material.096']}
-          />
-          <mesh
-            name="new_space_zay-1007_10"
-            geometry={nodes['new_space_zay-1007_10'].geometry}
-            material={materials['Material.098']}
-          />
-          <mesh
-            name="new_space_zay-1007_11"
-            geometry={nodes['new_space_zay-1007_11'].geometry}
-            material={materials['Material.099']}
-          />
-          <mesh
-            name="new_space_zay-1007_12"
-            geometry={nodes['new_space_zay-1007_12'].geometry}
-            material={materials['Material.100']}
-          />
-          <mesh
-            name="new_space_zay-1007_13"
-            geometry={nodes['new_space_zay-1007_13'].geometry}
-            material={materials['Material.101']}
-          />
-          <mesh
-            name="new_space_zay-1007_14"
-            geometry={nodes['new_space_zay-1007_14'].geometry}
-            material={materials['Material.102']}
-          />
-          <mesh
-            name="new_space_zay-1007_15"
-            geometry={nodes['new_space_zay-1007_15'].geometry}
-            material={materials['Material.125']}
-          />
-          <mesh
-            name="new_space_zay-1007_16"
-            geometry={nodes['new_space_zay-1007_16'].geometry}
-            material={materials['Material.126']}
-          />
-          <mesh
-            name="new_space_zay-1007_17"
-            geometry={nodes['new_space_zay-1007_17'].geometry}
-            material={materials['Material.127']}
-          />
-          <mesh
-            name="new_space_zay-1007_18"
-            geometry={nodes['new_space_zay-1007_18'].geometry}
-            material={materials['Material.128']}
-          />
-          <mesh
-            name="new_space_zay-1007_19"
-            geometry={nodes['new_space_zay-1007_19'].geometry}
-            material={materials['Material.062']}
-          />
-          <mesh
-            name="new_space_zay-1007_20"
-            geometry={nodes['new_space_zay-1007_20'].geometry}
-            material={materials['Material.063']}
-          />
-          <mesh
-            name="new_space_zay-1007_21"
-            geometry={nodes['new_space_zay-1007_21'].geometry}
-            material={materials['Material.064']}
-          />
-          <mesh
-            name="new_space_zay-1007_22"
-            geometry={nodes['new_space_zay-1007_22'].geometry}
-            material={materials['Material.065']}
-          />
-          <mesh
-            name="new_space_zay-1007_23"
-            geometry={nodes['new_space_zay-1007_23'].geometry}
-            material={materials['Material.066']}
-          />
-          <mesh
-            name="new_space_zay-1007_24"
-            geometry={nodes['new_space_zay-1007_24'].geometry}
-            material={materials['Material.067']}
-          />
-          <mesh
-            name="new_space_zay-1007_25"
-            geometry={nodes['new_space_zay-1007_25'].geometry}
-            material={materials['Material.068']}
-          />
-          <mesh
-            name="new_space_zay-1007_26"
-            geometry={nodes['new_space_zay-1007_26'].geometry}
-            material={materials['Material.069']}
-          />
-          <mesh
-            name="new_space_zay-1007_27"
-            geometry={nodes['new_space_zay-1007_27'].geometry}
-            material={materials['Material.072']}
-          />
-          <mesh
-            name="new_space_zay-1007_28"
-            geometry={nodes['new_space_zay-1007_28'].geometry}
-            material={materials['Material.073']}
-          />
-          <mesh
-            name="new_space_zay-1007_29"
-            geometry={nodes['new_space_zay-1007_29'].geometry}
-            material={materials['Material.074']}
-          />
-          <mesh
-            name="new_space_zay-1007_30"
-            geometry={nodes['new_space_zay-1007_30'].geometry}
-            material={materials['Material.075']}
-          />
-          <mesh
-            name="new_space_zay-1007_31"
-            geometry={nodes['new_space_zay-1007_31'].geometry}
-            material={materials['Material.080']}
-          />
-          <mesh
-            name="new_space_zay-1007_32"
-            geometry={nodes['new_space_zay-1007_32'].geometry}
-            material={materials['Material.079']}
-          />
-          <mesh
-            name="new_space_zay-1007_33"
-            geometry={nodes['new_space_zay-1007_33'].geometry}
-            material={materials['Material.078']}
-          />
-          <mesh
-            name="new_space_zay-1007_34"
-            geometry={nodes['new_space_zay-1007_34'].geometry}
-            material={materials['Material.077']}
-          />
-          <mesh
-            name="new_space_zay-1007_35"
-            geometry={nodes['new_space_zay-1007_35'].geometry}
-            material={materials['Material.060']}
-          />
-          <mesh
-            name="new_space_zay-1007_36"
-            geometry={nodes['new_space_zay-1007_36'].geometry}
-            material={materials['Material.061']}
-          />
-          <mesh
-            name="new_space_zay-1007_37"
-            geometry={nodes['new_space_zay-1007_37'].geometry}
-            material={materials['Material.076']}
-          />
-          <mesh
-            name="new_space_zay-1007_38"
-            geometry={nodes['new_space_zay-1007_38'].geometry}
-            material={materials['Material.059']}
-          />
-          <mesh
-            name="new_space_zay-1007_39"
-            geometry={nodes['new_space_zay-1007_39'].geometry}
-            material={materials['Material.106']}
-          />
-          <mesh
-            name="new_space_zay-1007_40"
-            geometry={nodes['new_space_zay-1007_40'].geometry}
-            material={materials['Material.107']}
-          />
-          <mesh
-            name="new_space_zay-1007_41"
-            geometry={nodes['new_space_zay-1007_41'].geometry}
-            material={materials['Material.108']}
-          />
-          <mesh
-            name="new_space_zay-1007_42"
-            geometry={nodes['new_space_zay-1007_42'].geometry}
-            material={materials['Material.109']}
-          />
-          <mesh
-            name="new_space_zay-1007_43"
-            geometry={nodes['new_space_zay-1007_43'].geometry}
-            material={materials['Material.110']}
-          />
-          <mesh
-            name="new_space_zay-1007_44"
-            geometry={nodes['new_space_zay-1007_44'].geometry}
-            material={materials['Material.111']}
-          />
-          <mesh
-            name="new_space_zay-1007_45"
-            geometry={nodes['new_space_zay-1007_45'].geometry}
-            material={materials['Material.112']}
-          />
-          <mesh
-            name="new_space_zay-1007_46"
-            geometry={nodes['new_space_zay-1007_46'].geometry}
-            material={materials['Material.113']}
-          />
-          <mesh
-            name="new_space_zay-1007_47"
-            geometry={nodes['new_space_zay-1007_47'].geometry}
-            material={materials['Material.114']}
-          />
-          <mesh
-            name="new_space_zay-1007_48"
-            geometry={nodes['new_space_zay-1007_48'].geometry}
-            material={materials['Material.115']}
-          />
-        </group>
         <mesh
           name="new_space_zay-6004"
           geometry={nodes['new_space_zay-6004'].geometry}
@@ -665,6 +327,30 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           material={materials['Material.124']}
           position={[0.7146, -3.3549, -61.3563]}
           rotation={[0, -0.0002, 0]}
+        />
+        <mesh
+          name="new_space_zay-1"
+          geometry={nodes['new_space_zay-1'].geometry}
+          material={materials['Material.131']}
+          position={[3.5171, 0.3079, -31.3205]}
+        />
+        <mesh
+          name="new_space_zay-26-Ground_3001"
+          geometry={nodes['new_space_zay-26-Ground_3001'].geometry}
+          material={materials['Material.001']}
+          position={[-0.0105, 0.0486, 0]}
+        />
+        <mesh
+          name="new_space_zay-1002"
+          geometry={nodes['new_space_zay-1002'].geometry}
+          material={materials['Material.046']}
+          position={[0.005, 0.2324, -9.6525]}
+        />
+        <mesh
+          name="new_space_zay-1003"
+          geometry={nodes['new_space_zay-1003'].geometry}
+          material={materials['Material.047']}
+          position={[0.005, 0.2324, -19.5447]}
         />
       </group>
     </group>

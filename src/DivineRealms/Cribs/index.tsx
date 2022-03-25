@@ -14,20 +14,19 @@ export default function Home() {
     <StandardEnvironment
       dev={process.env.NODE_ENV === "development"}
       canvasProps={{ camera: { far: 1000 } }}
-      playerProps={{ pos: [0, 1, 0], speed: 10, controls: { disableGyro: true } }}
+      playerProps={{ pos: [0, 1.5, 0], speed: 10, controls: { disableGyro: true } }}
       physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
       pauseMenu={<PauseMenu />}
       // disableGround
     >
-      <Debug scale={1} color="red">
-        <ambientLight intensity={1} />
-        {/*<Stars />*/}
+      {/*<Debug scale={1} color="red">*/}
+        <ambientLight intensity={0.1} />
+      {/*  <Stars />*/}
         {/*<Cribs position-y={-32} />*/}
         {/*<Platform position={[0, -16, 50]} scale={1} />*/}
         <Station position-y={-1} />
-        <ambientLight intensity={0.1} />
         <PostProcessing />
-      </Debug>
+      {/*</Debug>*/}
     </StandardEnvironment>
   );
 }
