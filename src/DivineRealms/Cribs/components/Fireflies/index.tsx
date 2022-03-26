@@ -1,9 +1,10 @@
 import * as THREE from 'three'
 import { useMemo } from 'react'
 import { useFireflyMat } from './shaders/firefly'
+import {GroupProps} from "@react-three/fiber";
 
-export default function Fireflies(props: { count?: number, scale?: number, color?: string, size?: number }) {
-  const { count = 40, scale = 1, color = "white", size = 150 } = props;
+export default function Fireflies(props: { count?: number, scale?: number, color?: string, size?: number } & GroupProps) {
+  const { count = 40, scale = 1, color = "white", size = 150, ...restProps } = props;
   const [positionArray, scaleArray] = useMemo(() => {
     const positionArray = new Float32Array(count * 3)
     const scaleArray = new Float32Array(count)
@@ -17,13 +18,15 @@ export default function Fireflies(props: { count?: number, scale?: number, color
   const mat = useFireflyMat(color, size);
 
   return (
-    <group scale={scale} position={[0, 0, 0]} renderOrder={1}>
-      <points key={count} material={mat}>
-        <bufferGeometry>
-          <bufferAttribute attachObject={['attributes', 'position']} count={count} array={positionArray} itemSize={3} />
-          <bufferAttribute attachObject={['attributes', 'aScale']} count={count} array={scaleArray} itemSize={1} />
-        </bufferGeometry>
-      </points>
+    <group {...restProps}>
+      <group scale={scale} position={[0, 0, 0]} renderOrder={1}>
+        <points key={count} material={mat}>
+          <bufferGeometry>
+            <bufferAttribute attachObject={['attributes', 'position']} count={count} array={positionArray} itemSize={3} />
+            <bufferAttribute attachObject={['attributes', 'aScale']} count={count} array={scaleArray} itemSize={1} />
+          </bufferGeometry>
+        </points>
+      </group>
     </group>
   )
 }

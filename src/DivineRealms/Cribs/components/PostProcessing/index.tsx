@@ -8,14 +8,14 @@ import {MutableRefObject, useRef, useState} from "react";
 export function PostProcessing() {
   return (
     <group>
-      {/*<Fog color={new THREE.Color("black")} near={0.1} far={30} />*/}
-      {/*<Fireflies count={100} scale={5} color={"lightblue"} size={200} />*/}
+      <Fog color={new THREE.Color("black")} near={0.1} far={90} />
+      <Fireflies count={200} scale={20} color={"lightblue"} size={200} position-z={-37} />
       <VolumetricLights />
       <EffectComposer
         multisampling={0}
         disableNormalPass
       >
-        {/*<Vignette />*/}
+        <Vignette />
         {/*<SelectiveBloom*/}
         {/*  lights={lights}*/}
         {/*  selection={bloomObjects}*/}

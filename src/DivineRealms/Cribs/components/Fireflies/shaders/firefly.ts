@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { ShaderMaterial, Uniform } from 'three';
 import { useLimiter } from "spacesvr";
 
-export const useFireflyMat = (color: string, size: number) => {
+export const useFireflyMat = (color: string, size: number, fogColor = "black") => {
   const colorRgb = new THREE.Color(color);
   const mat = useMemo(
     () =>
@@ -13,7 +13,8 @@ export const useFireflyMat = (color: string, size: number) => {
           uTime: new Uniform(0),
           uPixelRatio: new Uniform(Math.min(window.devicePixelRatio, 2)),
           uSize: new Uniform(size || 150),
-          uColor: new Uniform([colorRgb.r, colorRgb.g, colorRgb.b])
+          uColor: new Uniform([colorRgb.r, colorRgb.g, colorRgb.b]),
+          fogColor: new Uniform(new THREE.Color(fogColor)),
         },
         vertexShader: vert,
         fragmentShader: frag,
@@ -27,7 +28,7 @@ export const useFireflyMat = (color: string, size: number) => {
   useFrame(({ clock }, delta) => {
     if (!mat || !limiter.isReady(clock)) return;
     // @ts-ignore
-    mat.uniforms.uTime.value = ((new Date() / 1000) % 10000) / 5;;
+    mat.uniforms.uTime.value = ((new Date() / 1000) % 10000) / 3;;
   });
 
   return mat;
@@ -52,10 +53,18 @@ const vert = `
 `;
 
 const frag = `
+  #define fogNear 0.1
+  #define fogFar 100.
   uniform vec3 uColor;
+  uniform vec3 fogColor;
   void main() {
     float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
     float strength = 0.05 / distanceToCenter - 0.1;
     gl_FragColor = vec4(uColor.r, uColor.g, uColor.b, strength);
+    
+    // account for fog
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep( fogNear, fogFar, depth );
+    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
   }
 `

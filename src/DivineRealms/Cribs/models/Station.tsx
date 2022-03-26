@@ -124,6 +124,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
     .scale(39.137, 0.3651, 56.7515)
     .translate(4.0458, 0.2531, -33.008)
   )
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

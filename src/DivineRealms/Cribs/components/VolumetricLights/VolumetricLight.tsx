@@ -20,9 +20,9 @@ export default function VolumetricLight(props: LightProps) {
   const [dummyObj3, setDummyObj3] = useState<Object3D>(new Object3D());
   // const dummyObj2 = new Object3D();
   // const dummyObj3 = new Object3D();
-  dummyObj.position.set(0.47+position.x, 0, -6.63+position.z);
-  dummyObj2.position.set(0.19+position.x, 0, -6.63+position.z);
-  dummyObj3.position.set(0.32+position.x, 0, -6.63+position.z);
+  dummyObj.position.set(0.13+position.x, position.y-5, position.z);
+  dummyObj2.position.set(-0.15+position.x, position.y-5, position.z);
+  dummyObj3.position.set(-0.02+position.x, position.y-5, position.z);
   // const dummyGroup = new THREE.Group();
   // dummyGroup.add(dummyObj),
   //   dummyGroup.add(dummyObj2),
@@ -47,13 +47,13 @@ export default function VolumetricLight(props: LightProps) {
   // positions are not at (0, 0) of the group. need to add these numbers to numbers passed into the component
   return (
     <group name="VolumetricLight" position={position} rotation={rotation} {...restProps}>
-      <mesh ref={mesh} position={[0.34, 3.7, -6.63]}>
+      <mesh ref={mesh}>
         <boxBufferGeometry args={[0.71, 0.06, 0.29]} />
         <meshStandardMaterial color={"white"} emissive={new THREE.Color("#ffffff")} emissiveIntensity={3} />
       </mesh>
-      <directionalLight ref={light1} color="#ffffff" position={[0.32, 3.83, -6.63]} intensity={0.025} target={dummyObj3} castShadow />
-      <SpotLight ref={spLight1} color="#ffffff" angle={Math.PI/10} position={[0.47, 3.83, -6.63]} target={dummyObj} castShadow />
-      <SpotLight ref={spLight2} color="#ffffff" angle={Math.PI/10} position={[0.19, 3.83, -6.63]} target={dummyObj2} castShadow />
+      <directionalLight ref={light1} color="#ffffff" position={[-0.02, 0.13, 0]} intensity={0.005} target={dummyObj3} castShadow />
+      <SpotLight ref={spLight1} color="#ffffff" angle={Math.PI/10} position={[0.13, 0, 0]} target={dummyObj} castShadow />
+      <SpotLight ref={spLight2} color="#ffffff" angle={Math.PI/10} position={[-0.15, 0, 0]} target={dummyObj2} castShadow />
     </group>
   )
 }
