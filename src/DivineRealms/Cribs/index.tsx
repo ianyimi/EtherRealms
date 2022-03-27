@@ -2,7 +2,7 @@ import { StandardEnvironment, Fog } from "spacesvr";
 import { Stars } from "@react-three/drei";
 import { Debug } from "@react-three/cannon";
 import PauseMenu from "styles/PauseMenu";
-import Station from "./models/Station2";
+import Station from "./models/Station";
 import * as THREE from "three";
 import { PostProcessing } from "./components/PostProcessing";
 import WorldState from "./components/WorldState";
@@ -18,13 +18,13 @@ export default function Home() {
       pauseMenu={<PauseMenu />}
       // disableGround
     >
-      <Debug scale={1} color="red">
+      {/*<Debug scale={1} color="red">*/}
         <WorldState>
           {/*<Stars />*/}
           <Station position-y={-1} />
           <PostProcessing />
         </WorldState>
-      </Debug>
+      {/*</Debug>*/}
     </StandardEnvironment>
   );
 }

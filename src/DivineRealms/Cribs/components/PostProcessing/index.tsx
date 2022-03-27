@@ -10,7 +10,7 @@ export function PostProcessing() {
   const { bloomObjects, lights } = useWorld();
   return (
     <group>
-      <Fog color={new THREE.Color("black")} near={0.1} far={90} />
+      <Fog color={new THREE.Color("black")} near={0.1} far={80} />
       <Fireflies count={200} scale={20} color={"lightblue"} size={200} position-z={-37} />
       <VolumetricLights />
       <EffectComposer
@@ -21,7 +21,7 @@ export function PostProcessing() {
         <SelectiveBloom
           lights={lights}
           selection={bloomObjects}
-          intensity={3}
+          intensity={2}
           luminanceThreshold={0}
           // bloomRadius={0.05}
         />
