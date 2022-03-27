@@ -2,8 +2,9 @@ import { SpotLight, useDepthBuffer, useHelper } from "@react-three/drei"
 import { GroupProps, useFrame, useThree} from "@react-three/fiber";
 import {Object3D, Vector3, DirectionalLightHelper, DirectionalLight, Euler, SpotLightHelper} from "three";
 import { useLimiter } from "spacesvr";
-import {Dispatch, MutableRefObject, Ref, SetStateAction, useRef, useState} from "react";
+import {Dispatch, MutableRefObject, Ref, SetStateAction, useMemo, useRef, useState} from "react";
 import * as THREE from "three";
+import {useWorld} from "../WorldState";
 
 type LightProps = {
   position?: Vector3,
@@ -12,6 +13,7 @@ type LightProps = {
 
 export default function VolumetricLight(props: LightProps) {
 
+  const { lights, setLights } = useWorld();
   const { position = new Vector3(), rotation = new Euler(), ...restProps } = props
   const { scene } = useThree();
   const mesh = useRef<THREE.Mesh>();
@@ -44,7 +46,10 @@ export default function VolumetricLight(props: LightProps) {
   // useHelper(spLight1, SpotLightHelper)
   // useHelper(spLight2, SpotLightHelper)
 
-  // positions are not at (0, 0) of the group. need to add these numbers to numbers passed into the component
+  useMemo(() => {
+    setLights([...lights, light1])
+  }, [light1])
+
   return (
     <group name="VolumetricLight" position={position} rotation={rotation} {...restProps}>
       <mesh ref={mesh}>

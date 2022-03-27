@@ -1,12 +1,11 @@
 import { StandardEnvironment, Fog } from "spacesvr";
-import Cribs from "./models/Cribs";
 import { Stars } from "@react-three/drei";
 import { Debug } from "@react-three/cannon";
 import PauseMenu from "styles/PauseMenu";
-import Platform from "./models/Platform";
-import Station from "./models/Station";
+import Station from "./models/Station2";
 import * as THREE from "three";
 import { PostProcessing } from "./components/PostProcessing";
+import WorldState from "./components/WorldState";
 
 
 export default function Home() {
@@ -19,14 +18,13 @@ export default function Home() {
       pauseMenu={<PauseMenu />}
       // disableGround
     >
-      {/*<Debug scale={1} color="red">*/}
-        <ambientLight intensity={0.1} />
-      {/*  <Stars />*/}
-        {/*<Cribs position-y={-32} />*/}
-        {/*<Platform position={[0, -16, 50]} scale={1} />*/}
-        <Station position-y={-1} />
-        <PostProcessing />
-      {/*</Debug>*/}
+      <Debug scale={1} color="red">
+        <WorldState>
+          {/*<Stars />*/}
+          <Station position-y={-1} />
+          <PostProcessing />
+        </WorldState>
+      </Debug>
     </StandardEnvironment>
   );
 }
