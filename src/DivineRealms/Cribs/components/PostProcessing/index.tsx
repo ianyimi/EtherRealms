@@ -11,7 +11,7 @@ export function PostProcessing() {
   return (
     <group>
       <Fog color={new THREE.Color("black")} near={0.1} far={80} />
-      <Fireflies count={200} scale={20} color={"lightblue"} size={200} position-z={-37} />
+      <Fireflies count={500} scale={30} color={"lightblue"} size={200} position-z={-37} />
       <VolumetricLights />
       <EffectComposer
         multisampling={0}

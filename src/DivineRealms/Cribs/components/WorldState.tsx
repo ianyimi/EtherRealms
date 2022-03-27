@@ -41,7 +41,7 @@ export default function WorldState(props: { children: ReactNode | ReactNode[] })
         <directionalLight ref={lightRef2} position={[100, 40, -100]} intensity={0.15} target={dummyObj} />
         <mesh position={[46, 14, -79]}>
           <boxBufferGeometry args={[1, 1, 1]} />
-          <meshBasicMaterial color="white" />
+          <meshBasicMaterial color="white" visible={false} />
         </mesh>
       </group>
       {children}

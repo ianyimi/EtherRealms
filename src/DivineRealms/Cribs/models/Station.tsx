@@ -6,14 +6,15 @@ import * as THREE from 'three'
 import React, {useMemo, useRef} from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
+import {useWorld} from "../components/WorldState";
 import {useLimiter, useTrimeshCollision} from "spacesvr";
 import {useFrame} from "@react-three/fiber";
 import {BufferGeometry} from "three";
-import {useWorld} from "../components/WorldState";
 
 type GLTFResult = GLTF & {
   nodes: {
     ['new_space_zay-6001']: THREE.Mesh
+    ['new_space_zay-6004']: THREE.Mesh
     ['new_space_zay-45-Streetlamp_2003']: THREE.Mesh
     ['new_space_zay-45-Streetlamp_2003_1']: THREE.Mesh
     ['new_space_zay-45-Streetlamp_2003_2']: THREE.Mesh
@@ -47,6 +48,39 @@ type GLTFResult = GLTF & {
     ['new_space_zay-6019']: THREE.Mesh
     ['new_space_zay-6022']: THREE.Mesh
     ['new_space_zay-6002']: THREE.Mesh
+    ['new_space_zay-6046_1']: THREE.Mesh
+    ['new_space_zay-6046_2']: THREE.Mesh
+    ['new_space_zay-6046_3']: THREE.Mesh
+    ['new_space_zay-6046_4']: THREE.Mesh
+    ['new_space_zay-6046_5']: THREE.Mesh
+    ['new_space_zay-6046_6']: THREE.Mesh
+    ['new_space_zay-6046_7']: THREE.Mesh
+    ['new_space_zay-6046_8']: THREE.Mesh
+    ['new_space_zay-6046_9']: THREE.Mesh
+    ['new_space_zay-6046_10']: THREE.Mesh
+    ['new_space_zay-6046_11']: THREE.Mesh
+    ['new_space_zay-6046_12']: THREE.Mesh
+    ['new_space_zay-6046_13']: THREE.Mesh
+    ['new_space_zay-6046_14']: THREE.Mesh
+    ['new_space_zay-6046_15']: THREE.Mesh
+    ['new_space_zay-6046_16']: THREE.Mesh
+    ['new_space_zay-6046_17']: THREE.Mesh
+    ['new_space_zay-6046_18']: THREE.Mesh
+    ['new_space_zay-6046_19']: THREE.Mesh
+    ['new_space_zay-6046_20']: THREE.Mesh
+    ['new_space_zay-6046_21']: THREE.Mesh
+    ['new_space_zay-6046_22']: THREE.Mesh
+    ['new_space_zay-6046_23']: THREE.Mesh
+    ['new_space_zay-6046_24']: THREE.Mesh
+    ['new_space_zay-6046_25']: THREE.Mesh
+    ['new_space_zay-6046_26']: THREE.Mesh
+    ['new_space_zay-6046_27']: THREE.Mesh
+    ['new_space_zay-6046_28']: THREE.Mesh
+    ['new_space_zay-6046_29']: THREE.Mesh
+    ['new_space_zay-6046_30']: THREE.Mesh
+    ['new_space_zay-6046_31']: THREE.Mesh
+    ['new_space_zay-6046_32']: THREE.Mesh
+    ['new_space_zay-6046_33']: THREE.Mesh
   }
   materials: {
     ['Material.075']: THREE.MeshStandardMaterial
@@ -74,10 +108,43 @@ type GLTFResult = GLTF & {
     ['Material.079']: THREE.MeshStandardMaterial
     ['Material.080']: THREE.MeshStandardMaterial
     ['Material.087']: THREE.MeshStandardMaterial
+    ['Material.139']: THREE.MeshStandardMaterial
+    ['Material.096']: THREE.MeshStandardMaterial
+    ['Material.091']: THREE.MeshStandardMaterial
+    ['Material.099']: THREE.MeshStandardMaterial
+    ['Material.098']: THREE.MeshStandardMaterial
+    ['Material.097']: THREE.MeshStandardMaterial
+    ['Material.102']: THREE.MeshStandardMaterial
+    ['Material.101']: THREE.MeshStandardMaterial
+    ['Material.100']: THREE.MeshStandardMaterial
+    ['Material.107']: THREE.MeshStandardMaterial
+    ['Material.106']: THREE.MeshStandardMaterial
+    ['Material.105']: THREE.MeshStandardMaterial
+    ['Material.110']: THREE.MeshStandardMaterial
+    ['Material.109']: THREE.MeshStandardMaterial
+    ['Material.108']: THREE.MeshStandardMaterial
+    ['Material.113']: THREE.MeshStandardMaterial
+    ['Material.112']: THREE.MeshStandardMaterial
+    ['Material.111']: THREE.MeshStandardMaterial
+    ['Material.123']: THREE.MeshStandardMaterial
+    ['Material.115']: THREE.MeshStandardMaterial
+    ['Material.114']: THREE.MeshStandardMaterial
+    ['Material.127']: THREE.MeshStandardMaterial
+    ['Material.126']: THREE.MeshStandardMaterial
+    ['Material.125']: THREE.MeshStandardMaterial
+    ['Material.133']: THREE.MeshStandardMaterial
+    ['Material.132']: THREE.MeshStandardMaterial
+    ['Material.128']: THREE.MeshStandardMaterial
+    ['Material.136']: THREE.MeshStandardMaterial
+    ['Material.135']: THREE.MeshStandardMaterial
+    ['Material.134']: THREE.MeshStandardMaterial
+    ['Material.138']: THREE.MeshStandardMaterial
+    ['Material.137']: THREE.MeshStandardMaterial
+    ['Material.090']: THREE.MeshStandardMaterial
   }
 }
 
-const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/station-1648346789/station.glb.gz";
+const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/station-1648353087/station.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
 
@@ -165,6 +232,13 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           position={[-0.055, -3.3299, -14.3641]}
           rotation={[0, -1.5701, 0]}
         />
+        <mesh
+          name="new_space_zay-6004"
+          geometry={nodes['new_space_zay-6004'].geometry}
+          material={nodes['new_space_zay-6004'].material}
+          position={[-0.055, -3.3299, -14.3641]}
+          rotation={[0, -1.5701, 0]}
+        />
         <group name="lights" position={[-0.9446, 2.8784, -14.2171]} rotation={[0, 1.5649, 0]}>
           <mesh
             name="new_space_zay-45-Streetlamp_2003"
@@ -205,146 +279,132 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           material={materials['Material.131']}
           position={[3.5171, 0.3079, -31.3205]}
         />
-        <group>
-          <mesh
-            ref={cube1}
-            name="cube1"
-            geometry={nodes.cube1.geometry}
-            material={nodes.cube1.material}
-            position={[-24.797, 5.6256, -61.4191]}
-            rotation={[-2.4313, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh1}
-            name="cube1light"
-            geometry={nodes.cube1light.geometry}
-            material={nodes.cube1light.material}
-            position={[-24.797, 5.6256, -61.4191]}
-            rotation={[-2.4313, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
-        <group>
-          <mesh
-            ref={cube2}
-            name="cube2"
-            geometry={nodes.cube2.geometry}
-            material={nodes.cube2.material}
-            position={[-14.7537, 5.6256, -61.4191]}
-            rotation={[0.0697, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh2}
-            name="cube2light"
-            geometry={nodes.cube2light.geometry}
-            material={nodes.cube2light.material}
-            position={[-14.7537, 5.6256, -61.4191]}
-            rotation={[0.0697, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
-        <group>
-          <mesh
-            ref={cube3}
-            name="cube3"
-            geometry={nodes.cube3.geometry}
-            material={nodes.cube3.material}
-            position={[-4.6635, 5.6256, -61.4191]}
-            rotation={[2.7674, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh3}
-            name="cube3light"
-            geometry={nodes.cube3light.geometry}
-            material={nodes.cube3light.material}
-            position={[-4.6635, 5.6256, -61.4191]}
-            rotation={[2.7674, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
-        <group>
-          <mesh
-            ref={cube4}
-            name="cube4"
-            geometry={nodes.cube4.geometry}
-            material={nodes.cube4.material}
-            position={[5.3608, 5.6256, -61.4191]}
-            rotation={[-1.3832, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh4}
-            name="cube4light"
-            geometry={nodes.cube4light.geometry}
-            material={nodes.cube4light.material}
-            position={[5.3608, 5.6256, -61.4191]}
-            rotation={[-1.3832, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
-        <group>
-          <mesh
-            ref={cube5}
-            name="cube5"
-            geometry={nodes.cube5.geometry}
-            material={nodes.cube5.material}
-            position={[15.3836, 5.6256, -61.4191]}
-            rotation={[2.1326, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh5}
-            name="cube5light"
-            geometry={nodes.cube5light.geometry}
-            material={nodes.cube5light.material}
-            position={[15.3836, 5.6256, -61.4191]}
-            rotation={[2.1326, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
-        <group>
-          <mesh
-            ref={cube6}
-            name="cube6"
-            geometry={nodes.cube6.geometry}
-            material={nodes.cube6.material}
-            position={[25.4678, 5.6256, -61.4191]}
-            rotation={[-0.4182, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh6}
-            name="cube6light"
-            geometry={nodes.cube6light.geometry}
-            material={nodes.cube6light.material}
-            position={[25.4678, 5.6256, -61.4191]}
-            rotation={[-0.4182, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
-        <group>
-          <mesh
-            ref={cube7}
-            name="cube7"
-            geometry={nodes.cube7.geometry}
-            material={nodes.cube7.material}
-            position={[35.4726, 5.6256, -61.4191]}
-            rotation={[2.5559, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-          <mesh
-            ref={lightMesh7}
-            name="cube7light"
-            geometry={nodes.cube7light.geometry}
-            material={nodes.cube7light.material}
-            position={[35.4726, 5.6256, -61.4191]}
-            rotation={[2.5559, 0, 0]}
-            scale={[2.0911, 3.0443, 3.008]}
-          />
-        </group>
+        <mesh
+          ref={cube1}
+          name="cube1"
+          geometry={nodes.cube1.geometry}
+          material={nodes.cube1.material}
+          position={[-24.797, 5.6256, -61.4191]}
+          rotation={[-2.4313, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh1}
+          name="cube1light"
+          geometry={nodes.cube1light.geometry}
+          material={nodes.cube1light.material}
+          position={[-24.797, 5.6256, -61.4191]}
+          rotation={[-2.4313, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={cube2}
+          name="cube2"
+          geometry={nodes.cube2.geometry}
+          material={nodes.cube2.material}
+          position={[-14.7537, 5.6256, -61.4191]}
+          rotation={[0.0697, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh2}
+          name="cube2light"
+          geometry={nodes.cube2light.geometry}
+          material={nodes.cube2light.material}
+          position={[-14.7537, 5.6256, -61.4191]}
+          rotation={[0.0697, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={cube3}
+          name="cube3"
+          geometry={nodes.cube3.geometry}
+          material={nodes.cube3.material}
+          position={[-4.6635, 5.6256, -61.4191]}
+          rotation={[2.7674, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh3}
+          name="cube3light"
+          geometry={nodes.cube3light.geometry}
+          material={nodes.cube3light.material}
+          position={[-4.6635, 5.6256, -61.4191]}
+          rotation={[2.7674, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={cube4}
+          name="cube4"
+          geometry={nodes.cube4.geometry}
+          material={nodes.cube4.material}
+          position={[5.3608, 5.6256, -61.4191]}
+          rotation={[-1.3832, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh4}
+          name="cube4light"
+          geometry={nodes.cube4light.geometry}
+          material={nodes.cube4light.material}
+          position={[5.3608, 5.6256, -61.4191]}
+          rotation={[-1.3832, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={cube5}
+          name="cube5"
+          geometry={nodes.cube5.geometry}
+          material={nodes.cube5.material}
+          position={[15.3836, 5.6256, -61.4191]}
+          rotation={[2.1326, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh5}
+          name="cube5light"
+          geometry={nodes.cube5light.geometry}
+          material={nodes.cube5light.material}
+          position={[15.3836, 5.6256, -61.4191]}
+          rotation={[2.1326, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={cube6}
+          name="cube6"
+          geometry={nodes.cube6.geometry}
+          material={nodes.cube6.material}
+          position={[25.4678, 5.6256, -61.4191]}
+          rotation={[-0.4182, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh6}
+          name="cube6light"
+          geometry={nodes.cube6light.geometry}
+          material={nodes.cube6light.material}
+          position={[25.4678, 5.6256, -61.4191]}
+          rotation={[-0.4182, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={cube7}
+          name="cube7"
+          geometry={nodes.cube7.geometry}
+          material={nodes.cube7.material}
+          position={[35.4726, 5.6256, -61.4191]}
+          rotation={[2.5559, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
+        <mesh
+          ref={lightMesh7}
+          name="cube7light"
+          geometry={nodes.cube7light.geometry}
+          material={nodes.cube7light.material}
+          position={[35.4726, 5.6256, -61.4191]}
+          rotation={[2.5559, 0, 0]}
+          scale={[2.0911, 3.0443, 3.008]}
+        />
         <mesh
           name="new_space_zay-6010"
           geometry={nodes['new_space_zay-6010'].geometry}
@@ -417,6 +477,173 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
           position={[-0.0593, -3.3299, -14.3641]}
           rotation={[0, -1.5701, 0]}
         />
+        <group name="new_space_zay-6046" position={[20.1552, -78.8953, -61.4325]} rotation={[0, -1.5701, 0]}>
+          <mesh
+            name="new_space_zay-6046_1"
+            geometry={nodes['new_space_zay-6046_1'].geometry}
+            material={materials['Material.139']}
+          />
+          <mesh
+            name="new_space_zay-6046_2"
+            geometry={nodes['new_space_zay-6046_2'].geometry}
+            material={materials['Material.096']}
+          />
+          <mesh
+            name="new_space_zay-6046_3"
+            geometry={nodes['new_space_zay-6046_3'].geometry}
+            material={materials['Material.091']}
+          />
+          <mesh
+            name="new_space_zay-6046_4"
+            geometry={nodes['new_space_zay-6046_4'].geometry}
+            material={materials['Material.099']}
+          />
+          <mesh
+            name="new_space_zay-6046_5"
+            geometry={nodes['new_space_zay-6046_5'].geometry}
+            material={materials['Material.098']}
+          />
+          <mesh
+            name="new_space_zay-6046_6"
+            geometry={nodes['new_space_zay-6046_6'].geometry}
+            material={materials['Material.097']}
+          />
+          <mesh
+            name="new_space_zay-6046_7"
+            geometry={nodes['new_space_zay-6046_7'].geometry}
+            material={materials['Material.102']}
+          />
+          <mesh
+            name="new_space_zay-6046_8"
+            geometry={nodes['new_space_zay-6046_8'].geometry}
+            material={materials['Material.101']}
+          />
+          <mesh
+            name="new_space_zay-6046_9"
+            geometry={nodes['new_space_zay-6046_9'].geometry}
+            material={materials['Material.100']}
+          />
+          <mesh
+            name="new_space_zay-6046_10"
+            geometry={nodes['new_space_zay-6046_10'].geometry}
+            material={materials['Material.107']}
+          />
+          <mesh
+            name="new_space_zay-6046_11"
+            geometry={nodes['new_space_zay-6046_11'].geometry}
+            material={materials['Material.106']}
+          />
+          <mesh
+            name="new_space_zay-6046_12"
+            geometry={nodes['new_space_zay-6046_12'].geometry}
+            material={materials['Material.105']}
+          />
+          <mesh
+            name="new_space_zay-6046_13"
+            geometry={nodes['new_space_zay-6046_13'].geometry}
+            material={materials['Material.110']}
+          />
+          <mesh
+            name="new_space_zay-6046_14"
+            geometry={nodes['new_space_zay-6046_14'].geometry}
+            material={materials['Material.109']}
+          />
+          <mesh
+            name="new_space_zay-6046_15"
+            geometry={nodes['new_space_zay-6046_15'].geometry}
+            material={materials['Material.108']}
+          />
+          <mesh
+            name="new_space_zay-6046_16"
+            geometry={nodes['new_space_zay-6046_16'].geometry}
+            material={materials['Material.113']}
+          />
+          <mesh
+            name="new_space_zay-6046_17"
+            geometry={nodes['new_space_zay-6046_17'].geometry}
+            material={materials['Material.112']}
+          />
+          <mesh
+            name="new_space_zay-6046_18"
+            geometry={nodes['new_space_zay-6046_18'].geometry}
+            material={materials['Material.111']}
+          />
+          <mesh
+            name="new_space_zay-6046_19"
+            geometry={nodes['new_space_zay-6046_19'].geometry}
+            material={materials['Material.123']}
+          />
+          <mesh
+            name="new_space_zay-6046_20"
+            geometry={nodes['new_space_zay-6046_20'].geometry}
+            material={materials['Material.115']}
+          />
+          <mesh
+            name="new_space_zay-6046_21"
+            geometry={nodes['new_space_zay-6046_21'].geometry}
+            material={materials['Material.114']}
+          />
+          <mesh
+            name="new_space_zay-6046_22"
+            geometry={nodes['new_space_zay-6046_22'].geometry}
+            material={materials['Material.127']}
+          />
+          <mesh
+            name="new_space_zay-6046_23"
+            geometry={nodes['new_space_zay-6046_23'].geometry}
+            material={materials['Material.126']}
+          />
+          <mesh
+            name="new_space_zay-6046_24"
+            geometry={nodes['new_space_zay-6046_24'].geometry}
+            material={materials['Material.125']}
+          />
+          <mesh
+            name="new_space_zay-6046_25"
+            geometry={nodes['new_space_zay-6046_25'].geometry}
+            material={materials['Material.133']}
+          />
+          <mesh
+            name="new_space_zay-6046_26"
+            geometry={nodes['new_space_zay-6046_26'].geometry}
+            material={materials['Material.132']}
+          />
+          <mesh
+            name="new_space_zay-6046_27"
+            geometry={nodes['new_space_zay-6046_27'].geometry}
+            material={materials['Material.128']}
+          />
+          <mesh
+            name="new_space_zay-6046_28"
+            geometry={nodes['new_space_zay-6046_28'].geometry}
+            material={materials['Material.136']}
+          />
+          <mesh
+            name="new_space_zay-6046_29"
+            geometry={nodes['new_space_zay-6046_29'].geometry}
+            material={materials['Material.135']}
+          />
+          <mesh
+            name="new_space_zay-6046_30"
+            geometry={nodes['new_space_zay-6046_30'].geometry}
+            material={materials['Material.134']}
+          />
+          <mesh
+            name="new_space_zay-6046_31"
+            geometry={nodes['new_space_zay-6046_31'].geometry}
+            material={materials['Material.138']}
+          />
+          <mesh
+            name="new_space_zay-6046_32"
+            geometry={nodes['new_space_zay-6046_32'].geometry}
+            material={materials['Material.137']}
+          />
+          <mesh
+            name="new_space_zay-6046_33"
+            geometry={nodes['new_space_zay-6046_33'].geometry}
+            material={materials['Material.090']}
+          />
+        </group>
       </group>
     </group>
   )
