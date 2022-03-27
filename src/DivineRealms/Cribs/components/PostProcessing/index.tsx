@@ -3,7 +3,6 @@ import Fireflies from "../Fireflies";
 import VolumetricLights from "../VolumetricLights";
 import * as THREE from "three";
 import { Fog } from "spacesvr";
-import {MutableRefObject, useRef, useState} from "react";
 import {useWorld} from "../WorldState";
 
 export function PostProcessing() {
@@ -23,7 +22,6 @@ export function PostProcessing() {
           selection={bloomObjects}
           intensity={2.5}
           luminanceThreshold={0}
-          // bloomRadius={0.05}
         />
       </EffectComposer>
     </group>
