@@ -2,7 +2,7 @@ import { SpotLight, useDepthBuffer, useHelper } from "@react-three/drei"
 import { GroupProps, useFrame, useThree} from "@react-three/fiber";
 import {Object3D, Vector3, DirectionalLightHelper, DirectionalLight, Euler, SpotLightHelper} from "three";
 import { useLimiter } from "spacesvr";
-import {Dispatch, MutableRefObject, Ref, SetStateAction, useMemo, useRef, useState} from "react";
+import {Dispatch, MutableRefObject, Ref, SetStateAction, useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from "three";
 import {useWorld} from "../WorldState";
 
@@ -17,9 +17,9 @@ export default function VolumetricLight(props: LightProps) {
   const { position = new Vector3(), rotation = new Euler(), ...restProps } = props
   const { scene } = useThree();
   const mesh = useRef<THREE.Mesh>();
-  const [dummyObj, setDummyObj] = useState<Object3D>(new Object3D());
-  const [dummyObj2, setDummyObj2] = useState<Object3D>(new Object3D());
-  const [dummyObj3, setDummyObj3] = useState<Object3D>(new Object3D());
+  const dummyObj = new Object3D();
+  const dummyObj2 = new Object3D();
+  const dummyObj3 = new Object3D();
   // const dummyObj2 = new Object3D();
   // const dummyObj3 = new Object3D();
   dummyObj.position.set(0.13+position.x, position.y-5, position.z);
@@ -46,9 +46,9 @@ export default function VolumetricLight(props: LightProps) {
   // useHelper(spLight1, SpotLightHelper)
   // useHelper(spLight2, SpotLightHelper)
 
-  useMemo(() => {
+  useEffect(() => {
     setLights([...lights, light1])
-  }, [light1])
+  }, [])
 
   return (
     <group name="VolumetricLight" position={position} rotation={rotation} {...restProps}>

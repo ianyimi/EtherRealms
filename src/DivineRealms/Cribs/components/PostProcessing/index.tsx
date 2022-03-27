@@ -21,7 +21,7 @@ export function PostProcessing() {
         <SelectiveBloom
           lights={lights}
           selection={bloomObjects}
-          intensity={2}
+          intensity={2.5}
           luminanceThreshold={0}
           // bloomRadius={0.05}
         />
