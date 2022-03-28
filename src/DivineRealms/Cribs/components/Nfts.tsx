@@ -22,7 +22,7 @@ export default function Nfts() {
 
   return (
     <animated.group scale={scale}>
-      {assets.length > 0 && <Nft asset={assets[3]} position={[5, 2, -10]} rotation-y={-Math.PI/2} />}
+      <Nft asset={assets[3]} position={[5, 2, -10]} rotation-y={-Math.PI/2} />
     </animated.group>
   )
 }

@@ -10,7 +10,6 @@ import {
 } from "react";
 import {Object3D} from "three";
 import {useThree} from "@react-three/fiber";
-import fetchAssets from "../../../utils/fetchAssets";
 
 type WorldState = {
   lights: MutableRefObject<any>[],
@@ -46,7 +45,7 @@ export default function WorldState(props: { children: ReactNode | ReactNode[] })
 
   return (
     <WorldContext.Provider value={{lights, setLights, bloomObjects, setBloomObjects, owner, setOwner, assets, setAssets, assetsFetched, setAssetsFetched}}>
-      <ambientLight intensity={0.1} ref={lightRef1} />
+      <ambientLight intensity={0.2} ref={lightRef1} />
       <group name="mainLight">
         <directionalLight ref={lightRef2} position={[100, 40, -100]} intensity={0.15} target={dummyObj} />
         <mesh position={[46, 14, -79]}>

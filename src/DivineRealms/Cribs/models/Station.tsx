@@ -191,9 +191,9 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
     cube1.current.rotation.x += delta/5;
     cube2.current.rotation.x -= delta/5;
     cube3.current.rotation.x += delta/5;
-    cube4.current.rotation.x += delta/5;
+    cube4.current.rotation.x += delta/5.1;
     cube5.current.rotation.x -= delta/5;
-    cube6.current.rotation.x -= delta/5;
+    cube6.current.rotation.x -= delta/5.1;
     cube7.current.rotation.x += delta/5;
     lightMesh1.current.rotation.x = cube1.current.rotation.x;
     lightMesh2.current.rotation.x = cube2.current.rotation.x;

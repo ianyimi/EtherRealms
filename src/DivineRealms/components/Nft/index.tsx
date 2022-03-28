@@ -2,20 +2,20 @@ import Media from "./Media";
 import Trait from "./Trait";
 import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
-// import { useRealm } from "../../../../components/RealmState";
 import * as THREE from "three";
+import { useWorld } from "../../Cribs/components/WorldState";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
 
 export default function Nft(props: { asset: Record<string, any>, theme?: string } & GroupProps) {
   const { asset, theme = "black", ...restProps } = props;
-  const src = asset.animation_url && (asset.animation_url).endsWith(".mp4") ? asset.animation_url : asset.image_url;
-  // const { scene: { theme = "Red" } } = useRealm();
+  const { assets } = useWorld();
+  const src = asset?.animation_url && (asset?.animation_url).endsWith(".mp4") ? asset?.animation_url : asset?.image_url;
   const themeColorRGB = new THREE.Color(theme.toLowerCase());
   const textColor = new THREE.Color(1-themeColorRGB.r, 1-themeColorRGB.g, 1-themeColorRGB.b)
 
   const traits = []
-  if (asset.traits && asset.traits.length>0) {
+  if (asset?.traits && asset?.traits.length>0) {
     for (let i=0, j=0; i<asset.traits.length && i<6; i++) {
       const currentTrait = asset.traits[i];
       if (currentTrait.trait_count !== 0) {
@@ -45,7 +45,7 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string 
         <boxBufferGeometry args={[2.25, 3.75, 0.125]} />
         <meshStandardMaterial color="white" />
       </mesh>
-      <Media src={src} color={theme} link={asset.permalink && asset.permalink as string} position={[0, 0.1, -0.05]} />
+      {assets.length > 0 && <Media src={src} color={theme} link={asset.permalink && asset.permalink as string} position={[0, 0.1, -0.05]} />}
       <Text
         fontSize={0.175}
         color={textColor}
@@ -55,10 +55,10 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string 
         maxWidth={2}
         font={FONT}
       >
-        {asset.name ? asset.name as string : `#${asset.token_id}`}
+        {asset?.name ? asset?.name as string : `#${asset?.token_id}`}
       </Text>
       <group name="traits" position={[-0.5, -1.3, -0.1]}>
-        {traits}
+        {assets.length > 0 && traits}
       </group>
     </group>
   )

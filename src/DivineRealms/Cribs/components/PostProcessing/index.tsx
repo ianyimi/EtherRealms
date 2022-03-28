@@ -9,7 +9,7 @@ export function PostProcessing() {
   const { bloomObjects, lights } = useWorld();
   return (
     <group>
-      <Fog color={new THREE.Color("black")} near={0.1} far={80} />
+      <Fog color={new THREE.Color("black")} near={0.1} far={75} />
       <Fireflies count={500} scale={30} color={"lightblue"} size={200} position-z={-37} />
       <VolumetricLights />
       <EffectComposer
