@@ -8,6 +8,7 @@ import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 import {useTrimeshCollision} from "spacesvr";
 import {BufferGeometry, Euler, Vector3} from "three";
+import { useTrimeshCollisions } from "../../../utils/useTrimeshCollisions";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -23,7 +24,7 @@ type GLTFResult = GLTF & {
     ['new_space_zay2-8']: THREE.Mesh
     ['new_space_zay2-9']: THREE.Mesh
     ['new_space_zay2-10']: THREE.Mesh
-  }
+  },
   materials: {
     ['Material.001']: THREE.MeshStandardMaterial
     ['Material.007']: THREE.MeshStandardMaterial
@@ -43,25 +44,33 @@ type GLTFResult = GLTF & {
 const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/platform-1647844423/platform.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
-  const { position = new Vector3(), rotation = new Euler(), scale = 1 } = props
+  // const { position, rotation, scale } = props
   const group = useRef<THREE.Group>()
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult
-
-  console.log(position)
 
   // useEffect(() => {
   //   nodes[`new_space_zay2-0`].scale.set(20, 20, 20)
   // }, [nodes[`new_space_zay2-0`]])
 
-  useTrimeshCollision((nodes[`new_space_zay2-0`].geometry as BufferGeometry)
-    .clone()
-    .scale((scale as number), (scale as number), (scale as number))
-    // .rotateX((rotation as Euler).x)
-    // .rotateY((rotation as Euler).y)
-    // .rotateZ((rotation as Euler).z)
-    // .translate((position as Vector3).x, (position as Vector3).y, (position as Vector3).z)
-    .translate(0, -70, 0)
-  );
+  // useTrimeshCollision((nodes[`new_space_zay2-0`].geometry as BufferGeometry)
+  //   .clone()
+  //   .scale((scale as number), (scale as number), (scale as number))
+  //   // .rotateX((rotation as Euler).x)
+  //   // .rotateY((rotation as Euler).y)
+  //   // .rotateZ((rotation as Euler).z)
+  //   // .translate((position as Vector3).x, (position as Vector3).y, (position as Vector3).z)
+  //   .translate(0, -70, 0)
+  // );
+  // useMemo(() => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useTrimeshCollisions({
+      nodes: nodes,
+      position: props.position,
+      rotation: props.rotation,
+      scale: props.scale,
+      meshIndexes: [0, 7, 8, 9, 10, 11]
+    });
+  // }, [nodes])
 
   return (
     <group ref={group} {...props} dispose={null}>
