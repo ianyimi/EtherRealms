@@ -39,27 +39,29 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string 
     }
   }
 
+  // const args = [2.25, 3.75, 0.125];
+
   return (
     <group {...restProps}>
-      <mesh position={[0, -0.85, -0.175]}>
-        <boxBufferGeometry args={[2.25, 3.75, 0.125]} />
+      <mesh position={[0, 0, -0.25]}>
+        <boxBufferGeometry args={[3, 3, 0.25]} />
         <meshStandardMaterial color="white" />
       </mesh>
-      {assets.length > 0 && <Media src={src} color={theme} link={asset.permalink && asset.permalink as string} position={[0, 0.1, -0.05]} />}
+      {assets.length > 0 && <Media src={src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />}
       <Text
-        fontSize={0.175}
+        fontSize={0.3}
         color={textColor}
-        position={[0, -0.85, -0.1]}
+        position={[0, asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
         depthOffset={-1}
         textAlign="center"
-        maxWidth={2}
+        maxWidth={3}
         font={FONT}
       >
-        {asset?.name ? asset?.name as string : `#${asset?.token_id}`}
+        {asset?.name ? asset?.name as string : `#${asset?.token_id.length < 6 ? asset?.token_id : ""}`}
       </Text>
-      <group name="traits" position={[-0.5, -1.3, -0.1]}>
-        {assets.length > 0 && traits}
-      </group>
+      {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>*/}
+      {/*  {assets.length > 0 && traits}*/}
+      {/*</group>*/}
     </group>
   )
 }

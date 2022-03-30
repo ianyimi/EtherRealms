@@ -6,12 +6,13 @@ import {Interactable} from "spacesvr";
 interface MediaProps {
   src: string,
   link: string,
-  color: string
+  color: string,
+  size?: number
 }
 
 export default function Media(props: MediaProps & GroupProps) {
 
-  const { src, link, color, ...restProps } = props;
+  const { src, link, color, size = 1.5, ...restProps } = props;
   const IS_VIDEO = src.endsWith(".mp4");
 
   function visitAsset() {
@@ -26,14 +27,14 @@ export default function Media(props: MediaProps & GroupProps) {
         <group>
           {IS_VIDEO ? (<Video
             src={src}
-            scale={1.5}
+            scale={size}
             framed
             muted
             frameMaterial={imageMat}
           />
           ) : (<Image
             src={src}
-            scale={1.5}
+            scale={size}
             framed
             frameMaterial={imageMat}
           />)}
