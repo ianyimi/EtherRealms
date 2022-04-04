@@ -13,6 +13,7 @@ interface MediaProps {
 export default function Media(props: MediaProps & GroupProps) {
 
   const { src, link, color, size = 1.5, ...restProps } = props;
+  console.log()
   const IS_VIDEO = src.endsWith(".mp4");
 
   function visitAsset() {

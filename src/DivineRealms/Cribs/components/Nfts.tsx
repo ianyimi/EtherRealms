@@ -5,10 +5,12 @@ import fetchAssets from "../../../utils/fetchAssets";
 import { animated, useSpring } from "@react-spring/three";
 import { nftPositions } from "./utils/constants";
 
+const STATION_TOKEN_ID = "40539505412060235591267077459928418936006271470437343391270068673212139438081";
+
 export default function Nfts() {
   const { assets, setAssets, setOwner, assetsFetched, setAssetsFetched } = useWorld();
   useEffect(() => {
-    fetchAssets(2745, setAssetsFetched).then((data) => {
+    fetchAssets(STATION_TOKEN_ID, setAssetsFetched).then((data) => {
       if (setOwner) setOwner(data.owner);
       if (setAssets) setAssets(data.assets);
     })

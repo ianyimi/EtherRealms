@@ -8,8 +8,8 @@ import { animated, useSpring } from "@react-spring/three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
 const FONT2 = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
+const NULL_ADDRESS =  "0x0000000000000000000000000000000000000000";
 const DEPLOYER_WALLET = "0x59A08c0433D06080aA56E14D39B0300095A4fe34";
-const DEPLOYER_WALLET2 = "0xacda061973a5c4eb4f9573c199772a31d9ca2829";
 const DEFAULT_PFP = "https://d1p3v0j4bqcb21.cloudfront.net/images/etherrealmspfp.png";
 
 export default function Nft(props: { asset: Record<string, any>, theme?: string, index: number } & GroupProps) {
@@ -19,7 +19,7 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string,
   const src = asset?.animation_url && (asset?.animation_url).endsWith(".mp4") ? asset?.animation_url : asset?.image_url;
   const themeColorRGB = new THREE.Color(theme.toLowerCase());
   const textColor = new THREE.Color(1-themeColorRGB.r, 1-themeColorRGB.g, 1-themeColorRGB.b);
-  const unowned = owner.address === DEPLOYER_WALLET2;
+  const unowned = (owner.address === NULL_ADDRESS) || (owner.address === DEPLOYER_WALLET);
 
   // const { scale } = useSpring({
   //   scale: assetsFetched ? 1 : 0,
@@ -63,11 +63,11 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string,
           <boxBufferGeometry args={[3, 3, 0.25]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
+        <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name && asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
         <Text
           fontSize={0.3}
           color={textColor}
-          position={[0, asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
+          position={[0, asset?.name && asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
           depthOffset={-1}
           textAlign="center"
           maxWidth={3}
