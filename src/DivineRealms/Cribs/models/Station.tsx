@@ -188,13 +188,13 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
       || !lightMesh6.current
       || !lightMesh7.current
     ) return;
-    cube1.current.rotation.x += delta/5;
-    cube2.current.rotation.x -= delta/5;
-    cube3.current.rotation.x += delta/5;
-    cube4.current.rotation.x += delta/5.1;
-    cube5.current.rotation.x -= delta/5;
-    cube6.current.rotation.x -= delta/5.1;
-    cube7.current.rotation.x += delta/5;
+    cube1.current.rotation.x = -2.4313 + clock.getElapsedTime()/20;
+    cube2.current.rotation.x = 0.0697 - clock.getElapsedTime()/20;
+    cube3.current.rotation.x = 2.7674 + clock.getElapsedTime()/20;
+    cube4.current.rotation.x = -1.3832 + clock.getElapsedTime()/21;
+    cube5.current.rotation.x = 2.1326 - clock.getElapsedTime()/20;
+    cube6.current.rotation.x = -0.4182 - clock.getElapsedTime()/21;
+    cube7.current.rotation.x = 2.5559 + clock.getElapsedTime()/20;
     lightMesh1.current.rotation.x = cube1.current.rotation.x;
     lightMesh2.current.rotation.x = cube2.current.rotation.x;
     lightMesh3.current.rotation.x = cube3.current.rotation.x;
