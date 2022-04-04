@@ -6,7 +6,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>spacesvr project</title>
+        <title>EtherRealms</title>
+        <link rel="shortcut icon" href="/static/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </>

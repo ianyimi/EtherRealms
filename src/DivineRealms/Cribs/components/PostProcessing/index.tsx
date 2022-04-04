@@ -3,10 +3,14 @@ import Fireflies from "../Fireflies";
 import VolumetricLights from "../VolumetricLights";
 import * as THREE from "three";
 import { Fog } from "spacesvr";
-import {useWorld} from "../WorldState";
+import { useWorld } from "../WorldState";
+import { useAudio } from "utils/useAudio";
 
 export function PostProcessing() {
   const { bloomObjects, lights } = useWorld();
+
+  useAudio("https://d1p3v0j4bqcb21.cloudfront.net/audio/ambientnight.mp3");
+
   return (
     <group>
       <Fog color={new THREE.Color("black")} near={0.1} far={75} />

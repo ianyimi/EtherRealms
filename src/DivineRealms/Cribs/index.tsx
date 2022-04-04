@@ -7,23 +7,32 @@ import Nfts from "./components/Nfts";
 import * as THREE from "three";
 import { PostProcessing } from "./components/PostProcessing";
 import WorldState from "./components/WorldState";
+import { isMobile } from "react-device-detect";
 import {Physics} from "@react-three/cannon";
 import {Canvas} from "@react-three/fiber";
 
 export default function Home() {
+
+  // if (isMobile) {
+  //   return (
+  //     <div>Visit on Desktop</div>
+  //   )
+  // }
+
   return (
-    <StandardEnvironment
-      dev={process.env.NODE_ENV === "development"}
-      canvasProps={{ camera: { far: 1000 } }}
-      playerProps={{ pos: [0, 1.5, 0], speed: 10, controls: { disableGyro: true } }}
-      physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
-      pauseMenu={<PauseMenu />}
-      // disableGround
-    >
-    {/*<Canvas camera={{ aspect: window.innerWidth/window.innerHeight }}>*/}
-    {/*  <color attach="background" args={["black"]} />*/}
-    {/*  <Physics>*/}
-      {/*<Debug scale={1} color="red">*/}
+    <div>
+      <StandardEnvironment
+        dev={process.env.NODE_ENV === "development"}
+        canvasProps={{ camera: { far: 1000 } }}
+        playerProps={{ pos: [0, 1.5, 0], speed: 10, controls: { disableGyro: true } }}
+        physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
+        pauseMenu={<PauseMenu />}
+        // disableGround
+      >
+        {/*<Canvas camera={{ aspect: window.innerWidth/window.innerHeight }}>*/}
+        {/*  <color attach="background" args={["black"]} />*/}
+        {/*  <Physics>*/}
+        {/*<Debug scale={1} color="red">*/}
         <WorldState>
           {/*<Stars />*/}
           {/*<OrbitControls autoRotateSpeed={0.5} autoRotate />*/}
@@ -32,9 +41,10 @@ export default function Home() {
           <Nfts />
           <Preload all />
         </WorldState>
-      {/*</Debug>*/}
-      {/*</Physics>*/}
-    {/*</Canvas>*/}
-    </StandardEnvironment>
+        {/*</Debug>*/}
+        {/*  </Physics>*/}
+        {/*</Canvas>*/}
+      </StandardEnvironment>
+    </div>
   );
 }

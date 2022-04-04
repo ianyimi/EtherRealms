@@ -1,6 +1,6 @@
 import Nft from "../../components/Nft";
 import { useWorld } from "./WorldState";
-import {ReactNode, useEffect} from "react";
+import { ReactNode, useEffect } from "react";
 import fetchAssets from "../../../utils/fetchAssets";
 import { animated, useSpring } from "@react-spring/three";
 import { nftPositions } from "./utils/constants";
@@ -25,7 +25,7 @@ export default function Nfts() {
   for (let i=0; i<Math.min(assets.length, nftPositions.length); i++) {
     const mesh = nftPositions[i];
     nfts.push(
-      <Nft asset={assets[i]} position={mesh.p} rotation={mesh.r} />
+      <Nft asset={assets[i]} position={mesh.p} rotation={mesh.r} key={i} />
     )
   }
 
