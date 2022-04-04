@@ -1,12 +1,13 @@
 import Media from "./Media";
 import Trait from "./Trait";
 import { Text } from "@react-three/drei";
-import { GroupProps } from "@react-three/fiber";
+import {GroupProps, useLoader} from "@react-three/fiber";
 import * as THREE from "three";
 import { useWorld } from "../../Cribs/components/WorldState";
 import { animated, useSpring } from "@react-spring/three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
+const FONT2 = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
 
 export default function Nft(props: { asset: Record<string, any>, theme?: string } & GroupProps) {
   const { asset, theme = "black", ...restProps } = props;
@@ -14,7 +15,7 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string 
   const { assets } = useWorld();
   const src = asset?.animation_url && (asset?.animation_url).endsWith(".mp4") ? asset?.animation_url : asset?.image_url;
   const themeColorRGB = new THREE.Color(theme.toLowerCase());
-  const textColor = new THREE.Color(1-themeColorRGB.r, 1-themeColorRGB.g, 1-themeColorRGB.b)
+  const textColor = new THREE.Color(1-themeColorRGB.r, 1-themeColorRGB.g, 1-themeColorRGB.b);
 
   const traits = []
   if (asset?.traits && asset?.traits.length>0) {
