@@ -7,7 +7,7 @@ import { useWorld } from "../../Cribs/components/WorldState";
 import { animated, useSpring } from "@react-spring/three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
-const FONT2 = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
+const BRAND_FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
 const NULL_ADDRESS =  "0x0000000000000000000000000000000000000000";
 const DEPLOYER_WALLET = "0x59A08c0433D06080aA56E14D39B0300095A4fe34";
 const DEFAULT_PFP = "https://d1p3v0j4bqcb21.cloudfront.net/images/etherrealmspfp.png";
@@ -65,9 +65,9 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string,
         </mesh>
         <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name && asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
         <Text
-          fontSize={0.3}
+          fontSize={unowned ? 0.45 : 0.3}
           color={textColor}
-          position={[0, asset?.name && asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
+          position={[0, unowned ? -1.1 : asset?.name && asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
           depthOffset={-1}
           textAlign="center"
           maxWidth={3}

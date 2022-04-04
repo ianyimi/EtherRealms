@@ -29,20 +29,20 @@ export default function Home() {
       // disableGround
     >
     {/*<Canvas camera={{ aspect: window.innerWidth/window.innerHeight }}>*/}
-    {/*  <color attach="background" args={["black"]} />*/}
-    {/*  <Physics>*/}
-      {/*<Debug scale={1} color="red">*/}
+      {/*<color attach="background" args={["black"]} />*/}
+      {/*<Physics>*/}
+        {/*<Debug scale={1} color="red">*/}
           <WorldState>
             {/*<Stars />*/}
-            {/*<OrbitControls autoRotateSpeed={0.5} autoRotate />*/}
+            {/*<OrbitControls autoRotateSpeed={2} autoRotate />*/}
             <Station position-y={-1} />
             <PostProcessing />
             <Nfts />
             <Preload all />
           </WorldState>
-      {/*</Debug>*/}
-      {/*</Physics>*/}
-      {/*<Canvas>*/}
+        {/*</Debug>*/}
+    {/*  </Physics>*/}
+    {/*</Canvas>*/}
     </StandardEnvironment>
   );
 }
