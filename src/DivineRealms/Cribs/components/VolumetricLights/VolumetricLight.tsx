@@ -22,12 +22,16 @@ export default function VolumetricLight(props: LightProps) {
   const dummyObj = new Object3D();
   const dummyObj2 = new Object3D();
   const dummyObj3 = new Object3D();
+  const dummyGroup = new THREE.Group();
   dummyObj.position.set(0.13+position.x, position.y-5, position.z);
   dummyObj2.position.set(-0.15+position.x, position.y-5, position.z);
   dummyObj3.position.set(-0.02+position.x, position.y-5, position.z);
 
   const light1 = useRef();
-  scene.add(dummyObj3)
+  dummyGroup.add(dummyObj);
+  dummyGroup.add(dummyObj2);
+  dummyGroup.add(dummyObj3);
+  scene.add(dummyGroup)
   // useHelper(light1, DirectionalLightHelper)
 
   // @ts-ignore

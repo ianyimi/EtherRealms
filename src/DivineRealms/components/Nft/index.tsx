@@ -4,11 +4,13 @@ import { Text } from "@react-three/drei";
 import { GroupProps } from "@react-three/fiber";
 import * as THREE from "three";
 import { useWorld } from "../../Cribs/components/WorldState";
+import { animated, useSpring } from "@react-spring/three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
 
 export default function Nft(props: { asset: Record<string, any>, theme?: string } & GroupProps) {
   const { asset, theme = "black", ...restProps } = props;
+  const { assetsFetched } = useWorld();
   const { assets } = useWorld();
   const src = asset?.animation_url && (asset?.animation_url).endsWith(".mp4") ? asset?.animation_url : asset?.image_url;
   const themeColorRGB = new THREE.Color(theme.toLowerCase());
@@ -39,29 +41,38 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string 
     }
   }
 
+  const { scale } = useSpring({
+    scale: assetsFetched ? 1 : 0,
+    config: {
+      mass: 1
+    }
+  })
+
   // const args = [2.25, 3.75, 0.125];
 
   return (
     <group {...restProps}>
-      <mesh position={[0, 0, -0.25]}>
-        <boxBufferGeometry args={[3, 3, 0.25]} />
-        <meshStandardMaterial color="white" />
-      </mesh>
-      {assets.length > 0 && <Media src={src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />}
-      <Text
-        fontSize={0.3}
-        color={textColor}
-        position={[0, asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
-        depthOffset={-1}
-        textAlign="center"
-        maxWidth={3}
-        font={FONT}
-      >
-        {asset?.name ? asset?.name as string : `#${asset?.token_id.length < 6 ? asset?.token_id : ""}`}
-      </Text>
-      {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>*/}
-      {/*  {assets.length > 0 && traits}*/}
-      {/*</group>*/}
+      <animated.group scale={scale}>
+        <mesh position={[0, 0, -0.25]}>
+          <boxBufferGeometry args={[3, 3, 0.25]} />
+          <meshStandardMaterial color="white" />
+        </mesh>
+        {assets.length > 0 && <Media src={src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />}
+        <Text
+          fontSize={0.3}
+          color={textColor}
+          position={[0, asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
+          depthOffset={-1}
+          textAlign="center"
+          maxWidth={3}
+          font={FONT}
+        >
+          {asset?.name ? asset?.name as string : `#${asset?.token_id.length < 6 ? asset?.token_id : ""}`}
+        </Text>
+        {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>*/}
+        {/*  {assets.length > 0 && traits}*/}
+        {/*</group>*/}
+      </animated.group>
     </group>
   )
 }

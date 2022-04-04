@@ -32,8 +32,6 @@ export default function Nfts() {
   return (
     <animated.group name="nfts" scale={scale}>
       {nfts}
-      {/*<Nft asset={assets[2]} position={[5.45, 2, -52.5]} rotation-y={-Math.PI} />*/}
-      {/*<Nft asset={assets[3]} position={[15.45, 2, -52.5]} rotation-y={-Math.PI} />*/}
     </animated.group>
   )
 }

@@ -20,31 +20,30 @@ export default function Home() {
   // }
 
   return (
-    <div>
-      <StandardEnvironment
-        dev={process.env.NODE_ENV === "development"}
-        canvasProps={{ camera: { far: 1000 } }}
-        playerProps={{ pos: [0, 1.5, 0], speed: 10, controls: { disableGyro: true } }}
-        physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
-        pauseMenu={<PauseMenu />}
-        // disableGround
-      >
-        {/*<Canvas camera={{ aspect: window.innerWidth/window.innerHeight }}>*/}
-        {/*  <color attach="background" args={["black"]} />*/}
-        {/*  <Physics>*/}
-        {/*<Debug scale={1} color="red">*/}
-        <WorldState>
-          {/*<Stars />*/}
-          {/*<OrbitControls autoRotateSpeed={0.5} autoRotate />*/}
-          <Station position-y={-1} />
-          <PostProcessing />
-          <Nfts />
-          <Preload all />
-        </WorldState>
-        {/*</Debug>*/}
-        {/*  </Physics>*/}
-        {/*</Canvas>*/}
-      </StandardEnvironment>
-    </div>
+    <StandardEnvironment
+      dev={process.env.NODE_ENV === "development"}
+      canvasProps={{ camera: { far: 1000 } }}
+      playerProps={{ pos: [0, 1.5, 0], speed: 10, controls: { disableGyro: true } }}
+      physicsProps={{ defaultContactMaterial: { friction: 0.01 } }}
+      pauseMenu={<PauseMenu />}
+      // disableGround
+    >
+      {/*<Canvas camera={{ aspect: window.innerWidth/window.innerHeight }}>*/}
+      {/*  <color attach="background" args={["black"]} />*/}
+      {/*  <Physics>*/}
+      {/*<Debug scale={1} color="red">*/}
+      <WorldState>
+        {/*<Stars />*/}
+        {/*<OrbitControls autoRotateSpeed={0.5} autoRotate />*/}
+        <Station position-y={-1} />
+        <PostProcessing />
+        <Nfts />
+        <Preload all />
+        <group name="dummyObjectss" />
+      </WorldState>
+      {/*</Debug>*/}
+      {/*  </Physics>*/}
+      {/*</Canvas>*/}
+    </StandardEnvironment>
   );
 }
