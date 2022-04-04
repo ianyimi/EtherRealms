@@ -8,57 +8,62 @@ import { animated, useSpring } from "@react-spring/three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";
 const FONT2 = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Etherrealms.otf";
+const DEPLOYER_WALLET = "0x59A08c0433D06080aA56E14D39B0300095A4fe34";
+const DEPLOYER_WALLET2 = "0xacda061973a5c4eb4f9573c199772a31d9ca2829";
+const DEFAULT_PFP = "https://d1p3v0j4bqcb21.cloudfront.net/images/etherrealmspfp.png";
 
-export default function Nft(props: { asset: Record<string, any>, theme?: string } & GroupProps) {
-  const { asset, theme = "black", ...restProps } = props;
-  const { assetsFetched } = useWorld();
+export default function Nft(props: { asset: Record<string, any>, theme?: string, index: number } & GroupProps) {
+  const { asset, theme = "black", index, ...restProps } = props;
+  const { assetsFetched, owner } = useWorld();
   const { assets } = useWorld();
   const src = asset?.animation_url && (asset?.animation_url).endsWith(".mp4") ? asset?.animation_url : asset?.image_url;
   const themeColorRGB = new THREE.Color(theme.toLowerCase());
   const textColor = new THREE.Color(1-themeColorRGB.r, 1-themeColorRGB.g, 1-themeColorRGB.b);
+  const unowned = owner.address === DEPLOYER_WALLET2;
 
-  const traits = []
-  if (asset?.traits && asset?.traits.length>0) {
-    for (let i=0, j=0; i<asset.traits.length && i<6; i++) {
-      const currentTrait = asset.traits[i];
-      if (currentTrait.trait_count !== 0) {
-        traits.push(
-          <group name={`trait_${i}`} key={i}>
-            <Trait
-              title={currentTrait.trait_type}
-              value={currentTrait.value}
-              count={currentTrait.trait_count}
-              supply={asset.totalSupply}
-              position-x={(i%2)*0.95 + 0.025}
-              position-y={j*(-0.55)}
-            />
-          </group>
-        )
-        if (i%2 === 1) j++;
-      } else {
-        asset.traits.splice(asset.traits.indexOf(currentTrait), 1);
-        i--;
-      }
-    }
-  }
+  // const { scale } = useSpring({
+  //   scale: assetsFetched ? 1 : 0,
+  //   config: {
+  //     mass: 1
+  //   }
+  // })
 
-  const { scale } = useSpring({
-    scale: assetsFetched ? 1 : 0,
-    config: {
-      mass: 1
-    }
-  })
+  // const traits = []
+  // if (asset?.traits && asset?.traits.length>0) {
+  //   for (let i=0, j=0; i<asset.traits.length && i<6; i++) {
+  //     const currentTrait = asset.traits[i];
+  //     if (currentTrait.trait_count !== 0) {
+  //       traits.push(
+  //         <group name={`trait_${i}`} key={i}>
+  //           <Trait
+  //             title={currentTrait.trait_type}
+  //             value={currentTrait.value}
+  //             count={currentTrait.trait_count}
+  //             supply={asset.totalSupply}
+  //             position-x={(i%2)*0.95 + 0.025}
+  //             position-y={j*(-0.55)}
+  //           />
+  //         </group>
+  //       )
+  //       if (i%2 === 1) j++;
+  //     } else {
+  //       asset.traits.splice(asset.traits.indexOf(currentTrait), 1);
+  //       i--;
+  //     }
+  //   }
+  // }
 
+  // console.log(assetsFetched)
   // const args = [2.25, 3.75, 0.125];
 
   return (
-    <group {...restProps}>
-      <animated.group scale={scale}>
+    <group {...restProps} name={asset?.name ? `[${index}] - ${asset?.name as string}` : `[${index}] - #${asset?.token_id.length < 6 ? asset?.token_id : ""}`}>
+      <group>
         <mesh position={[0, 0, -0.25]}>
           <boxBufferGeometry args={[3, 3, 0.25]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        {assets.length > 0 && <Media src={src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />}
+        <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
         <Text
           fontSize={0.3}
           color={textColor}
@@ -68,12 +73,12 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string 
           maxWidth={3}
           font={FONT}
         >
-          {asset?.name ? asset?.name as string : `#${asset?.token_id.length < 6 ? asset?.token_id : ""}`}
+          {unowned ? "EtherRealms" : asset?.name ? asset?.name as string : `#${asset?.token_id.length < 6 ? asset?.token_id : ""}`}
         </Text>
         {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>*/}
         {/*  {assets.length > 0 && traits}*/}
         {/*</group>*/}
-      </animated.group>
+      </group>
     </group>
   )
 }

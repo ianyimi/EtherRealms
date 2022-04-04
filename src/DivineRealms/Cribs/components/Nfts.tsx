@@ -25,7 +25,7 @@ export default function Nfts() {
   for (let i=0; i<Math.min(assets.length, nftPositions.length); i++) {
     const mesh = nftPositions[i];
     nfts.push(
-      <Nft asset={assets[i]} position={mesh.p} rotation={mesh.r} key={i} />
+      <Nft asset={assets[i]} index={i} position={mesh.p} rotation={mesh.r} key={i} />
     )
   }
 
