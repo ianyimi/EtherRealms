@@ -16,8 +16,8 @@ type WorldState = {
   setLights: Dispatch<SetStateAction<MutableRefObject<any>[]>>,
   bloomObjects: MutableRefObject<any>[],
   setBloomObjects: Dispatch<SetStateAction<MutableRefObject<any>[]>>,
-  owner: Record<string, any>,
-  setOwner: Dispatch<SetStateAction<Record<string, any>>>,
+  owners: string[],
+  setOwners: Dispatch<SetStateAction<string[]>>,
   assets: Record<string, any>[],
   setAssets: Dispatch<SetStateAction<Record<string, any>[]>>,
   assetsFetched: boolean,
@@ -35,7 +35,7 @@ export default function WorldState(props: { children: ReactNode | ReactNode[] })
   const lightRef2 = useRef();
   const [lights, setLights] = useState<MutableRefObject<any>[]>([lightRef1, lightRef2]);
   const [bloomObjects, setBloomObjects] = useState<MutableRefObject<any>[]>([]);
-  const [owner, setOwner] = useState<Record<string, any>>({});
+  const [owners, setOwners] = useState<string[]>([]);
   const [assets, setAssets] = useState<Record<string, any>[]>([]);
   const [assetsFetched, setAssetsFetched] = useState(false);
 
@@ -44,7 +44,7 @@ export default function WorldState(props: { children: ReactNode | ReactNode[] })
   scene.add(dummyObj)
 
   return (
-    <WorldContext.Provider value={{lights, setLights, bloomObjects, setBloomObjects, owner, setOwner, assets, setAssets, assetsFetched, setAssetsFetched}}>
+    <WorldContext.Provider value={{lights, setLights, bloomObjects, setBloomObjects, owners, setOwners, assets, setAssets, assetsFetched, setAssetsFetched}}>
       <ambientLight intensity={0.2} ref={lightRef1} />
       <group name="mainLight">
         <directionalLight ref={lightRef2} position={[100, 40, -100]} intensity={0.15} target={dummyObj} />

@@ -12,14 +12,22 @@ const NULL_ADDRESS =  "0x0000000000000000000000000000000000000000";
 const DEPLOYER_WALLET = "0x59A08c0433D06080aA56E14D39B0300095A4fe34";
 const DEFAULT_PFP = "https://d1p3v0j4bqcb21.cloudfront.net/images/etherrealmspfp.png";
 
-export default function Nft(props: { asset: Record<string, any>, theme?: string, index: number } & GroupProps) {
-  const { asset, theme = "black", index, ...restProps } = props;
-  const { assetsFetched, owner } = useWorld();
+type NFTProps = {
+  asset: Record<string, any>,
+  index: number,
+  owned: boolean
+  theme?: string,
+} & GroupProps
+
+export default function Nft(props: NFTProps) {
+  const { asset, theme = "black", index, owned, ...restProps } = props;
+  const { assetsFetched, owners } = useWorld();
   const { assets } = useWorld();
-  const src = asset?.animation_url && (asset?.animation_url).endsWith(".mp4") ? asset?.animation_url : asset?.image_url;
+  const src = asset?.metadata?.animation_url && (asset?.metadata?.animation_url).endsWith(".mp4") ? asset?.metadata?.animation_url : asset?.metadata?.image;
   const themeColorRGB = new THREE.Color(theme.toLowerCase());
   const textColor = new THREE.Color(1-themeColorRGB.r, 1-themeColorRGB.g, 1-themeColorRGB.b);
-  const unowned = (owner.address === NULL_ADDRESS) || (owner.address === DEPLOYER_WALLET);
+
+  console.log(asset)
 
   // const { scale } = useSpring({
   //   scale: assetsFetched ? 1 : 0,
@@ -57,23 +65,23 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string,
   // const args = [2.25, 3.75, 0.125];
 
   return (
-    <group {...restProps} name={asset?.name ? `[${index}] - ${asset?.name as string}` : `[${index}] - #${asset?.token_id.length < 6 ? asset?.token_id : ""}`}>
+    <group {...restProps} name={!owned ? "EtherRealms" : asset?.title ? `[${index}] - ${asset?.title as string}` : `[${index}] - #${asset?.id?.tokenId.length < 6 ? asset?.id?.tokenId : ""}`}>
       <group>
         <mesh position={[0, 0, -0.25]}>
           <boxBufferGeometry args={[3, 3, 0.25]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name && asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
+        <Media src={!owned ? DEFAULT_PFP : src} color={theme} size={2} link={!owned ? undefined : asset.permalink && asset.permalink as string} position={[0, asset?.title && asset?.title.length > 25 ? 0.25 : 0.1, -0.05]} />
         <Text
-          fontSize={unowned ? 0.45 : 0.3}
+          fontSize={!owned ? 0.45 : 0.3}
           color={textColor}
-          position={[0, unowned ? -1.1 : asset?.name && asset?.name.length > 25 ? -1.175 : -1.2, -0.1]}
+          position={[0, !owned ? -1.1 : asset?.title && asset?.title.length > 25 ? -1.175 : -1.2, -0.1]}
           depthOffset={-1}
           textAlign="center"
           maxWidth={3}
           font={FONT}
         >
-          {unowned ? "EtherRealms" : asset?.name ? asset?.name as string : `#${asset?.token_id.length < 6 ? asset?.token_id : ""}`}
+          {!owned ? "EtherRealms" : asset?.title ? asset?.title as string : `#${parseInt(asset?.id?.tokenId, 16).toString().length < 6 ? asset?.token_id : ""}`}
         </Text>
         {/*<group name="traits" position={[-0.5, -1.3, -0.1]}>*/}
         {/*  {assets.length > 0 && traits}*/}
