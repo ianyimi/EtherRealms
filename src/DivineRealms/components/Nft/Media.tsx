@@ -1,7 +1,7 @@
 import { Image, Video } from "spacesvr";
 import { GroupProps } from "@react-three/fiber"
-import {MeshStandardMaterial} from "three";
-import {Interactable} from "spacesvr";
+import { MeshStandardMaterial } from "three";
+import { Interactable } from "spacesvr";
 
 interface MediaProps {
   src: string,
