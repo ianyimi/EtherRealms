@@ -63,7 +63,7 @@ export default function Nft(props: { asset: Record<string, any>, theme?: string,
           <boxBufferGeometry args={[3, 3, 0.25]} />
           <meshStandardMaterial color="white" />
         </mesh>
-        <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={asset.permalink && asset.permalink as string} position={[0, asset?.name && asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
+        <Media src={unowned ? DEFAULT_PFP : src} color={theme} size={2} link={unowned ? undefined : asset.permalink && asset.permalink as string} position={[0, asset?.name && asset?.name.length > 25 ? 0.25 : 0.1, -0.05]} />
         <Text
           fontSize={unowned ? 0.45 : 0.3}
           color={textColor}

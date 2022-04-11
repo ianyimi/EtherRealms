@@ -5,7 +5,7 @@ import { Interactable } from "spacesvr";
 
 interface MediaProps {
   src: string,
-  link: string,
+  link?: string,
   color: string,
   size?: number
 }
@@ -24,7 +24,7 @@ export default function Media(props: MediaProps & GroupProps) {
 
   return (
     <group {...restProps}>
-      <Interactable onClick={visitAsset}>
+      <Interactable onClick={!link ? undefined : visitAsset}>
         <group>
           {IS_VIDEO ? (<Video
             src={src}
