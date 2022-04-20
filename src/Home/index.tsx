@@ -1,6 +1,7 @@
 import { StandardEnvironment, Fog } from "spacesvr";
 import Gate from "./models/Gate";
 import Boards from "./components/Boards";
+import Boundaries from "./components/Boundaries";
 // import Flashlight from "./components/Flashlight";
 import { Debug } from "@react-three/cannon";
 import { Box, Stars, Text } from "@react-three/drei";
@@ -23,13 +24,14 @@ export default function Home() {
       pauseMenu={<PauseMenu />}
       // disableGround
     >
-      <Debug scale={1} color="red">
+      {/*<Debug scale={1} color="red">*/}
         <Stars radius={200} />
+        <Boundaries />
         <Gate scale={3} position-y={6} />
         <Water color="0x001e0f" position-y={-5} />
         <BrandLogo position={[0, 30, -57.5]} rotation-y={-Math.PI/2} />
         <Fog color={new THREE.Color("black")} near={25} far={150} />
-        <Boards />
+        {/*<Boards />*/}
         {/*<Portal />*/}
         {/* @ts-ignore */}
         {/*<MagicMirror position={[0, 0, 0]} args={[10, 10]} rotation-y={-Math.PI/2}>*/}
@@ -43,7 +45,7 @@ export default function Home() {
         {/*  </group>*/}
         {/*</MagicMirror>*/}
         {/*<Flashlight />*/}
-      </Debug>
+      {/*</Debug>*/}
     </StandardEnvironment>
   );
 }

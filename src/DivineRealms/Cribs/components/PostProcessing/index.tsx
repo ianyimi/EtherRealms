@@ -24,7 +24,7 @@ export function PostProcessing() {
         <SelectiveBloom
           lights={lights}
           selection={bloomObjects}
-          intensity={2.5}
+          intensity={2.55}
           luminanceThreshold={0}
         />
       </EffectComposer>

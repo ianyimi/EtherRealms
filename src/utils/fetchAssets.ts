@@ -2,8 +2,8 @@ import { Dispatch, SetStateAction } from "react";
 
 // const CONTRACT_ADDRESS = "0xc631164b6cb1340b5123c9162f8558c866de1926" // DA
 // const CONTRACT_ADDRESS = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb" // CryptoPunks
-// const CONTRACT_ADDRESS = "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d" // BAYC
-const CONTRACT_ADDRESS = "0x495f947276749ce646f68ac8c248420045cb7b5e" // Divine Realms
+const CONTRACT_ADDRESS = "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d" // BAYC
+// const CONTRACT_ADDRESS = "0x495f947276749ce646f68ac8c248420045cb7b5e" // Divine Realms
 const API_KEY = "yyfyE3yknqbNh_mywcFaiGiRpuwsUQtN";
 
 export default async function fetchAssets(tokenId: number | string, setAssetsFetched: Dispatch<SetStateAction<boolean>>) {
