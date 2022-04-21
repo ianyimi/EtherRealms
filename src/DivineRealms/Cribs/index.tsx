@@ -4,12 +4,15 @@ import { Debug } from "@react-three/cannon";
 import PauseMenu from "styles/PauseMenu";
 import Station from "./models/Station";
 import Nfts from "./components/Nfts";
+import Kiosk from "./components/Kiosk";
 import * as THREE from "three";
 import { PostProcessing } from "./components/PostProcessing";
 import WorldState from "./components/WorldState";
 import { isMobile } from "react-device-detect";
 import {Physics} from "@react-three/cannon";
 import {Canvas} from "@react-three/fiber";
+
+const OPENSEA_LINK = "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/40539505412060235591267077459928418936006271470437343391270068673212139438081";
 
 export default function Home() {
 
@@ -36,8 +39,9 @@ export default function Home() {
             {/*<Stars />*/}
             {/*<OrbitControls autoRotateSpeed={2} autoRotate />*/}
             <Station position-y={-1} />
-            <PostProcessing />
             <Nfts />
+            <Kiosk title="The Station" link={OPENSEA_LINK} position={[3.5, 1, 5]} rotation-y={Math.PI} />
+            <PostProcessing />
             <Preload all />
           </WorldState>
         {/*</Debug>*/}
