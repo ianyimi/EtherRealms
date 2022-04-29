@@ -5,9 +5,9 @@ import {useEffect, useRef} from "react";
 import {useLimiter} from "spacesvr";
 import {useRealm} from "../EtherRealms/components/RealmState";
 
-export default function WaterPlane(props: { color: string } & GroupProps) {
+export default function WaterPlane(props: { color: string, speed?: number } & GroupProps) {
 
-  const { color = "0x001e0f" } = props;
+  const { color = "0x001e0f", speed = 1 } = props;
   const group = useRef();
   // const { scene: { theme = "0x001e0f" } } = useRealm();
   const waterGeometry = new THREE.PlaneGeometry( 750, 750 );
@@ -35,7 +35,7 @@ export default function WaterPlane(props: { color: string } & GroupProps) {
   useFrame(({ clock}, delta) => {
     if (!limiter.isReady(clock) || !group.current) return;
     // @ts-ignore
-    (group.current.children[0].material as THREE.ShaderMaterial).uniforms["time"].value += delta;
+    (group.current.children[0].material as THREE.ShaderMaterial).uniforms["time"].value += delta*speed;
   })
 
   useEffect(() => {
