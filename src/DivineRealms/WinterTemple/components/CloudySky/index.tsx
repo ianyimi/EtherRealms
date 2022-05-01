@@ -41,7 +41,7 @@ export default function CloudySky(props: GradientSky) {
     ];
   }
 
-  const mat = useSkyMat(radius, COLORS);
+  const mat = useSkyMat(radius, COLORS, "white");
 
   return (
     <group {...restProps} name="cloudy-sky">

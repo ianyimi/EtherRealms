@@ -2,14 +2,16 @@ import { DoubleSide, ShaderMaterial, Uniform } from "three";
 import { useMemo } from "react";
 import { useLimiter } from "spacesvr";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
-export const useSkyMat = (radius: number, colors: number[]): ShaderMaterial => {
+export const useSkyMat = (radius: number, colors: number[], fogColor = "white"): ShaderMaterial => {
   const mat = useMemo(
     () =>
       new ShaderMaterial({
         uniforms: {
           radius: new Uniform(radius),
           colors: new Uniform(colors),
+          fogColor: new Uniform(new THREE.Color(fogColor)),
           num_colors: new Uniform(colors.length),
           time: new Uniform(0),
         },
@@ -40,11 +42,15 @@ const vert = `
 `;
 
 const frag = `
+  #define fogNear 100.
+  #define fogFar 350.
+  
   uniform highp float radius;
   uniform highp float time;
   uniform int num_colors;
   uniform highp float colors[100];
   varying vec3 absPosition;
+  uniform vec3 fogColor;
   
   //
   // Description : Array and textureless GLSL 2D/3D/4D simplex
@@ -180,5 +186,10 @@ const frag = `
     color = mix(color, vec3(colors[9], colors[10], colors[11]), get_mix(3, noise3));
 
     gl_FragColor = vec4( color, 1.0 );
+    
+    // account for fog
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep( fogNear, fogFar, depth );
+    gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
   }
 `;
