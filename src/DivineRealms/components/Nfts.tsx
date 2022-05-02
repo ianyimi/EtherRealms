@@ -1,16 +1,20 @@
-import Nft from "../../components/Nft";
-import { useWorld } from "./WorldState";
+import Nft from "./Nft";
+import { useWorld } from "../Cribs/components/WorldState";
 import { ReactNode, useEffect } from "react";
-import fetchAssets from "../../../utils/fetchAssets";
+import fetchAssets from "../../utils/fetchAssets";
 import { animated, useSpring } from "@react-spring/three";
-import { nftPositions } from "./utils/constants";
+import { Vector3, Euler } from "three";
 
-const STATION_TOKEN_ID = "40539505412060235591267077459928418936006271470437343391270068673212139438081";
+type NftsProps = {
+  tokenId: string,
+  positions: {p: Vector3, r: Euler}[]
+}
 
-export default function Nfts() {
+export default function Nfts(props: NftsProps) {
+  const { tokenId, positions } = props;
   const { assets, setAssets, setOwner, assetsFetched, setAssetsFetched } = useWorld();
   useEffect(() => {
-    fetchAssets(STATION_TOKEN_ID, setAssetsFetched).then((data) => {
+    fetchAssets(tokenId, setAssetsFetched).then((data) => {
       if (setOwner) setOwner(data.owner);
       if (setAssets) setAssets(data.assets);
     })
@@ -24,8 +28,8 @@ export default function Nfts() {
   })
 
   const nfts: ReactNode[] = [];
-  for (let i=0; i<Math.min(assets.length, nftPositions.length); i++) {
-    const mesh = nftPositions[i];
+  for (let i=0; i<Math.min(assets.length, positions.length); i++) {
+    const mesh = positions[i];
     nfts.push(
       <Nft asset={assets[i]} index={i} position={mesh.p} rotation={mesh.r} key={i} />
     )
