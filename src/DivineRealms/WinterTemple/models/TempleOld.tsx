@@ -11,6 +11,11 @@ import {BufferGeometry} from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
+    vox_1: THREE.Mesh
+    vox_2: THREE.Mesh
+    vox_3: THREE.Mesh
+    vox_4: THREE.Mesh
+    vox_5: THREE.Mesh
     vox001_1: THREE.Mesh
     vox001_2: THREE.Mesh
     vox001_3: THREE.Mesh
@@ -28,6 +33,27 @@ type GLTFResult = GLTF & {
     vox001_15: THREE.Mesh
     vox001_16: THREE.Mesh
     vox001_17: THREE.Mesh
+    vox002_1: THREE.Mesh
+    vox002_2: THREE.Mesh
+    vox002_3: THREE.Mesh
+    vox002_4: THREE.Mesh
+    vox002_5: THREE.Mesh
+    vox002_6: THREE.Mesh
+    vox002_7: THREE.Mesh
+    vox002_8: THREE.Mesh
+    vox002_9: THREE.Mesh
+    vox002_10: THREE.Mesh
+    vox002_11: THREE.Mesh
+    vox002_12: THREE.Mesh
+    vox002_13: THREE.Mesh
+    vox002_14: THREE.Mesh
+    vox002_15: THREE.Mesh
+    vox002_16: THREE.Mesh
+    vox002_17: THREE.Mesh
+    vox002_18: THREE.Mesh
+    vox003_1: THREE.Mesh
+    vox003_2: THREE.Mesh
+    vox003_3: THREE.Mesh
     vox004_1: THREE.Mesh
     vox004_2: THREE.Mesh
     vox004_3: THREE.Mesh
@@ -47,6 +73,22 @@ type GLTFResult = GLTF & {
     vox005_1: THREE.Mesh
     vox005_2: THREE.Mesh
     vox005_3: THREE.Mesh
+    vox009_1: THREE.Mesh
+    vox009_2: THREE.Mesh
+    vox009_3: THREE.Mesh
+    vox009_4: THREE.Mesh
+    vox009_5: THREE.Mesh
+    vox009_6: THREE.Mesh
+    vox009_7: THREE.Mesh
+    vox009_8: THREE.Mesh
+    vox009_9: THREE.Mesh
+    vox009_10: THREE.Mesh
+    vox009_11: THREE.Mesh
+    vox009_12: THREE.Mesh
+    vox009_13: THREE.Mesh
+    vox009_14: THREE.Mesh
+    vox009_15: THREE.Mesh
+    vox009_16: THREE.Mesh
     vox120_1: THREE.Mesh
     vox120_2: THREE.Mesh
     vox120_3: THREE.Mesh
@@ -66,6 +108,30 @@ type GLTFResult = GLTF & {
     vox121_11: THREE.Mesh
     vox121_12: THREE.Mesh
     vox121_13: THREE.Mesh
+    vox122_1: THREE.Mesh
+    vox122_2: THREE.Mesh
+    vox122_3: THREE.Mesh
+    vox122_4: THREE.Mesh
+    vox122_5: THREE.Mesh
+    vox122_6: THREE.Mesh
+    vox122_7: THREE.Mesh
+    vox122_8: THREE.Mesh
+    vox122_9: THREE.Mesh
+    vox122_10: THREE.Mesh
+    vox122_11: THREE.Mesh
+    vox122_12: THREE.Mesh
+    vox122_13: THREE.Mesh
+    vox122_14: THREE.Mesh
+    vox122_15: THREE.Mesh
+    vox122_16: THREE.Mesh
+    vox290_1: THREE.Mesh
+    vox290_2: THREE.Mesh
+    vox290_3: THREE.Mesh
+    vox290_4: THREE.Mesh
+    vox290_5: THREE.Mesh
+    vox290_6: THREE.Mesh
+    vox290_7: THREE.Mesh
+    vox290_8: THREE.Mesh
     vox291_1: THREE.Mesh
     vox291_2: THREE.Mesh
     vox291_3: THREE.Mesh
@@ -105,6 +171,19 @@ type GLTFResult = GLTF & {
     vox291_37: THREE.Mesh
     vox291_38: THREE.Mesh
     vox291_39: THREE.Mesh
+    vox376_1: THREE.Mesh
+    vox376_2: THREE.Mesh
+    vox376_3: THREE.Mesh
+    vox376_4: THREE.Mesh
+    vox376_5: THREE.Mesh
+    vox376_6: THREE.Mesh
+    vox376_7: THREE.Mesh
+    vox376_8: THREE.Mesh
+    vox376_9: THREE.Mesh
+    vox376_10: THREE.Mesh
+    vox376_11: THREE.Mesh
+    vox376_12: THREE.Mesh
+    vox376_13: THREE.Mesh
     vox379_1: THREE.Mesh
     vox379_2: THREE.Mesh
     vox379_3: THREE.Mesh
@@ -338,35 +417,22 @@ type GLTFResult = GLTF & {
     vox803_18: THREE.Mesh
     vox803_19: THREE.Mesh
     vox803_20: THREE.Mesh
-    vox006: THREE.Mesh
-    vox006_1: THREE.Mesh
-    vox006_2: THREE.Mesh
-    vox006_3: THREE.Mesh
-    vox006_4: THREE.Mesh
-    vox006_5: THREE.Mesh
-    vox006_6: THREE.Mesh
-    vox006_7: THREE.Mesh
-    vox006_8: THREE.Mesh
-    vox006_9: THREE.Mesh
-    vox006_10: THREE.Mesh
-    vox006_11: THREE.Mesh
-    vox006_12: THREE.Mesh
-    vox006_13: THREE.Mesh
-    vox006_14: THREE.Mesh
-    vox006_15: THREE.Mesh
-    vox006_16: THREE.Mesh
+    vox804: THREE.Mesh
+    vox805: THREE.Mesh
+    vox806: THREE.Mesh
+    vox807: THREE.Mesh
     templeCollider: THREE.Mesh
   }
   materials: {
-    ['Material.010']: THREE.MeshPhysicalMaterial
-    ['Material.011']: THREE.MeshPhysicalMaterial
-    ['Material.012']: THREE.MeshPhysicalMaterial
-    ['Material.013']: THREE.MeshPhysicalMaterial
     ['Material.027']: THREE.MeshStandardMaterial
     ['Material.043']: THREE.MeshStandardMaterial
     ['Material.047']: THREE.MeshStandardMaterial
     ['Material.055']: THREE.MeshStandardMaterial
     ['Material.066']: THREE.MeshStandardMaterial
+    ['Material.010']: THREE.MeshPhysicalMaterial
+    ['Material.011']: THREE.MeshPhysicalMaterial
+    ['Material.012']: THREE.MeshPhysicalMaterial
+    ['Material.013']: THREE.MeshPhysicalMaterial
     ['Material.078']: THREE.MeshStandardMaterial
     ['Material.079']: THREE.MeshStandardMaterial
     ['Material.080']: THREE.MeshStandardMaterial
@@ -375,13 +441,29 @@ type GLTFResult = GLTF & {
     ['Material.136']: THREE.MeshPhysicalMaterial
     ['Material.144']: THREE.MeshPhysicalMaterial
     ['Material.216']: THREE.MeshStandardMaterial
+    ['Material.009']: THREE.MeshPhysicalMaterial
+    ['Material.112']: THREE.MeshPhysicalMaterial
     ['Material.030']: THREE.MeshStandardMaterial
     ['Material.049']: THREE.MeshStandardMaterial
-    ['Material.112']: THREE.MeshPhysicalMaterial
     ['Material.176']: THREE.MeshStandardMaterial
+    ['Material.008']: THREE.MeshStandardMaterial
+    ['Material.113']: THREE.MeshStandardMaterial
+    ['Material.114']: THREE.MeshStandardMaterial
+    ['Material.115']: THREE.MeshStandardMaterial
+    ['Material.122']: THREE.MeshStandardMaterial
+    ['Material.126']: THREE.MeshStandardMaterial
+    ['Material.139']: THREE.MeshStandardMaterial
+    ['Material.141']: THREE.MeshStandardMaterial
+    ['Material.142']: THREE.MeshStandardMaterial
+    ['Material.214']: THREE.MeshStandardMaterial
     ['Material.117']: THREE.MeshStandardMaterial
-    ['Material.009']: THREE.MeshPhysicalMaterial
     ['Material.032']: THREE.MeshStandardMaterial
+    ['Material.017']: THREE.MeshStandardMaterial
+    ['Material.018']: THREE.MeshStandardMaterial
+    ['Material.019']: THREE.MeshStandardMaterial
+    ['Material.182']: THREE.MeshStandardMaterial
+    ['Material.183']: THREE.MeshStandardMaterial
+    ['Material.184']: THREE.MeshStandardMaterial
     ['Material.025']: THREE.MeshStandardMaterial
     ['Material.028']: THREE.MeshStandardMaterial
     ['Material.029']: THREE.MeshPhysicalMaterial
@@ -393,19 +475,13 @@ type GLTFResult = GLTF & {
     ['Material.071']: THREE.MeshStandardMaterial
     ['Material.105']: THREE.MeshStandardMaterial
     ['Material.108']: THREE.MeshStandardMaterial
-    ['Material.113']: THREE.MeshStandardMaterial
     ['Material.121']: THREE.MeshStandardMaterial
-    ['Material.122']: THREE.MeshStandardMaterial
     ['Material.123']: THREE.MeshStandardMaterial
     ['Material.124']: THREE.MeshStandardMaterial
     ['Material.125']: THREE.MeshStandardMaterial
-    ['Material.126']: THREE.MeshStandardMaterial
     ['Material.127']: THREE.MeshStandardMaterial
     ['Material.151']: THREE.MeshStandardMaterial
     ['Material.181']: THREE.MeshStandardMaterial
-    ['Material.182']: THREE.MeshStandardMaterial
-    ['Material.183']: THREE.MeshStandardMaterial
-    ['Material.184']: THREE.MeshStandardMaterial
     ['Material.189']: THREE.MeshStandardMaterial
     ['Material.190']: THREE.MeshStandardMaterial
     ['Material.192']: THREE.MeshStandardMaterial
@@ -417,10 +493,7 @@ type GLTFResult = GLTF & {
     ['Material.210']: THREE.MeshStandardMaterial
     ['Material.223']: THREE.MeshStandardMaterial
     ['Material.238']: THREE.MeshStandardMaterial
-    ['Material.008']: THREE.MeshStandardMaterial
     ['Material.086']: THREE.MeshPhysicalMaterial
-    ['Material.114']: THREE.MeshStandardMaterial
-    ['Material.115']: THREE.MeshStandardMaterial
     ['Material.085']: THREE.MeshStandardMaterial
     ['Material.087']: THREE.MeshStandardMaterial
     ['Material.188']: THREE.MeshStandardMaterial
@@ -431,40 +504,21 @@ type GLTFResult = GLTF & {
     ['Material.116']: THREE.MeshStandardMaterial
     ['Material.131']: THREE.MeshStandardMaterial
     ['Material.138']: THREE.MeshStandardMaterial
-    ['Material.141']: THREE.MeshStandardMaterial
     ['Material.147']: THREE.MeshStandardMaterial
     ['Material.157']: THREE.MeshStandardMaterial
     ['Material.152']: THREE.MeshStandardMaterial
     ['Material.156']: THREE.MeshStandardMaterial
     ['Material.054']: THREE.MeshStandardMaterial
     ['Material.065']: THREE.MeshStandardMaterial
-    ['Material.142']: THREE.MeshStandardMaterial
     ['Material.158']: THREE.MeshStandardMaterial
     ['Material.244']: THREE.MeshPhysicalMaterial
     ['Material.130']: THREE.MeshStandardMaterial
     ['Material.154']: THREE.MeshStandardMaterial
     ['Material.180']: THREE.MeshPhysicalMaterial
-    ['Material.503']: THREE.MeshPhysicalMaterial
-    ['Material.502']: THREE.MeshPhysicalMaterial
-    ['Material.501']: THREE.MeshPhysicalMaterial
-    ['Material.500']: THREE.MeshPhysicalMaterial
-    ['Material.486']: THREE.MeshStandardMaterial
-    ['Material.470']: THREE.MeshStandardMaterial
-    ['Material.466']: THREE.MeshStandardMaterial
-    ['Material.458']: THREE.MeshStandardMaterial
-    ['Material.447']: THREE.MeshStandardMaterial
-    ['Material.435']: THREE.MeshStandardMaterial
-    ['Material.434']: THREE.MeshStandardMaterial
-    ['Material.433']: THREE.MeshStandardMaterial
-    ['Material.393']: THREE.MeshPhysicalMaterial
-    ['Material.385']: THREE.MeshPhysicalMaterial
-    ['Material.377']: THREE.MeshPhysicalMaterial
-    ['Material.369']: THREE.MeshPhysicalMaterial
-    ['Material.297']: THREE.MeshStandardMaterial
   }
 }
 
-const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/temple13-1651617645/temple13.glb.gz";
+const FILE_URL = "https://d1p3v0j4bqcb21.cloudfront.net/models/temple-1651469695/temple.glb.gz";
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
@@ -482,9 +536,20 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
+        <group name="Transform001" position={[0.2606, 9.8558, 0.0217]} scale={0.1319}>
+          <group name="Shape">
+            <group name="vox">
+              <mesh name="vox_1" geometry={nodes.vox_1.geometry} material={nodes.vox_1.material} />
+              <mesh name="vox_2" geometry={nodes.vox_2.geometry} material={nodes.vox_2.material} />
+              <mesh name="vox_3" geometry={nodes.vox_3.geometry} material={nodes.vox_3.material} />
+              <mesh name="vox_4" geometry={nodes.vox_4.geometry} material={nodes.vox_4.material} />
+              <mesh name="vox_5" geometry={nodes.vox_5.geometry} material={nodes.vox_5.material} />
+            </group>
+          </group>
+        </group>
         <group name="Transform002" position={[9.8899, 8.9324, 3.979]} rotation={[-Math.PI, 0, -Math.PI]} scale={0.1319}>
           <group name="Shape001">
-            <group name="vox001" position={[-4.4051, 0, 0]}>
+            <group name="vox001">
               <mesh name="vox001_1" geometry={nodes.vox001_1.geometry} material={nodes.vox001_1.material} />
               <mesh name="vox001_2" geometry={nodes.vox001_2.geometry} material={nodes.vox001_2.material} />
               <mesh name="vox001_3" geometry={nodes.vox001_3.geometry} material={nodes.vox001_3.material} />
@@ -505,13 +570,46 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             </group>
           </group>
         </group>
+        <group name="Transform003" position={[-6.3349, 10.1196, 10.1787]} rotation={[0, 1.5705, 0]} scale={0.1319}>
+          <group name="Shape002">
+            <group name="vox002">
+              <mesh name="vox002_1" geometry={nodes.vox002_1.geometry} material={nodes.vox002_1.material} />
+              <mesh name="vox002_2" geometry={nodes.vox002_2.geometry} material={nodes.vox002_2.material} />
+              <mesh name="vox002_3" geometry={nodes.vox002_3.geometry} material={nodes.vox002_3.material} />
+              <mesh name="vox002_4" geometry={nodes.vox002_4.geometry} material={nodes.vox002_4.material} />
+              <mesh name="vox002_5" geometry={nodes.vox002_5.geometry} material={nodes.vox002_5.material} />
+              <mesh name="vox002_6" geometry={nodes.vox002_6.geometry} material={nodes.vox002_6.material} />
+              <mesh name="vox002_7" geometry={nodes.vox002_7.geometry} material={nodes.vox002_7.material} />
+              <mesh name="vox002_8" geometry={nodes.vox002_8.geometry} material={nodes.vox002_8.material} />
+              <mesh name="vox002_9" geometry={nodes.vox002_9.geometry} material={nodes.vox002_9.material} />
+              <mesh name="vox002_10" geometry={nodes.vox002_10.geometry} material={nodes.vox002_10.material} />
+              <mesh name="vox002_11" geometry={nodes.vox002_11.geometry} material={nodes.vox002_11.material} />
+              <mesh name="vox002_12" geometry={nodes.vox002_12.geometry} material={nodes.vox002_12.material} />
+              <mesh name="vox002_13" geometry={nodes.vox002_13.geometry} material={nodes.vox002_13.material} />
+              <mesh name="vox002_14" geometry={nodes.vox002_14.geometry} material={nodes.vox002_14.material} />
+              <mesh name="vox002_15" geometry={nodes.vox002_15.geometry} material={nodes.vox002_15.material} />
+              <mesh name="vox002_16" geometry={nodes.vox002_16.geometry} material={nodes.vox002_16.material} />
+              <mesh name="vox002_17" geometry={nodes.vox002_17.geometry} material={nodes.vox002_17.material} />
+              <mesh name="vox002_18" geometry={nodes.vox002_18.geometry} material={nodes.vox002_18.material} />
+            </group>
+          </group>
+        </group>
+        <group name="Transform004" position={[-16.4918, 10.2515, 0.8132]} rotation={[0, 1.5705, 0]} scale={0.1319}>
+          <group name="Shape003">
+            <group name="vox003">
+              <mesh name="vox003_1" geometry={nodes.vox003_1.geometry} material={nodes.vox003_1.material} />
+              <mesh name="vox003_2" geometry={nodes.vox003_2.geometry} material={nodes.vox003_2.material} />
+              <mesh name="vox003_3" geometry={nodes.vox003_3.geometry} material={nodes.vox003_3.material} />
+            </group>
+          </group>
+        </group>
         <group
           name="Transform005"
           position={[6.7241, 10.1196, -7.1014]}
           rotation={[-Math.PI, 0, -Math.PI]}
           scale={0.1319}>
           <group name="Shape004">
-            <group name="vox004" position={[8.0412, 0, 0]}>
+            <group name="vox004">
               <mesh name="vox004_1" geometry={nodes.vox004_1.geometry} material={nodes.vox004_1.material} />
               <mesh name="vox004_2" geometry={nodes.vox004_2.geometry} material={nodes.vox004_2.material} />
               <mesh name="vox004_3" geometry={nodes.vox004_3.geometry} material={nodes.vox004_3.material} />
@@ -521,7 +619,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
               <mesh name="vox004_7" geometry={nodes.vox004_7.geometry} material={nodes.vox004_7.material} />
               <mesh name="vox004_8" geometry={nodes.vox004_8.geometry} material={nodes.vox004_8.material} />
               <mesh name="vox004_9" geometry={nodes.vox004_9.geometry} material={nodes.vox004_9.material} />
-              <mesh name="vox004_10" geometry={nodes.vox004_10.geometry} material={materials['Material.112']} />
+              <mesh name="vox004_10" geometry={nodes.vox004_10.geometry} material={nodes.vox004_10.material} />
               <mesh name="vox004_11" geometry={nodes.vox004_11.geometry} material={nodes.vox004_11.material} />
               <mesh name="vox004_12" geometry={nodes.vox004_12.geometry} material={nodes.vox004_12.material} />
               <mesh name="vox004_13" geometry={nodes.vox004_13.geometry} material={nodes.vox004_13.material} />
@@ -531,12 +629,38 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             </group>
           </group>
         </group>
-        <group name="Transform006" position={[-14.5014, 10.3834, -6.7576]} rotation={[0, 1.5661, 0]} scale={0.1319}>
+        <group
+          name="Transform006"
+          position={[-10.2921, 10.3834, -7.1014]}
+          rotation={[-Math.PI, 0, -Math.PI]}
+          scale={0.1319}>
           <group name="Shape005">
-            <group name="vox005" position={[-7.2276, 0, 6.7543]}>
+            <group name="vox005">
               <mesh name="vox005_1" geometry={nodes.vox005_1.geometry} material={nodes.vox005_1.material} />
               <mesh name="vox005_2" geometry={nodes.vox005_2.geometry} material={nodes.vox005_2.material} />
               <mesh name="vox005_3" geometry={nodes.vox005_3.geometry} material={nodes.vox005_3.material} />
+            </group>
+          </group>
+        </group>
+        <group name="Transform010" position={[11.6047, 12.362, 0.0217]} scale={0.1319}>
+          <group name="Shape009">
+            <group name="vox009">
+              <mesh name="vox009_1" geometry={nodes.vox009_1.geometry} material={nodes.vox009_1.material} />
+              <mesh name="vox009_2" geometry={nodes.vox009_2.geometry} material={nodes.vox009_2.material} />
+              <mesh name="vox009_3" geometry={nodes.vox009_3.geometry} material={nodes.vox009_3.material} />
+              <mesh name="vox009_4" geometry={nodes.vox009_4.geometry} material={nodes.vox009_4.material} />
+              <mesh name="vox009_5" geometry={nodes.vox009_5.geometry} material={nodes.vox009_5.material} />
+              <mesh name="vox009_6" geometry={nodes.vox009_6.geometry} material={nodes.vox009_6.material} />
+              <mesh name="vox009_7" geometry={nodes.vox009_7.geometry} material={nodes.vox009_7.material} />
+              <mesh name="vox009_8" geometry={nodes.vox009_8.geometry} material={nodes.vox009_8.material} />
+              <mesh name="vox009_9" geometry={nodes.vox009_9.geometry} material={nodes.vox009_9.material} />
+              <mesh name="vox009_10" geometry={nodes.vox009_10.geometry} material={nodes.vox009_10.material} />
+              <mesh name="vox009_11" geometry={nodes.vox009_11.geometry} material={nodes.vox009_11.material} />
+              <mesh name="vox009_12" geometry={nodes.vox009_12.geometry} material={nodes.vox009_12.material} />
+              <mesh name="vox009_13" geometry={nodes.vox009_13.geometry} material={nodes.vox009_13.material} />
+              <mesh name="vox009_14" geometry={nodes.vox009_14.geometry} material={nodes.vox009_14.material} />
+              <mesh name="vox009_15" geometry={nodes.vox009_15.geometry} material={nodes.vox009_15.material} />
+              <mesh name="vox009_16" geometry={nodes.vox009_16.geometry} material={materials['Material.214']} />
             </group>
           </group>
         </group>
@@ -571,9 +695,53 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             </group>
           </group>
         </group>
+        <group
+          name="Transform123"
+          position={[16.8811, 14.3406, -13.0373]}
+          rotation={[-Math.PI, 0, -Math.PI]}
+          scale={0.1319}>
+          <group name="Shape122">
+            <group name="vox122">
+              <mesh name="vox122_1" geometry={nodes.vox122_1.geometry} material={nodes.vox122_1.material} />
+              <mesh name="vox122_2" geometry={nodes.vox122_2.geometry} material={nodes.vox122_2.material} />
+              <mesh name="vox122_3" geometry={nodes.vox122_3.geometry} material={nodes.vox122_3.material} />
+              <mesh name="vox122_4" geometry={nodes.vox122_4.geometry} material={nodes.vox122_4.material} />
+              <mesh name="vox122_5" geometry={nodes.vox122_5.geometry} material={nodes.vox122_5.material} />
+              <mesh name="vox122_6" geometry={nodes.vox122_6.geometry} material={nodes.vox122_6.material} />
+              <mesh name="vox122_7" geometry={nodes.vox122_7.geometry} material={materials['Material.017']} />
+              <mesh name="vox122_8" geometry={nodes.vox122_8.geometry} material={materials['Material.018']} />
+              <mesh name="vox122_9" geometry={nodes.vox122_9.geometry} material={materials['Material.019']} />
+              <mesh name="vox122_10" geometry={nodes.vox122_10.geometry} material={nodes.vox122_10.material} />
+              <mesh name="vox122_11" geometry={nodes.vox122_11.geometry} material={nodes.vox122_11.material} />
+              <mesh name="vox122_12" geometry={nodes.vox122_12.geometry} material={nodes.vox122_12.material} />
+              <mesh name="vox122_13" geometry={nodes.vox122_13.geometry} material={nodes.vox122_13.material} />
+              <mesh name="vox122_14" geometry={nodes.vox122_14.geometry} material={nodes.vox122_14.material} />
+              <mesh name="vox122_15" geometry={nodes.vox122_15.geometry} material={nodes.vox122_15.material} />
+              <mesh name="vox122_16" geometry={nodes.vox122_16.geometry} material={nodes.vox122_16.material} />
+            </group>
+          </group>
+        </group>
+        <group
+          name="Transform291"
+          position={[-17.2833, 14.6045, 8.4639]}
+          rotation={[-Math.PI, 0, -Math.PI]}
+          scale={0.1319}>
+          <group name="Shape290">
+            <group name="vox290">
+              <mesh name="vox290_1" geometry={nodes.vox290_1.geometry} material={nodes.vox290_1.material} />
+              <mesh name="vox290_2" geometry={nodes.vox290_2.geometry} material={nodes.vox290_2.material} />
+              <mesh name="vox290_3" geometry={nodes.vox290_3.geometry} material={nodes.vox290_3.material} />
+              <mesh name="vox290_4" geometry={nodes.vox290_4.geometry} material={nodes.vox290_4.material} />
+              <mesh name="vox290_5" geometry={nodes.vox290_5.geometry} material={nodes.vox290_5.material} />
+              <mesh name="vox290_6" geometry={nodes.vox290_6.geometry} material={nodes.vox290_6.material} />
+              <mesh name="vox290_7" geometry={nodes.vox290_7.geometry} material={nodes.vox290_7.material} />
+              <mesh name="vox290_8" geometry={nodes.vox290_8.geometry} material={nodes.vox290_8.material} />
+            </group>
+          </group>
+        </group>
         <group name="Transform292" position={[0.1287, 26.0805, 0.1536]} scale={0.1319}>
           <group name="Shape291">
-            <group name="vox291" position={[0.0188, 0, 0]}>
+            <group name="vox291">
               <mesh name="vox291_1" geometry={nodes.vox291_1.geometry} material={nodes.vox291_1.material} />
               <mesh name="vox291_2" geometry={nodes.vox291_2.geometry} material={materials['Material.028']} />
               <mesh name="vox291_3" geometry={nodes.vox291_3.geometry} material={materials['Material.029']} />
@@ -616,9 +784,32 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             </group>
           </group>
         </group>
+        <group
+          name="Transform377"
+          position={[-17.8109, 13.9449, -13.8287]}
+          rotation={[-Math.PI, 0, -Math.PI]}
+          scale={0.1319}>
+          <group name="Shape376">
+            <group name="vox376">
+              <mesh name="vox376_1" geometry={nodes.vox376_1.geometry} material={nodes.vox376_1.material} />
+              <mesh name="vox376_2" geometry={nodes.vox376_2.geometry} material={nodes.vox376_2.material} />
+              <mesh name="vox376_3" geometry={nodes.vox376_3.geometry} material={nodes.vox376_3.material} />
+              <mesh name="vox376_4" geometry={nodes.vox376_4.geometry} material={nodes.vox376_4.material} />
+              <mesh name="vox376_5" geometry={nodes.vox376_5.geometry} material={nodes.vox376_5.material} />
+              <mesh name="vox376_6" geometry={nodes.vox376_6.geometry} material={nodes.vox376_6.material} />
+              <mesh name="vox376_7" geometry={nodes.vox376_7.geometry} material={nodes.vox376_7.material} />
+              <mesh name="vox376_8" geometry={nodes.vox376_8.geometry} material={nodes.vox376_8.material} />
+              <mesh name="vox376_9" geometry={nodes.vox376_9.geometry} material={nodes.vox376_9.material} />
+              <mesh name="vox376_10" geometry={nodes.vox376_10.geometry} material={nodes.vox376_10.material} />
+              <mesh name="vox376_11" geometry={nodes.vox376_11.geometry} material={nodes.vox376_11.material} />
+              <mesh name="vox376_12" geometry={nodes.vox376_12.geometry} material={nodes.vox376_12.material} />
+              <mesh name="vox376_13" geometry={nodes.vox376_13.geometry} material={nodes.vox376_13.material} />
+            </group>
+          </group>
+        </group>
         <group name="Transform380" position={[15.8258, 0.2264, 16.2465]} rotation={[0, -1.5705, 0]} scale={0.1319}>
           <group name="Shape379">
-            <group name="vox379" position={[43.3244, 0, -5.131]} rotation={[3.1404, 0, 0]}>
+            <group name="vox379" position={[0, 0, -5.131]} rotation={[3.1404, 0, 0]}>
               <mesh name="vox379_1" geometry={nodes.vox379_1.geometry} material={nodes.vox379_1.material} />
               <mesh name="vox379_2" geometry={nodes.vox379_2.geometry} material={nodes.vox379_2.material} />
               <mesh name="vox379_3" geometry={nodes.vox379_3.geometry} material={nodes.vox379_3.material} />
@@ -658,7 +849,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
         </group>
         <group name="Transform704" position={[-0.7947, 14.6045, 9.9149]} scale={0.1319}>
           <group name="Shape703">
-            <group name="vox703" position={[0.1473, 0, 0]}>
+            <group name="vox703">
               <mesh name="vox703_1" geometry={nodes.vox703_1.geometry} material={nodes.vox703_1.material} />
               <mesh name="vox703_2" geometry={nodes.vox703_2.geometry} material={nodes.vox703_2.material} />
               <mesh name="vox703_3" geometry={nodes.vox703_3.geometry} material={nodes.vox703_3.material} />
@@ -805,7 +996,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
               <mesh name="vox742_14" geometry={nodes.vox742_14.geometry} material={materials['Material.065']} />
               <mesh name="vox742_15" geometry={nodes.vox742_15.geometry} material={nodes.vox742_15.material} />
               <mesh name="vox742_16" geometry={nodes.vox742_16.geometry} material={nodes.vox742_16.material} />
-              <mesh name="vox742_17" geometry={nodes.vox742_17.geometry} material={materials['Material.142']} />
+              <mesh name="vox742_17" geometry={nodes.vox742_17.geometry} material={nodes.vox742_17.material} />
               <mesh name="vox742_18" geometry={nodes.vox742_18.geometry} material={nodes.vox742_18.material} />
               <mesh name="vox742_19" geometry={nodes.vox742_19.geometry} material={materials['Material.158']} />
               <mesh name="vox742_20" geometry={nodes.vox742_20.geometry} material={nodes.vox742_20.material} />
@@ -932,7 +1123,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
         </group>
         <group name="Transform756" position={[18.2002, 0.2264, -18.8412]} rotation={[0, 1.5705, 0]} scale={0.1319}>
           <group name="Shape755">
-            <group name="vox755" position={[55.8535, 0, -21.6505]}>
+            <group name="vox755">
               <mesh name="vox755_1" geometry={nodes.vox755_1.geometry} material={nodes.vox755_1.material} />
               <mesh name="vox755_2" geometry={nodes.vox755_2.geometry} material={nodes.vox755_2.material} />
               <mesh name="vox755_3" geometry={nodes.vox755_3.geometry} material={nodes.vox755_3.material} />
@@ -962,7 +1153,7 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
         </group>
         <group name="Transform803" position={[0.1287, 26.2124, 0.1536]} scale={0.1319}>
           <group name="Shape802">
-            <group name="vox802" position={[0.0295, 0, 0]}>
+            <group name="vox802">
               <mesh name="vox802_1" geometry={nodes.vox802_1.geometry} material={materials['Material.180']} />
               <mesh name="vox802_2" geometry={nodes.vox802_2.geometry} material={nodes.vox802_2.material} />
               <mesh name="vox802_3" geometry={nodes.vox802_3.geometry} material={nodes.vox802_3.material} />
@@ -997,31 +1188,28 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
             </group>
           </group>
         </group>
+        <group name="Winterhaven+garden+trees+2" position={[-16.7557, 16.0555, 0.0217]} scale={0.1319}>
+          <group name="Shape804">
+            <mesh name="vox804" geometry={nodes.vox804.geometry} material={nodes.vox804.material} />
+          </group>
+        </group>
+        <group name="Tree+07" position={[14.5067, 11.0429, 0.0217]} scale={0.1319}>
+          <group name="Shape805">
+            <mesh name="vox805" geometry={nodes.vox805.geometry} material={nodes.vox805.material} />
+          </group>
+        </group>
         <group
-          name="Transform003"
-          position={[-11.0737, 8.9324, 9.7715]}
-          rotation={[-Math.PI, 1.5644, -Math.PI]}
+          name="Winterhaven+garden+trees+2001"
+          position={[19.3873, 16.0555, 0.0217]}
+          rotation={[0, 1.5705, 0]}
           scale={0.1319}>
-          <group name="Shape002">
-            <group name="vox002" position={[-4.4051, 0, 0]}>
-              <mesh name="vox006" geometry={nodes.vox006.geometry} material={materials['Material.503']} />
-              <mesh name="vox006_1" geometry={nodes.vox006_1.geometry} material={materials['Material.502']} />
-              <mesh name="vox006_2" geometry={nodes.vox006_2.geometry} material={materials['Material.501']} />
-              <mesh name="vox006_3" geometry={nodes.vox006_3.geometry} material={materials['Material.500']} />
-              <mesh name="vox006_4" geometry={nodes.vox006_4.geometry} material={materials['Material.486']} />
-              <mesh name="vox006_5" geometry={nodes.vox006_5.geometry} material={materials['Material.470']} />
-              <mesh name="vox006_6" geometry={nodes.vox006_6.geometry} material={materials['Material.466']} />
-              <mesh name="vox006_7" geometry={nodes.vox006_7.geometry} material={materials['Material.458']} />
-              <mesh name="vox006_8" geometry={nodes.vox006_8.geometry} material={materials['Material.447']} />
-              <mesh name="vox006_9" geometry={nodes.vox006_9.geometry} material={materials['Material.435']} />
-              <mesh name="vox006_10" geometry={nodes.vox006_10.geometry} material={materials['Material.434']} />
-              <mesh name="vox006_11" geometry={nodes.vox006_11.geometry} material={materials['Material.433']} />
-              <mesh name="vox006_12" geometry={nodes.vox006_12.geometry} material={materials['Material.393']} />
-              <mesh name="vox006_13" geometry={nodes.vox006_13.geometry} material={materials['Material.385']} />
-              <mesh name="vox006_14" geometry={nodes.vox006_14.geometry} material={materials['Material.377']} />
-              <mesh name="vox006_15" geometry={nodes.vox006_15.geometry} material={materials['Material.369']} />
-              <mesh name="vox006_16" geometry={nodes.vox006_16.geometry} material={materials['Material.297']} />
-            </group>
+          <group name="Shape806">
+            <mesh name="vox806" geometry={nodes.vox806.geometry} material={nodes.vox806.material} />
+          </group>
+        </group>
+        <group name="Winterhaven+garden+trees+2002" position={[-14.6451, 20.4085, -10.0034]} scale={0.1319}>
+          <group name="Shape807">
+            <mesh name="vox807" geometry={nodes.vox807.geometry} material={nodes.vox807.material} />
           </group>
         </group>
         {/*<mesh*/}
