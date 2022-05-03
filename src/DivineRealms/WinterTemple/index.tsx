@@ -2,7 +2,7 @@ import { StandardEnvironment, Fog } from "spacesvr";
 import { Sky } from "@react-three/drei"
 import PauseMenu from "styles/PauseMenu";
 import Water from "../../ideas/Water";
-import Temple from "./models/Temple";
+import Temple from "./models/Temple10";
 import Snow from "./components/Snow";
 import CloudySky from "./components/CloudySky";
 import { Debug } from "@react-three/cannon";
