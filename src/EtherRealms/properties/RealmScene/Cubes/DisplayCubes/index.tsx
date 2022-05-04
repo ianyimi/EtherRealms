@@ -12,9 +12,10 @@ export default function DisplayCubes(props: { radius?: number, altAssets?: Recor
   const { radius = 10, altAssets } = props;
   const { id, assets, setAssets, owner, setOwner, currentUser, assetsFetched, setAssetsFetched } = useRealm();
   useEffect(() => {
-    fetchAssets(id, setAssetsFetched).then((data) => {
+    fetchAssets(id).then((data) => {
       if (setOwner) setOwner(data.owner);
       if (setAssets) setAssets(data.assets);
+      if (!assetsFetched) setAssetsFetched(true);
     })
   }, []);
   console.log(assets)
