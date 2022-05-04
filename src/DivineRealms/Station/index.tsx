@@ -3,7 +3,7 @@ import { Stars, Preload, OrbitControls } from "@react-three/drei";
 import { Debug } from "@react-three/cannon";
 import PauseMenu from "styles/PauseMenu";
 import Station from "./models/Station";
-import Nfts from "../components/Nfts";
+import Nfts from "./components/Nfts";
 import * as THREE from "three";
 import { PostProcessing } from "./components/PostProcessing";
 import WorldState from "./components/WorldState";
@@ -12,7 +12,7 @@ import { isMobile } from "react-device-detect";
 import {Physics} from "@react-three/cannon";
 import {Canvas} from "@react-three/fiber";
 
-const STATION_TOKEN_ID = "40539505412060235591267077459928418936006271470437343391270068673212139438081";
+const TOKEN_ID = "40539505412060235591267077459928418936006271470437343391270068673212139438081";
 
 export default function Home() {
 
@@ -40,7 +40,7 @@ export default function Home() {
             {/*<OrbitControls autoRotateSpeed={2} autoRotate />*/}
             <Station position-y={-1} />
             <PostProcessing />
-            <Nfts tokenId={STATION_TOKEN_ID} positions={nftPositions} />
+            <Nfts tokenId={TOKEN_ID} positions={nftPositions} />
             <Preload all />
           </WorldState>
         {/*</Debug>*/}

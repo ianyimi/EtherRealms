@@ -11,7 +11,7 @@ import {
 import {Object3D} from "three";
 import {useThree} from "@react-three/fiber";
 
-type WorldState = {
+export type WorldState = {
   lights: MutableRefObject<any>[],
   setLights: Dispatch<SetStateAction<MutableRefObject<any>[]>>,
   bloomObjects: MutableRefObject<any>[],
