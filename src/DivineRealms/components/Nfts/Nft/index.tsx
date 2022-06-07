@@ -3,7 +3,7 @@ import Trait from "./Trait";
 import { Text } from "@react-three/drei";
 import {GroupProps, useLoader} from "@react-three/fiber";
 import * as THREE from "three";
-import { useWorld } from "../WorldState";
+import { useWorld } from "../../WorldState";
 import { animated, useSpring } from "@react-spring/three";
 
 const FONT = "https://d1p3v0j4bqcb21.cloudfront.net/fonts/Graffiti+City.otf";

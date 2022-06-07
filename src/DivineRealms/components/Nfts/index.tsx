@@ -1,5 +1,5 @@
 import Nft from "./Nft";
-import { useWorld } from "./WorldState";
+import { useWorld } from "../WorldState";
 import { ReactNode } from "react";
 import { animated, useSpring } from "@react-spring/three";
 import { Vector3, Euler } from "three";
@@ -8,7 +8,7 @@ type NftsProps = {
   positions: {p: Vector3, r: Euler}[],
 }
 
-export default function Nfts(props: NftsProps) {
+export default function Index(props: NftsProps) {
   const { positions } = props;
   const { assets, assetsFetched } = useWorld();
 

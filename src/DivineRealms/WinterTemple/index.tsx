@@ -7,7 +7,7 @@ import Snow from "./components/Snow";
 import CloudySky from "./components/CloudySky";
 import WorldState from "../components/WorldState";
 import Nfts from "../components/Nfts";
-import { nftPositions } from "../Cribs/utils/constants";
+import { nftPositions } from "./utils/constants";
 import { Debug } from "@react-three/cannon";
 import * as THREE from "three";
 
